@@ -25,15 +25,15 @@
                         </div>
 
 
-                        <div class="form-group{{ $errors->has('noinduk') ? ' has-error' : '' }}">
-                            <label for="noinduk" class="col-md-4 control-label">Nomor Induk</label>
+                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                            <label for="username" class="col-md-4 control-label">Nomor Induk</label>
 
                             <div class="col-md-6">
-                                <input id="noinduk" type="text" class="form-control" name="noinduk" value="{{ old('noinduk') }}" required autofocus>
+                                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
 
-                                @if ($errors->has('noinduk'))
+                                @if ($errors->has('username'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('noinduk') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
                             </div>
