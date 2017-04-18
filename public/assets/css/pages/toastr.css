@@ -1,0 +1,88 @@
+/***
+Customized Bootstrap toastr
+***/
+
+.radio-list > label {
+    display: block;
+}
+
+label {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.radio, .checkbox {
+    display: block;
+    min-height: 0;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.checkbox-list > label {
+    display: block;
+}
+
+div.radio, div.checker {
+    margin-right: 0;
+    margin-left: 3px;
+}
+
+div.selector, div.checker, div.button, div.uploader {
+    display: -moz-inline-box;
+    display: inline-block;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+.tabtop .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border-top: 4px solid #f6bb42 !important;
+    border-right: 2px solid #ccc !important;
+    border-left: 2px solid #ccc !important;
+}
+
+.filterable {
+    margin-top: 0 !important;
+}
+
+.pagination {
+    margin-top: 0 !important;
+}
+
+.radio input[type=radio] {
+    margin-left: -40px !important;
+    margin-top: 1px;
+}
+
+.toastrshow {
+    margin-bottom: 7px;
+}
+
+.padding-right10 {
+    padding-right: 20px !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-shadow: none;
+}
+
+.toast {
+    background-color: #030303;
+}
+
+.toast-success {
+    background-color: #01BC8C !important;
+}
+
+.toast-error {
+    background-color: #EF6F6C !important;
+}
+
+.toast-info {
+    background-color: #67C5DF !important;
+}
+
+.toast-warning {
+    background-color: #F89A14 !important;
+}
+

@@ -1,0 +1,81 @@
+/*** ---------- News Css ---------- ***/
+.blog img{ width:800px; }
+.form-control{
+background-color: #fff;
+
+}
+.comments{
+    padding: 8px;
+    margin-top:10%;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+.comments >h3{
+	margin-top:5px;
+}
+.comments img{
+	width: 70px;
+	margin:3px;
+	border-radius: 3px;
+
+}
+.news_category label{
+	padding:2px 5px ;
+}
+.news{
+	margin-top:15px;
+	margin-bottom: 15px;
+}
+.btn-success{
+	background-color: #01bc8c;
+}
+.tab-content img{
+	width: 60px;
+	height: 60px;
+}
+.tags .btn-default,
+.tag .btn{
+	background-color: #fff;
+	margin:4px 0px;
+	border-bottom:1px solid #ddd !important;
+}
+.tags{
+	margin-top:5%;
+}
+/*** ---------- //News Css End ---------- ***/
+/*** ---------- News Item Css ---------- ***/
+
+.comnt .text{position: relative;bottom: 81px; left:44%;color: #000;}
+.news_item_image{
+	margin-top: 10px;
+	width: 100%;
+}
+.news_item_text_1{
+	padding: 10px;
+	text-align: justify;
+}
+.img_b2{
+	width: 800px;
+}
+
+.recentnews h6{
+	margin-top: -8px;
+}
+.martop3{
+	margin-top: 3%;
+}
+.thumbnail h3{
+	margin-top: 2px;
+}
+.media-body h6 .date{
+	margin-top: -5px;
+	margin-bottom: 0px;
+}
+.media-body i{
+	margin-bottom: 20px;
+}
+small{
+	margin-top: -5px;
+	margin-bottom: 0px;
+}
+/*** ---------- //News Item Css End ---------- ***/

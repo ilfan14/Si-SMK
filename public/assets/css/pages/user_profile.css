@@ -1,0 +1,164 @@
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #555;
+    background-color: #fff;
+    border-top: 3px solid #418bca;
+    border-bottom-color: transparent;
+    cursor: default;
+    margin-top: -2px;
+}
+
+.striped-col {
+    background-color: #f9f9f9;
+}
+
+.tab-content {
+    padding: 27px 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.tab-content {
+    background-color: #fff;
+
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding: 10px;
+}
+
+#page-user-profile #tab-edit .nav-pills li.active a {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+
+.bg-white {
+    background: #fff;
+}
+
+.activity > .imgs-profile {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    font-size: 14px;
+    padding-top: 15px;
+}
+
+.activity .media-object {
+    width: 48px;
+    vertical-align: middle;
+}
+
+.activity .media-body {
+    line-height: 18px;
+    padding-left: 15px;
+}
+
+.activity .media-body p {
+    line-height: 21px;
+    font-size: 13px;
+}
+
+.activity .media-title {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.activity .blog-media {
+    padding-bottom: 0;
+}
+
+.activity .blog-media .media-object {
+    width: 120px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.activity .blog-media .media-title {
+    margin: 0;
+}
+
+.activity .img-single img {
+    width: 50%;
+}
+
+.uploadphoto-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+.uploadphoto-list li {
+    width: 20%;
+    float: left;
+}
+
+.uploadphoto-list li a {
+    display: block;
+    margin-right: 5px;
+}
+
+.follower-list {
+    padding: 10px 10px 0 10px;
+}
+
+.follower-list .imgs-profile {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.follower-list .imgs-profile:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.follower-list .fa {
+    margin-right: 5px;
+    width: 16px;
+    text-align: center;
+}
+
+.follower-list .media-object {
+    margin-right: 10px;
+}
+
+.follower-name {
+    color: #333;
+    margin: 5px 0 0 0;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.colr-hed {
+    color: #fff;
+    background-color: #67C5DF;
+    border-color: #67C5DF;
+    font-size: 18px;
+}
+
+.pd-top {
+    padding-top: 20px;
+}
+
+.web-mail .view-message img {
+    margin-right: 10px !important;
+    margin-top: -5px !important;
+}
+
+tr td a {
+    color: #666;
+}
+
+.panel-body {
+    padding: 0px !important;
+}
+
+.img-file {
+    width: 200px;
+    height: 150px;
+}
+
+.img-max {
+    max-width: 200px;
+    max-height: 150px;
+}

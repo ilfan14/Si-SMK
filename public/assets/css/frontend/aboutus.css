@@ -1,0 +1,72 @@
+/*** ---------- About Us Css ---------- ***/
+body{
+    font-size: 14px;
+}
+.padding-10 {
+    padding: 10px;
+}
+/* ---------- Image Thumbnail Css ---------- */
+.img-thumbnail {
+    border-radius: 50%;
+}
+.thumb img {
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+/* ---------- //Image Thumbnail Css End ---------- */
+p {
+    padding: 5px;
+}
+.margin-top {
+    margin: 20px 0px 5px;
+}
+.margin-t30{
+    margin-top: 11%;
+}
+/* ---------- Slider Css ---------- */
+.slider{
+    margin-top: 1%;
+}
+/* ---------- Slider Css End ---------- */
+.features ul>li {
+    margin: 0px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    padding: 15px 0px;
+}
+.features ul {
+    margin-top: 20px;
+}
+.features ul>li:hover {
+    background-color: #01bc8c;
+}
+.item p {
+    padding: 5px;
+    text-align: justify;
+}
+/* ---------- Slider Image Bar Code Css ---------- */
+#bar {
+    background: none;
+}
+/* ---------- //Slider Image Bar Code End ---------- */
+/* ---------- Service Css ---------- */
+.service {
+    border-bottom: 1px solid #01bc8c;
+    margin-bottom: -1px;
+}
+/* ---------- //Service Css End ---------- */
+.title h3{
+    border-bottom:1px solid #ccc; 
+    margin-left:15px;
+}
+/* ---------- Service image Css ---------- */
+.panel-body .media-top img{
+    width:100px; 
+    height:100px;
+}
+.font100{
+    font-size: 100px;
+}
+/* ---------- //Service image Css End ---------- */
+/*** ---------- //About Us Css End ---------- ***/

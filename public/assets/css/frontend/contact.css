@@ -1,0 +1,47 @@
+/*** ---------- Contact Css Start ----------*/
+.form-control {
+    background-color: #fff;
+    border: 1px solid #D6D4D4;
+    width: 100%;
+}
+
+.contact .input-group {
+    display: block;
+}
+
+form {
+    padding: 15px;
+}
+input[type="text"], input[type="email"] {
+    display: block;
+    margin-bottom: 10px;
+    height: 40px;
+    width: 100%;
+}
+.input-group{ margin-bottom: 15px;}
+
+.media-right{
+    padding-top: 7%;
+
+}
+.address1>li{margin-bottom: 30px;}
+.media-top .box-icon {
+    background-color: #01bc8c;
+    border: 1px solid #01bc8c;
+    border-radius: 50%;
+    display: table;
+    height: 40px;
+    width: 40px;
+    margin:0px;
+}
+.media-top .box-icon>i{position: relative;
+left: 8px;
+top:7px;
+}
+.padleft10{
+    padding-left: 10px;
+}
+.padbtm2{
+    padding-bottom: 5%;
+}
+/*** ---------- //Contact Css End ----------*/

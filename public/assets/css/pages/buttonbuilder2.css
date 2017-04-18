@@ -1,0 +1,33 @@
+.droppable-active {
+    background-color: #ffe !important;
+}
+
+.tools a {
+    cursor: pointer;
+    font-size: 80%;
+}
+
+.form-body .col-md-6, .form-body .col-md-12 {
+    min-height: 400px;
+}
+
+.draggable {
+    cursor: move;
+}
+
+.col-md-2 {
+    width: 12.0%;
+    padding: 5px 0px 0px 25px;
+}
+
+.bs-glyphicons li {
+    float: left;
+    margin: 5px;
+    list-style: none;
+}
+
+#types .btn-default, #button .btn-default {
+    color: #fff;
+    background-color: #A9B6BC;
+    border-color: #A9B6BC;
+}

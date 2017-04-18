@@ -1,0 +1,411 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+body {
+    background: #dfdfdf;
+    position: relative;
+    display: block;
+    font-family: 'lato';
+}
+
+#container_demo {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    margin: 0 auto;
+}
+
+a.hiddenanchor {
+    display: none;
+}
+
+/** The wrapper that will contain our two forms **/
+#wrapper {
+    width: 100%;
+    right: 0px;
+    min-height: 560px;
+    margin: 0px auto;
+}
+
+/**** Styling the form elements **/
+
+/**** general text styling ****/
+#wrapper a {
+    color: rgb(95, 155, 198);
+    text-decoration: underline;
+}
+
+#wrapper h3 {
+    font-size: 30px;
+    padding: 0px 0 10px 0;
+    text-align: center;
+    /** For the moment only webkit supports the background-clip:text; */
+    -webkit-background-clip: text;
+}
+
+#wrapper h3:after {
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 0px;
+}
+
+#wrapper p {
+    margin-bottom: 15px;
+}
+
+#wrapper p:first-child {
+    margin: 0px;
+}
+
+#wrapper label {
+    color: rgb(64, 92, 96);
+    position: relative;
+}
+
+/**** advanced input styling ****/
+/* placeholder */
+::-webkit-input-placeholder {
+    color: rgb(190, 188, 188);
+}
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color: rgb(190, 188, 188);
+}
+
+input {
+    outline: none;
+}
+
+/* all the input except submit and checkbox */
+#wrapper input:not([type="checkbox"]) {
+    width: 86%;
+    margin-top: 4px;
+    padding: 10px 5px 10px 26px;
+    border: 1px solid rgb(178, 178, 178);
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+    -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+    box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+#wrapper input:not([type="checkbox"]):active, #wrapper input:not([type="checkbox"]):focus {
+    border: 1px solid #3d8b3d;
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
+    -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
+    box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
+    outline-color: #3d8b3d;
+}
+
+/** the magic icon trick ! **/
+[data-icon]:after {
+    content: attr(data-icon);
+    font-family: 'FontomasCustomRegular';
+    color: #3c8dbc;
+    position: absolute;
+    left: 10px;
+    top: 35px;
+    width: 30px;
+}
+
+/*styling both submit buttons */
+
+p.login.button, p.signin.button {
+    text-align: center;
+    margin: 5px 0;
+}
+
+/* styling the checkbox "keep me logged in"*/
+.keeplogin {
+    margin-top: -5px;
+}
+
+.keeplogin input, .keeplogin label {
+    display: inline-block;
+    font-size: 12px;
+}
+
+.keeplogin label {
+    width: 80%;
+}
+
+/*styling the links to change from one form to another */
+/** Styling both forms **/
+#register, #login, #forgot {
+    position: absolute;
+    top: 0px;
+    width: 90%;
+    padding: 18px 6% 20px 6%;
+    margin: 0 0 35px 0;
+    padding-top: 0px;
+    margin-top: 0px;
+    background: rgb(247, 247, 247);
+    border: 1px solid rgba(147, 184, 189, 0.8);
+    -webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+    -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+    box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+    -webkit-box-shadow: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#forgot {
+    z-index: 20;
+    opacity: 0;
+}
+
+#register {
+    z-index: 21;
+    opacity: 0;
+}
+
+#login {
+    z-index: 22;
+}
+
+#toregister:target ~ #wrapper #register, #tologin:target ~ #wrapper #login, #toforgot:target ~ #wrapper #forgot {
+    z-index: 22;
+    -webkit-animation-delay: .6s;
+    -webkit-animation-timing-function: ease-in;
+    -moz-animation-delay: .6s;
+    -moz-animation-timing-function: ease-in;
+    -o-animation-delay: .6s;
+    -o-animation-timing-function: ease-in;
+    -ms-animation-delay: .6s;
+    -ms-animation-timing-function: ease-in;
+    animation-delay: .6s;
+    animation-timing-function: ease-in;
+    -webkit-animation-name: scaleIn;
+    -moz-animation-name: scaleIn;
+    -ms-animation-name: scaleIn;
+    -o-animation-name: scaleIn;
+    animation-name: scaleIn;
+}
+
+#toregister:target ~ #wrapper #login, #tologin:target ~ #wrapper #register, #toforgot:target ~ #wrapper #login {
+    -webkit-animation-timing-function: ease-out;
+    -moz-animation-timing-function: ease-out;
+    -o-animation-timing-function: ease-out;
+    -ms-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    -webkit-animation-name: scaleOut;
+    -moz-animation-name: scaleOut;
+    -ms-animation-name: scaleOut;
+    -o-animation-name: scaleOut;
+    animation-name: scaleOut;
+}
+
+/** the actual animation, credit where due : http://daneden.me/animate/ ***/
+.animate {
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-fill-mode: both;
+    -o-animation-duration: 0.5s;
+    -o-animation-fill-mode: both;
+    -ms-animation-duration: 0.5s;
+    -ms-animation-fill-mode: both;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes scaleOut {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(.5);
+    }
+}
+
+@-moz-keyframes scaleOut {
+    0% {
+        opacity: 1;
+        -moz-transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -moz-transform: scale(.5);
+    }
+}
+
+@-ms-keyframes scaleOut {
+    0% {
+        opacity: 1;
+        -ms-transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -ms-transform: scale(.5);
+    }
+}
+
+@-o-keyframes scaleOut {
+    0% {
+        opacity: 1;
+        -o-transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -o-transform: scale(.5);
+    }
+}
+
+@keyframes scaleOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(.5);
+    }
+}
+
+.scaleOut {
+    -webkit-animation-name: scaleOut;
+    -moz-animation-name: scaleOut;
+    -ms-animation-name: scaleOut;
+    -o-animation-name: scaleOut;
+    animation-name: scaleOut;
+}
+
+@-webkit-keyframes scaleIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.5);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+    }
+}
+
+@-moz-keyframes scaleIn {
+    0% {
+        opacity: 0;
+        -moz-transform: scale(.5);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: scale(1);
+    }
+}
+
+@-ms-keyframes scaleIn {
+    0% {
+        opacity: 0;
+        -ms-transform: scale(.5);
+    }
+    100% {
+        opacity: 1;
+        -ms-transform: scale(1);
+    }
+}
+
+@-o-keyframes scaleIn {
+    0% {
+        opacity: 0;
+        -o-transform: scale(.5);
+    }
+    100% {
+        opacity: 1;
+        -o-transform: scale(1);
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.scaleIn {
+    -webkit-animation-name: scaleIn;
+    -moz-animation-name: scaleIn;
+    -ms-animation-name: scaleIn;
+    -o-animation-name: scaleIn;
+    animation-name: scaleIn;
+}
+
+/** yerk some ugly IE fixes 'cause I know someone will ask "why does it look ugly in IE?", no matter how many warnings I will put in the article */
+
+.lt8 #wrapper input {
+    padding: 10px 5px 10px 32px;
+    width: 92%;
+}
+
+.lt8 #wrapper input[type=checkbox] {
+    width: 10px;
+    padding: 0;
+}
+
+.lt8 #wrapper h1 {
+    color: #066A75;
+}
+
+.lt8 #register {
+    display: none;
+}
+
+.lt8 p.change_link, .ie9 p.change_link {
+    position: absolute;
+    height: 90px;
+    background: transparent;
+}
+
+.livicon {
+    content: attr(data-icon);
+    font-family: 'FontomasCustomRegular';
+    color: #3c8dbc;
+    position: absolute;
+    left: 6px;
+    top: 35px;
+    width: 30px
+}
+
+.vertical-offset-100 {
+    padding-top: 80px;
+}
+
+.black_bg {
+    background: #515763 !important;
+    color: #dfdfdf;
+    padding-top: 10px !important;
+}
+
+.button input {
+    font-size: 18px;
+    padding-left: 0px;
+}
+
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border-color: #3d8b3d;
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+    outline: 0 none;
+}
+
+.btn-success {
+    background: #01BC8C;
+}
+
+.btn-warning {
+    background: #F89A14;
+}

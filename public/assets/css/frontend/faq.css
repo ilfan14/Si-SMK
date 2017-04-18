@@ -1,0 +1,15 @@
+
+.panel-heading span {
+	margin-top: 1px;
+	font-size: 12px;
+}
+.mb10{margin-bottom:10px !important}
+.mt10{margin-top: 10px !important}
+.mix{position:relative;display:none;font-weight:400;color:#777;height:auto;overflow:visible}
+
+.panel{
+	width:100%;
+}
+.glyphicon{
+	font-weight: lighter;
+}

@@ -1,0 +1,40 @@
+/* ---------- Price Tabels ---------- */
+/* ---------- Price Box Round Symboll Css ---------- */
+.box_round_symboll{
+	background-color: #ef6f6c;
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  padding: 21px 1px 1px 0px;
+  margin: auto;
+}
+/* ---------- //Price Box Round Symboll Css End---------- */
+/* ---------- Price Box Panel heading Css ---------- */
+.panel-heading{
+	background-color: #418bca !important;
+	border: none;
+	margin-top: 10px;
+}
+/* ---------- //Price Box panel heading Css End ---------- */
+/* ---------- Price Box panel body Css ---------- */
+.panel-body {
+	background-color: #f7f7f7;
+}
+/* ---------- //Price Box panel body css End ---------- */
+/* ---------- Price Box border Css ---------- */
+.panel{
+	border: none;
+}
+/* ---------- //Price Box border Css End ---------- */
+/* ---------- Price Box button Css ---------- */
+.price-btn{
+	background-color: #01bc8c;
+	width: 100%;
+	color:#fff !important;
+	font-size: 16px;
+}
+/* ---------- //Price Box button Css End ---------- */
+/* _________ //Price Tables End _________ */

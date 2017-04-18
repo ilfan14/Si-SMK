@@ -1,0 +1,38 @@
+/* wizard custom css */
+.wizard-modal p {
+    margin: 0 0 10px;
+    padding: 0;
+}
+
+#wizard-ns-detail-servers, .wizard-additional-servers {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+#wizard-ns-detail-servers > li, .wizard-additional-servers li {
+    line-height: 20px;
+    list-style-type: none;
+}
+
+#wizard-ns-detail-servers > li > img {
+    padding-right: 5px;
+}
+
+.wizard-modal .chzn-container .chzn-results {
+    max-height: 150px;
+}
+
+.wizard-addl-subsection {
+    margin-bottom: 40px;
+}
+
+.create-server-agent-key {
+    margin-left: 15px;
+    width: 90%;
+}
+.wizard > .content > .body select.error {
+    background: rgb(251, 227, 228);
+    border: 1px solid #fbc2c4;
+    color: #8a1f11;
+}

@@ -1,0 +1,106 @@
+/*Blog  custom code*/
+
+.content {
+    margin: 15px 0px;
+}
+/* ---------- Featured-post-wide Css ---------- */
+.featured-post-wide {
+    position: relative;
+    margin: 0 0 30px;
+    overflow: hidden;
+}
+/* ---------- //Featured-post-wide Css End ---------- */
+
+.featured-post-wide .featured-text {
+    position: relative;
+    background: #fff;
+    padding: 15px;
+    z-index: 3;
+}
+/* ---------- //Featured-Text Css End---------- */
+/* ---------- Blog Images Css ---------- */
+
+.featured-post-wide img {
+    max-width: 100%;
+}
+
+/* ---------- //Blog Images Css End ---------- */
+.recent_post {
+    margin-top: 0px;
+}
+
+.no-border {
+    border: none !important;
+}
+
+/* ---------- Recent post Border Css ---------- */
+.the-box {
+    padding: 15px;
+    margin-bottom: 30px;
+    border: 1px solid #D5DAE0;
+    position: relative;
+    background: white;
+    border-radius: 4px;
+}
+.the-box h3{
+    margin-top: 0px;
+}
+.the-box img{
+    width: 50px;
+    height: 50px;
+}
+.recent{
+    margin-top: 10px;
+}
+/* ---------- //Recent post Border Css  End ---------- */
+
+
+.additional-post {
+    padding: 10px 15px 10px 0;
+}
+
+.box {
+    width: 270px;
+}
+.media-heading p{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+/* ---------- //Blog Css End ---------- */
+/* ---------- 21 comments ---------- */
+.comments{
+    border-bottom: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    padding: 10px 0px;
+    color: #418bca;
+}
+h4 span{
+    font-size: 12px;
+    color: #418bca;
+}
+/* ---------- //21 comments ---------- */
+h2.marl12{
+    margin-left: 12px;
+}
+.martop{
+    margin-top: -6px;
+}
+.marbtm{
+    margin-bottom: 10px;
+}
+.pagination{
+    margin: 0px;
+}
+.media{
+    margin-top: 0px;
+}
+.tabbable-line > .nav-tabs > li {
+  margin-right: 2px;
+background-color: #fff;
+}
+.tabbable-panel{
+    border:1px solid #ddd;
+}
+.thumbnail h3{
+    margin-top: 5px;
+}

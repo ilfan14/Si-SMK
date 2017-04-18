@@ -1,0 +1,51 @@
+.droppable-active {
+    background-color: #ffe !important;
+}
+
+.tools a {
+    cursor: pointer;
+    font-size: 80%;
+}
+
+.form-body .col-md-6, .form-body .col-md-12 {
+    min-height: 400px;
+}
+
+.draggable {
+    cursor: move;
+}
+
+.bg-color-form {
+    border: 1px solid #ccc;
+    min-height: 672px;
+    padding: 5px;
+    padding-bottom: 50px;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.pd-right {
+    padding-right: 20px;
+}
+
+.pd-30 {
+    padding: 30px;
+}
+
+.pd-col-4 {
+    padding: 0px 30px 30px 30px;
+    background-color: #fff;
+}
+
+.mar-top20 {
+    margin-top: -20px;
+}
+
+.font-12 {
+    font-size: 24px;
+}
+
+.display-no {
+    display: none;
+}

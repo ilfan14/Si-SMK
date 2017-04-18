@@ -1,0 +1,69 @@
+/*** -------- Typography Css ---------- ***/
+textarea.text-nowrap {
+  white-space: nowrap;
+  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  overflow: -moz-scrollbars-horizontal;
+  width: 100%;
+
+/*** -------- //Typography Css End ---------- ***/
+/*** --------- Advanced Features Css ---------- ***/
+.switchery {
+    margin-left: 2%
+}
+
+.bs-example {
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+
+.tabpan {
+    margin-top: 25px;
+}
+p{text-align: inherit;}
+.nav-tabs {
+   border-bottom: none;
+}
+.panel-default> .panel-heading + .panel-collapse .panel-body {
+   border-top-color:#ddd;
+}
+blockquote p{
+    font-size: 14px;
+}
+
+/*** --------- //Advanced Features Css End ---------- ***/
+/*** --------- Grid System Css ---------- ***/
+.grid .form-control {
+    box-shadow: none;
+}
+.grid .form-control:focus {
+    border-color: #ccc;
+    outline: 0;
+    -webkit-box-shadow: rgba(0, 0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0);
+}
+.bar-primary {
+    padding: 1em 0;
+    background-color: #D9EDF7;
+    border: 1px solid #A0DEF2;
+    border-radius: 1px;
+}
+
+.bar-success {
+    padding: 1em 0;
+    background-color: #DFF0D8;
+    border: 1px solid #A3E69E;
+    border-radius: 1px;
+}
+
+.bar-danger {
+    padding: 1em 0;
+    background-color: #F5DFF7;
+    border: 1px solid #F0C9F5;
+    border-radius: 1px;
+}
+.lg-grid{
+    padding: 19px 0px;
+}
+/*** --------- //Grid System End ---------- ***/

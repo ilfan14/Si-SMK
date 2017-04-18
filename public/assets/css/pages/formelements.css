@@ -1,0 +1,19 @@
+
+.pd {
+    padding: 20px;
+    border: 5px solid black;
+    box-sizing: border-box;
+}
+
+.wd {
+    width: 300px
+}
+
+.pd-45 {
+    padding: 45px;
+}
+
+.display-no {
+    display: none;
+
+}

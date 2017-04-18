@@ -1,0 +1,23 @@
+.select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+}
+.select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 34px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.flag {
+    height: 15px;
+    width: 18px;
+}
+
+.ui-datepicker { width: 17em; padding: .2em .2em 0; z-index: 9999 !important; }
+
+#logout {
+    color: inherit;
+}

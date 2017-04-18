@@ -1,0 +1,137 @@
+/* ---------- Portfolio Css ---------- */
+
+.carousel-inner .item>img {
+    width: 100%;
+}
+/* ---------- Gallery Css Start ---------- */
+#gallery {
+    margin-top: 20px;
+}
+/* ---------- //Gallery Css End---------- */
+/* ---------- Mix Css Start ---------- */
+.mix {
+    display: none;
+}
+
+.mix img {
+    width: 220px;
+    margin: 5px;
+}
+/* ---------- //Mix css End ---------- */
+/* ---------- Portfolio images Css ---------- */
+.thumb_zoom img {
+    -webkit-transition: all 1s ease;
+    /* Safari and Chrome */
+
+    -moz-transition: all 1s ease;
+    /* Firefox */
+
+    -o-transition: all 1s ease;
+    /* IE 9 */
+
+    -ms-transition: all 1s ease;
+    /* Opera */
+
+    transition: all 1s ease;
+}
+/* ---------- Thumb Zoom images hover Css Start ---------- */
+.thumb_zoom img:hover {
+    -webkit-transform: scale(1.45, 1.45);
+    /* Safari and Chrome */
+
+    -moz-transform: scale(1.45, 1.45);
+    /* Firefox */
+
+    -ms-transform: scale(1.45, 1.45);
+    /* IE 9 */
+
+    -o-transform: scale(1.45, 1.45);
+    /* Opera */
+
+    transform: scale(1.45, 1.45);
+    opacity: .3;
+}
+/* ---------- //Thumb Zoom images hover Css End ---------- */
+/* ---------- Thumb Zoom  Css Start ---------- */
+.thumb_zoom {
+    display: inline-block;
+    overflow: hidden;
+    padding: 0px !important;
+    margin: 5px;
+}
+/* ---------- //Thumb Zoom  Css End ---------- */
+/* ---------- Portfolio images Plus Icon Css Start ---------- */
+/* ---------- //Portfolio images Css End ---------- */
+/* ---------- Portfolio images Icon Section Start ---------- */
+/* ---------- Portfolio images Plus Icon Css Start ---------- */
+.fa-search-plus {
+    position: absolute;
+    z-index: 7;
+    top: 87px;
+    left: 120%;
+    right: 0px;
+    color: #fff;
+    font-size: 17px !important;
+    background-color:#01bc8c;
+    border-radius: 50%;
+    width:30px;
+    height: 30px;
+    padding-top:6px;
+    padding-left:8px;
+    opacity:0.75;
+
+}
+/* ---------- //Portfolio images Plus Icon Css End ---------- */
+/* ---------- Portfolio images Link Icon Css Start ---------- */
+.fa-link {
+    position: absolute;
+    z-index: 7;
+    top:87px;
+    left: 187%;
+    right: 0;
+    color: #fff;
+    font-size: 17px !important;
+    background-color:#01bc8c;
+    border-radius: 50%;
+    width:30px;
+    height: 30px;
+    padding-top:6px;
+    padding-left:8px;
+    opacity: 0.75;
+}
+/* ---------- //Portfolio images Link Icon Css End ---------- */
+/* ---------- //Portfolio images Icon Section End ---------- */
+@media(max-width:900px) {
+    .fa-search-plus {
+        left: 60%;
+    }
+    .fa-link {
+        left: 90%
+    }
+}
+/* _________ //Portfolio End _________ */
+
+/* ---------- Portfolio-Item Css Start ---------- */
+.project_title {
+    text-align: center;
+    border-bottom: 1px solid #01bc8c;
+}
+
+.project_images img {
+    margin: 10px 0px;
+}
+
+.project {
+    margin-top: 0px;
+}
+ul li h4{
+    float:left;
+}
+.slider{
+    width:100%;
+}
+ #bar{
+    background:none;
+}
+/* ---------- //Portfolio-Item Css End ---------- */
+

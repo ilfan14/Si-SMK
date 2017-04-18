@@ -1,0 +1,32 @@
+i[data-name='qr-code']{
+    position:relative;
+    bottom:31px;
+}
+hr{
+    border-top: 1px solid #ddd;
+}
+.colors>li{
+    width:15px;
+    height:15px;
+    padding:2px;
+    border:1px solid #fff;
+}
+.bg-primary{
+    background-color: #418BCA !important;
+}
+.bg-success{
+    background-color: #01bc8c !important;
+}
+.bg-warning{
+    background-color: #F89A14 !important;
+}
+.bg-danger{
+    background-color: #EF6F6C !important;
+}
+.bg-info{
+    background-color: #67C5DF!important;
+}
+.bg-default{
+    background-color: #eee !important;
+    color:#333;
+}

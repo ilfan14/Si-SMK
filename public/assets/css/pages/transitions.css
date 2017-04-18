@@ -1,0 +1,75 @@
+/*-----------------------------------*\
+  $RESET
+\*-----------------------------------*/
+
+.butt, .input {
+    padding: .75em;
+    margin: .375em;
+    background-color: transparent;
+    border-radius: 4px;
+}
+.butt:focus, .input:focus {
+    outline: none;
+}
+.butt {
+    border: 2px solid #f35626;
+    line-height: 1.375;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    font-weight: 700;
+    color: #f35626;
+    cursor: pointer;
+    -webkit-animation: CAnimation 60s infinite linear;
+    animation: CAnimation 60s infinite linear;
+}
+.site__title {
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: CAnimation 60s infinite linear;
+    font-size: 70px;
+}
+.butt--primary {
+    background-color: #f35626;
+    color: #fff;
+}
+.input {
+    border: 1px solid #c0c8c9;
+    border-radius: 4px;
+}
+.input--dropdown {
+    background-image: url("images/ddown.png");
+    background-image: url("images/ddown.svg?3"), none;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1em;
+    background-position: right center;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes CAnimation {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+    }
+
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+
+/* Standard syntax */
+@keyframes CAnimation {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+    }
+
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+/*-----------------------------------*\
+  $TYPOGRAPHY
+\*-----------------------------------*/
+.left-side {
+    top: 0px;
+}

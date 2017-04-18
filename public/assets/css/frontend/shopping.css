@@ -1,0 +1,43 @@
+/* ----------- Compare Products  ---------- */
+
+tr td {
+    text-align: center;
+    letter-spacing: 0em;
+}
+
+td p {
+    text-align: justify;
+}
+
+.thumbnail>img {
+    margin-top: 10px;
+}
+
+ul {
+    padding-left: 10%;
+}
+
+ul li {
+    text-align: justify;
+}
+
+h3 {
+    color: #418bca;
+    padding-left: 1%;
+}
+
+h5 a {
+    color: #418bca !important;
+    padding-bottom: 2%;
+    padding-top: 5px;
+    padding-right: 2%;
+    float: right;
+    margin-top: -15px;
+}
+
+@media(max-width:800px) {
+    td .description {
+        width: 25%;
+        white-space: normal !important;
+    }
+}

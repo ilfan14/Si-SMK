@@ -1,0 +1,120 @@
+#gal1 img {
+    width: 94px;
+    float: left;
+    padding: 2px;
+}
+.divider{border-bottom:2px solid #418bca;}
+.product_wrapper {
+    margin-top: 10px;
+    width: 100%;
+}
+/*indiviudal product div*/
+
+.product_wrapper img {
+    float: left;
+    margin-right: 0px;
+}
+/* list of products*/
+
+.zoomWrapper {
+    margin-right: 0px;
+}
+
+.text-big3 {
+    font-size: 22px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.text-big4 {
+    font-size: 28px;
+    color: #555555;
+}
+
+del {
+    color: #ef6f6c;
+}
+/* tab bottom border colors*/
+
+.tabbable-line > .nav-tabs > li.active {
+    border-bottom: 4px solid #418bca !important;
+}
+
+.tabbable-line > .nav-tabs > li.open,
+.tabbable-line > .nav-tabs > li:hover {
+    border-bottom: 4px solid #418bca !important;
+    background-color: #fff !important;
+    outline: none;
+}
+.tab-pane p{
+	text-align: justify;
+}
+.tabbable-line > .nav-tabs > li {
+    margin-right: 2px;
+    background-color: #fff !important;
+}
+/* tab bottom border colors ends*/
+
+.form-group label{
+	margin:2px 0px;
+	padding:2px 0px;
+}
+.mart10 {
+    margin-top: 10px;
+}
+/*recently viewed product css*/
+* { box-sizing: border-box; }
+
+div.flip-3d { 
+  perspective: 1200px; width: 24%; float: left; margin-bottom:3%; margin-top: 2%; 
+}
+div.flip-3d figure { 
+  position: relative; 
+  transform-style: preserve-3d; 
+  transition: 1s transform;
+  font-size: 1.6rem; 
+}
+div.flip-3d figure img { 
+  width: 100%; height: auto; 
+}
+div.flip-3d figure figcaption { 
+  position: absolute; 
+  width: 100%; height: 100%; top: 0; 
+  transform: rotateY(.5turn) translateZ(1px); 
+  background: rgba(121, 172, 226,0.9); 
+  text-align: left; 
+  padding-top: 10%; 
+  padding-left:8%;
+  opacity: 0.6; 
+  transition: 1s .5s opacity; 
+  color: #555555;
+}
+div.flip-3d figure figcaption ul{
+   padding-left: 1px;
+  }	
+div.flip-3d:hover figure { transform: rotateY(.5turn); }
+div.flip-3d:hover figure figcaption { opacity: 1; }
+@media screen and (max-width: 800px) { 
+    div#flip-3d { perspective-origin: center top; }
+	div#flip-3d figure { 
+    float: none; 
+    width: 50%; 
+    margin: 0 auto; 
+    margin-bottom: 9vw; 
+  }
+  div.flip-3d figure figcaption{
+  	 padding-top: 0% !important; 
+  	 padding-left: 1%;
+  	 font-size: 10px;
+  }
+  
+	div#flip-3d figure:last-child { display: none; }
+}
+@media screen and (max-width: 1000px){
+div.flip-3d figure figcaption{
+  	 padding-top: 0% !important; 
+  	 padding-left: 1%;
+  	 font-size: 10px;
+  }
+}

@@ -1,0 +1,710 @@
+/*-----------------------------------------------------------------------------------*/
+/*  GENERAL STYLING
+/*-----------------------------------------------------------------------------------*/
+
+body {
+    font-family: 'Lato', sans-serif;
+    height: 100%;
+    color: #757b87;
+}
+.icon-section{
+    background-color: #09bd8f;
+    line-height: 7px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #757b87;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li label {
+    position: relative;
+    bottom: 5px;
+    color: #757b87;
+    font-weight: lighter;
+}
+
+label {
+    color: #757b87;
+    font-weight: lighter;
+    padding: 10px 5px;
+}
+
+p {
+    text-align: justify;
+}
+
+p label {
+    text-align: justify;
+}
+/* ----------Custom Color Code ---------- */
+
+.primary,
+.primary>a,
+.primary>a:visited,
+.primary>a:hover,
+.primary>a:active {
+    color: #418bca;
+    text-decoration: none;
+}
+
+.danger,
+.danger>a,
+.danger>a:visited,
+.danger>a:hover,
+.danger>a:active {
+    color: #ef6f6c;
+    text-decoration: none;
+}
+
+.success,
+.success>a,
+.success>a:visited,
+.success>a:hover,
+.success>a:active {
+    color: #01bc8c;
+    text-decoration: none;
+}
+
+.warning,
+.warning>a,
+.warning>a:visited,
+.warning>a:hover,
+.warning>a:active {
+    color: #f89a14;
+    text-decoration: none;
+}
+
+.yellow,
+.yellow>a,
+.yellow>a:visited,
+.yellow>a:hover,
+.yellow>a:active {
+    color: #FFD43C;
+    text-decoration: none;
+}
+/* ---------- //Custom Color Code End ---------- */
+/* ---------- Text-Bg color Code Css ---------- */
+
+.bg-default {
+    background-color: #f5f5f5;
+}
+
+.bg-primary {
+    background-color: #418bca;
+    color: #fff;
+}
+
+.bg-success {
+    background-color: #01bc8c;
+    color: #fff;
+}
+
+.bg-danger {
+    background-color: #ef6f6c;
+    color: #fff;
+}
+
+.bg-warning {
+    background-color: #f89a14;
+    color: #fff;
+}
+/* ---------- //Text-Bg color Code Css End ---------- */
+/* ---------- Why choose us Section css ---------- */
+
+#accordion {
+    margin-top: 2%;
+}
+
+.text_bg {
+    background-color: #f2eded !important;
+}
+/* ---------- //Why choose us Section End ---------- */
+/* ---------- Text-Bg Border color Code Css ---------- */
+
+.border-primary {
+    border-bottom: 2px solid #418bca;
+    padding-bottom: 5px;
+}
+
+.border-warning {
+    border-bottom: 2px solid #f89a14;
+    padding-bottom: 5px;
+}
+
+.border-success {
+    border-bottom: 2px solid #01bc8c;
+    padding-bottom: 5px;
+}
+
+.border-danger {
+    border-bottom: 2px solid #ef6f6c;
+    padding-bottom: 5px;
+}
+/* ---------- //Text-Bg Border color Code Css End---------- */
+/* ---------- Text-Success Css---------- */
+
+.text-success {
+    color: #01bc8c !important;
+    background-color: inherit;
+}
+
+.text-danger {
+    color: #ef6f6c;
+}
+/* ---------- //Text-Success End---------- */
+/* ---------- Nav bar Css Start ---------- */
+
+.navbar-right {
+    margin-right: 30px;
+}
+
+.icon-position label {
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.logo_position {
+    position: relative;
+    bottom: 20px;
+}
+
+.navbar-nav > li > a {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.navbar-default .navbar-nav > li>a:hover {
+    color: #01bc8c;
+}
+/* ---------- Navbar  Dropdown menu Css ---------- */
+
+.navbar-nav .dropdown-menu:before {
+    bottom: 15px;
+    width: 0;
+    height: 0;
+    left: 100px;
+    z-index: 1002;
+    content: " ";
+    display: block !important;
+    position: relative;
+    border-bottom: 8px solid #ef6f6c;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+/* ---------- //Navbar  Dropdown menu Css End ---------- */
+/* ---------- Navbar  Dropdown menu hover Css ---------- */
+
+.navbar-nav .dropdown-menu a:hover {
+    border-left: 2px solid #ef6f6c;
+}
+/* ---------- //Navbar  Dropdown menu hover Css End ---------- */
+
+.navbar-default .navbar-nav >.open >a:hover,
+.navbar-default .navbar-nav >.open >a {
+    background-color: #fff !important;
+    color: #01bc8c;
+}
+
+.navbar-nav .dropdown-menu li:hover {
+    border: none;
+}
+
+.navbar {
+    margin-bottom: 0px;
+    background-color: transparent;
+    border: none;
+}
+/* ---------- Nav bar Css End ---------- */
+/* ---------- Breadcrumb Css ---------- */
+
+.breadcrumb a,
+.breadcrumb a:visited,
+.breadcrumb a:hover,
+.breadcrumb a:active {
+    color: #3d3d3d;
+    text-decoration: none;
+}
+
+.breadcum {
+    background-color: #DBD6D6;
+    border-top: 2px solid #b7b0b0;
+    border-bottom: 2px solid #b7b0b0;
+    padding: 0px 2%;
+}
+
+.breadcum .pull-right {
+    padding: 8px 15px;
+}
+
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 0px;
+    list-style: none;
+    background-color: #DBD6D6;
+    border-radius: 4px;
+    float: left;
+}
+
+.breadcrumb > li + li:before {
+    padding: 0 5px;
+    color: #3d3d3d;
+    content: none;
+}
+/* ---------- //Breadcrumb Css End ---------- */
+/* ---------- Breadcrumb Icon Section Css ---------- */
+
+.icon3 {
+    position: relative;
+    top: 5px;
+    left: 0px;
+}
+
+.icon4 {
+    left: -1px;
+    top: 3px;
+}
+/* ---------- //Breadcrumb Icon Section End ---------- */
+/* ---------- Carousel Css ---------- */
+
+.carousel-indicators .active {
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    background-color: #000;
+    border: 1px solid #5E5E5E;
+}
+
+.carousel-indicators li {
+    border: 1px solid #5E5E5E;
+    width: 13px;
+    height: 13px;
+}
+
+.carousel-caption {
+    font-size: 30px;
+}
+/* ---------- //Carousel Css End ---------- */
+
+blockquote {
+    border-left: 2px solid #ef6f6c;
+}
+/* ---------- Testimonial Images Css Start ---------- */
+
+.author {
+    padding: 15px;
+    background: #f6f6f6;
+    margin-bottom: 10px;
+}
+
+.author img {
+    width: 50px;
+}
+/* ---------- //Testimonial Images Css End ---------- */
+/* ---------- Feature Section Css ---------- */
+
+.features i {
+    line-height: 2px;
+    float: left;
+    margin: 1px 5px;
+}
+/* ---------- //Feature Section Css End ---------- */
+/* ---------- Menu Section Css ---------- */
+
+.menu > li {
+    border: 1px solid #f89a14;
+    padding: 10px 13px;
+    margin: 0px 10px;
+}
+
+.menu {
+    margin-top: 20px;
+}
+
+.menu > li:hover,
+.menu li .active {
+    background-color: #01bc8c;
+}
+/* ---------- //Menu Section Css End ---------- */
+
+.tabbable-panel ul {
+    list-style-type: none;
+}
+/* ---------- Our services Box  Style Css ---------- */
+
+
+.box {
+    border-radius: 3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    padding: 10px 15px;
+    text-align: right;
+    display: block;
+    margin-top: 60px;
+    margin-bottom: 15px;
+}
+/* ---------- //Our services Box  Style Css End ---------- */
+/* ------------- Our Services Box Icon Css ---------- */
+
+.box-icon {
+    background-color: transparent;
+    border: 1px solid #01bc8c;
+    border-radius: 50%;
+    display: table;
+    height: 80px;
+    margin: 0 auto;
+    width: 80px;
+    margin-top: -61px;
+}
+/* ------------- //Our Services Box Icon Css End ---------- */
+
+.box-icon span {
+    color: #fff;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+/* ---------- Our Services Icon Border css ---------- */
+
+.box-icon1 {
+    border: 1px solid #418bca;
+}
+
+.box-icon2 {
+    border: 1px solid #f89a14;
+}
+
+.box-icon3 {
+    border: 1px solid #FFD43C;
+}
+/* ---------- //Our Services Icon Border css ---------- */
+/* ---------- Our services Text Css----------*/
+
+.info > p {
+    color: #787878;
+    font-size: 14px;
+    padding-top: 10px;
+    text-align: justify;
+}
+/* ---------- //Our services Text End ----------*/
+/* ---------- Our service Icon Css ---------- */
+
+.icon {
+    position: relative;
+    right: 11px;
+    top: 14px;
+}
+
+.icon1 {
+    position: relative;
+    right: 10px;
+    top: 12px;
+}
+/* ---------- //Our service Icon Css End---------- */
+/* ---------- Feature main Section Start --------- */
+
+.feature-main {
+    padding: 50px 0px;
+    background-color: #f2eded;
+}
+
+.feature-main1 {
+    padding: 50px 0px;
+}
+
+.layout-styl {
+    padding: 80px 0px;
+}
+
+.layout-styl li {
+    margin-bottom: 20px;
+    font-size: 21px;
+    font-weight: 300 !important;
+    color: #515763;
+    text-align: left
+}
+/* ---------- //Feature main Section End --------- */
+/* ---------- Purchase Section Css Start ---------- */
+
+.purchas-main {
+    padding: 10px 0px;
+}
+
+.bg-border {
+    background: #f2eded;
+    border-left: 3px solid #01bc8c;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.purchae-hed {
+    margin-bottom: 20px;
+    margin-left: 15px;
+    color: #01bc8c;
+    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.purchase-styl {
+    padding: 15px 80px;
+    background-color: #01bc8c;
+    border: none;
+    box-shadow: 0px 2px 0px #268a70;
+    color: #fff !important;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.purchase-styl:hover,
+.purchase-styl:active,
+.purchase-styl:focus {
+    background-color: #01bc8c;
+}
+/* ---------- //Purchase Section Css Ebd ---------- */
+/* ---------- Our Team Divide Section Css ---------- */
+
+.divide {
+    border-top: 1px solid #848481;
+    padding: 5px;
+}
+
+.divide > a {
+    padding: 3%;
+}
+/* ---------- //Our Team Divide Section Css End ---------- */
+
+.pull-right a {
+    color: #128bc6;
+}
+
+.input-group-addon {
+    color: #fff;
+}
+
+.team img {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+}
+/* ---------- News Section Css----------*/
+
+.news {
+    margin-top: 2%;
+}
+.news .form-group{
+    width: 80%;
+}
+.news .form-control {
+    background-color: #444343;
+    border: 1px solid #5E5E5E;
+    color: #f3f3f3;
+}
+
+.news > .form-control:focus {
+    border-color: #5E5E5E;
+    outline: 0;
+    -webkit-box-shadow: rgba(0, 0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0);
+}
+/* ---------- //News Section Css End ---------- */
+
+.panel-default > .panel-heading {
+    color: #333;
+    background-color: #fff;
+    border-color: #DDD;
+}
+/* ---------- Headings Border Css ---------- */
+
+.heading_border {
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 15px;
+    padding: 5px 15px;
+}
+/* ---------- //Headings Border Css End---------- */
+
+.tab img {
+    width: 100%;
+}
+
+.tab {
+    padding-left: 0px;
+}
+
+.tab_list > li {
+    padding: 5px;
+}
+
+.tab_list {
+    margin-top: 15px;
+    padding-left: 0px;
+}
+
+.profile img {
+    width: 100%;
+}
+/* ---------- Footer Section Css ---------- */
+
+footer {
+    background-color: #262626;
+}
+
+footer h4 {
+    color: #fff;
+}
+
+.footer-text {
+    color: #ababab;
+    padding: 30px 0px;
+}
+
+footer img {
+    width: 50px;
+}
+
+footer .btn-primary.text-white {
+    margin-top: 2%;
+}
+/* ---------- //Footer Section Css End ---------- */
+
+.text-white {
+    color: #fff !important;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+@media(max-width: 370px) {
+    .properties {
+        border-right: none;
+    }
+    .media-object img {
+        width: 50%;
+    }
+}
+/* ---------- About Us Slider Css ---------- */
+
+#owl-demo .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#owl-demo {
+    margin: 0px;
+}
+
+#bar {
+    width: 0%;
+    max-width: 100%;
+    height: 3px;
+    background: #01bc8c;
+}
+
+#progressBar {
+    width: 100%;
+    background: #EDEDED;
+}
+/* ---------- //About Us Slider Css End ---------- */
+
+.center-block {
+    margin-bottom: 0px;
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+.sliders {
+    background-color: #fdfcfc;
+    padding: 20px;
+}
+
+.sliders h4 {
+    margin-bottom: -5%;
+}
+
+.sliders h5 {
+    padding-top: 4%;
+}
+
+.marbtm10 h3 {
+    margin-bottom: 0px;
+}
+/* ---------- Back to top Section Icon Css ---------- */
+
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    border-radius: 50%;
+    padding: 15px;
+    border: none;
+    opacity: 0.7;
+}
+
+.back-to-top:hover {
+    opacity: 1;
+}
+.fa-hand-o-up{
+    font-size: 16px;
+}
+/* ---------- //Back to top Section Icon Css End---------- */
+/* ---------- Copy Right Section Css  ---------- */
+
+.copyright {
+    background-color: #1a1a1a;
+}
+
+.copyright p {
+    color: #fff;
+    padding: 0.5% 0;
+    margin: 0.5% 0;
+}
+/* ---------- //Copy Right Section Css  ---------- */
+/* ---------- Advanced Features Css ---------- */
+
+.advanced button,
+.tooltips button,
+.pop button {
+    margin-bottom: 15px;
+}
+/* ---------- //Advanced Features Css ---------- */
+
+@media(max-width: 759px) {
+    .navbar-nav .dropdown-menu:before {
+        content: none;
+    }
+}
+
+@media(max-width: 950px) {
+    .profile {
+        display: block;
+        margin-right: 4%;
+        margin-left: 4%;
+    }
+}
+.skin_btn {display:inline-table; cursor:pointer; width:30px; height:30px; margin-bottom: 1px;}
+.skin_size { width:30px; height:30px; margin:3px;}
+.well{padding:10px;}
+.primary_skin {background-color:#128bc6;}
+.danger_skin{background-color: #ef6f6c;}
+.success_skin{background-color: #01bc8c;}
+.warning_skin{background-color: #F89A14;}
+.purple_skin{background-color: #D2527F;}
+.turquoise_skin{background-color: #4ecdc4;}
+.asbestos_skin{background-color: #7f8c8d;}
+.hoki_skin{background-color: #67809f;}
