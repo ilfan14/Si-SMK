@@ -1,68 +1,65 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
 
-@section('content')
+<head>
+    <title>Sistem Informasi Sekolah</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- global level css -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <!-- end of global level css -->
+    <!-- page level css -->
+    <link href="{{ asset('assets/css/pages/login2.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendors/iCheck/css/minimal/blue.css') }}" rel="stylesheet"/>
+    <!-- styles of the page ends-->
+</head>
+
+<body>
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+    <div class="row vertical-offset-100">
+        <div class=" col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3  col-md-5 col-md-offset-4 col-lg-4 col-lg-offset-4">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Login SI-SMK</h3>
+                </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+                    <form action="{{ route('login') }}" autocomplete="on" method="post" role="form">
+                        <!-- CSRF Token -->
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="username" class="col-md-4 control-label">Nomor Induk</label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
-
-                                @if ($errors->has('username'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="form-group {{ $errors->first('username', 'has-error') }}">
+                            <input class="form-control" placeholder="E-mail" name="username" type="text"
+                                   value="{!! old('username') !!}" required/>
+                            <div class="help-block">
+                                {!! $errors->first('username', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="form-group {{ $errors->first('password', 'has-error') }}">
+                            <input class="form-control" placeholder="Password" name="password" type="password" required />
+                            <div class="help-block">
+                                {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
+                            <label>
+                                <input name="remember-me" type="checkbox" value="Remember Me" class="minimal-blue"/>
+                                Remember Me
+                            </label>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
+                        <input type="submit" value="Login" class="btn btn-primary btn-block btn-lg" />
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+    <!-- global js -->
+<script src="{{ asset('assets/js/app.js') }}" type="text/javascript"></script>
+    <!-- end of global js -->
+    <!-- begining of page level js-->
+    <script src="{{ asset('assets/js/TweenLite.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/iCheck/js/icheck.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/pages/login2.js') }}" type="text/javascript"></script>
+    <!-- end of page level js-->
+</body>
+</html>
