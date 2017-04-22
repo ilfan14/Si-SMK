@@ -21,7 +21,7 @@
             <li {!! ((Request::is('home/users/*')) && !(Request::is('home/users/create')) ? 'class="active" id="active"' : '') !!}>
                     <a href="{{ URL::route('users.show', $iduser ) }}">
                         <i class="fa fa-angle-double-right"></i>
-                        My Profile
+                        Profile Saya
                     </a>
             </li>
 
