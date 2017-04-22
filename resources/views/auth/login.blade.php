@@ -27,7 +27,7 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                         <div class="form-group {{ $errors->first('username', 'has-error') }}">
-                            <input class="form-control" placeholder="E-mail" name="username" type="text"
+                            <input class="form-control" placeholder="No Induk Siswa / NIP Pe" name="username" type="text"
                                    value="{!! old('username') !!}" required/>
                             <div class="help-block">
                                 {!! $errors->first('username', '<span class="help-block">:message</span>') !!}
