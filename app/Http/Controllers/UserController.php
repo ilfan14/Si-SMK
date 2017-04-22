@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\UserRequest;
+use Illuminate\Http\Request as UserRequest;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Http\UploadedFile;
+use File;
+
 
 class UserController extends Controller
 {
@@ -25,7 +28,7 @@ class UserController extends Controller
     }
 
 
-     public function show($id)
+    public function show($id)
     {
         try {
         	$iduser = Auth::id();
@@ -44,6 +47,30 @@ class UserController extends Controller
         //dd($user);
         // Show the page
         return View('admin.users.show', compact('user','iduser'));
+
+    }
+
+    public function changeimage(UserRequest $request){
+    	$user = Auth::user();
+    	if ($file = $request->file('pic')) {
+	        $extension = $file->getClientOriginalExtension() ?: 'png';
+	        $folderName = '/uploads/users/';
+	        $destinationPath = public_path() . $folderName;
+	        $safeName = str_random(10) . '.' . $extension;
+	        $file->move($destinationPath, $safeName);
+	        //delete old pic if exists
+	        if (File::exists(public_path() . $folderName . $user->picture)) {
+	            File::delete(public_path() . $folderName . $user->picture);
+	        }
+
+	        //save new file path into db
+	        $user->picture = $safeName;
+
+	    }
+	    //save record
+	    $user->update();
+
+	    return back();
 
     }
 

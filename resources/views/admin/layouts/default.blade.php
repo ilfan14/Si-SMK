@@ -44,17 +44,15 @@
                 @include('admin.layouts._notifications')
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                       {{--  @if(Sentinel::getUser()->pic)
-                            <img src="{!! url('/').'/uploads/users/'.Sentinel::getUser()->pic !!}" alt="img"
+                        @if(Auth::user()->picture)
+                            <img src="{!! url('/').'/uploads/users/'.Auth::user()->picture !!}" alt="img"
                                  class="img-circle img-responsive pull-left" height="35px" width="35px"/>
-                        @else --}}
+                        @else
                             <img src="{!! asset('assets/img/authors/avatar3.jpg') !!} " width="35"
                                  class="img-circle img-responsive pull-left" height="35" alt="riot">
-                        {{-- @endif --}}
+                        @endif
                         <div class="riot">
                             <div>
-                                {{-- {{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }} --}}
-
                                 {{ Auth::user()->name }}
                                 <span>
                                         <i class="caret"></i>
@@ -65,14 +63,14 @@
                     <ul class="dropdown-menu">
                         {{-- User image --}}
                         <li class="user-header bg-light-blue">
-                            {{-- @if(Sentinel::getUser()->pic)
-                                <img src="{!! url('/').'/uploads/users/'.Sentinel::getUser()->pic !!}" alt="img"
+                            @if(Auth::user()->picture)
+                                <img src="{!! url('/').'/uploads/users/'.Auth::user()->picture !!}" alt="img"
                                      class="img-circle img-bor"/>
-                            @else --}}
+                            @else
                                 <img src="{!! asset('assets/img/authors/avatar3.jpg') !!}"
                                      class="img-responsive img-circle" alt="User Image">
-                            {{-- @endif --}}
-                            <p class="topprofiletext">{{-- {{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }} --}} {{ Auth::user()->name }}</p>
+                            @endif
+                            <p class="topprofiletext"> {{ Auth::user()->name }}</p>
                         </li>
                         {{-- Menu Body --}}
                         <li>
