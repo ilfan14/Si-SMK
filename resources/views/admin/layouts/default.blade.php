@@ -55,7 +55,7 @@
                             <div>
                                 {{-- {{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }} --}}
 
-                                last name
+                                {{ Auth::user()->name }}
                                 <span>
                                         <i class="caret"></i>
                                     </span>
@@ -72,7 +72,7 @@
                                 <img src="{!! asset('assets/img/authors/avatar3.jpg') !!}"
                                      class="img-responsive img-circle" alt="User Image">
                             {{-- @endif --}}
-                            <p class="topprofiletext">{{-- {{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }} --}} first and lastname</p>
+                            <p class="topprofiletext">{{-- {{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }} --}} {{ Auth::user()->name }}</p>
                         </li>
                         {{-- Menu Body --}}
                         <li>
