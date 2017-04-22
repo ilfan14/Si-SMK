@@ -76,40 +76,18 @@
                         </li>
                         {{-- Menu Body --}}
                         <li>
-                            <a href="url to profile">
+                            <a href="{{ URL::route('users.show', $iduser ) }}">
                                 <i class="livicon" data-name="user" data-s="18"></i>
-                                My Profile
+                                Profile Saya
                             </a>
                         </li>
                         <li role="presentation"></li>
-                        <li>
-                            <a href="url to account setting">
-                                <i class="livicon" data-name="gears" data-s="18"></i>
-                                Account Settings
-                            </a>
-                        </li>
-                        {{-- Menu Footer--}}
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="url to admin lockscren">
-                                    <i class="livicon" data-name="lock" data-s="18"></i>
-                                    Lock
-                                </a>
-                            </div>
-                            <div class="pull-right">
-                       {{--          <a href="{{ URL::to('admin/logout') }}">
-                                    <i class="livicon" data-name="sign-out" data-s="18"></i>
-                                    Logout
-                                </a> --}}
-
-
-
-
+                        
                                 <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                                      <i class="livicon" data-name="sign-out" data-s="18"></i>
-                                            Logout
+                                            Keluar
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

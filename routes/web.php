@@ -12,9 +12,24 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
-Route::get('/home', array('as' => 'dashboard','uses' => 'HomeController@index'));
+Route::group(array('prefix' => 'home'), function () {
+	Route::get('/', array('as' => 'dashboard','uses' => 'HomeController@index'));
+
+	Route::group(array('prefix' => 'users'), function () {
+        Route::get('/', array('as' => 'users', 'uses' => 'UserController@index'));
+        Route::post('passwordreset', 'UserController@passwordreset');
+        Route::get('{userId}', array('as' => 'users.show', 'uses' => 'UserController@show'));
+
+    });
+});
+
+
+
+
+
+
