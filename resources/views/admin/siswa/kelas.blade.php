@@ -12,6 +12,8 @@ Editable Datatables
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/select2/css/select2.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/select2/css/select2-bootstrap.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/pages/tables.css') }}" />
+    <meta name="csrf-token" content="{{csrf_token()}}">
+
 @stop
 
 {{-- Page content --}}
@@ -88,6 +90,7 @@ Editable Datatables
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        
 
                                             @foreach ($kelas as $list)
                                                 @if ($loop->index % 2 )
@@ -107,8 +110,7 @@ Editable Datatables
                                                 </tr>
                                             @endforeach
 
-
-
+                                    
                                         </tbody>
                                     </table>
                                 </div>

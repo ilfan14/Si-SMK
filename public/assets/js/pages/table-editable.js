@@ -15,7 +15,7 @@
         function editRow(oTable, nRow) {
             var aData = oTable.fnGetData(nRow);
             var jqTds = $('>td', nRow);
-            jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[0] + '">';
+            jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[0] + '" disabled>';
             jqTds[1].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[1] + '">';
             jqTds[2].innerHTML = '<a class="edit" href="">Save</a>';
             jqTds[3].innerHTML = '<a class="cancel" href="">Cancel</a>';
@@ -24,7 +24,7 @@
         function CeateRow(oTable, nRow) {
             var aData = oTable.fnGetData(nRow);
             var jqTds = $('>td', nRow);
-            jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="Auto" disabled>';
+            jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="" disabled>';
             jqTds[1].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[1] + '">';
             jqTds[2].innerHTML = '<a class="edit" href="">Save</a>';
             jqTds[3].innerHTML = '<a class="cancel" href="">Cancel</a>';
@@ -86,7 +86,7 @@
             e.preventDefault();
 
             if (nNew && nEditing) {
-                if (confirm("Previose row not saved. Do you want to save it ?")) {
+                if (confirm("Data sebelumnya belum di simpan ingin menyimpannya terlebih dahulu ?")) {
                     saveRow(oTable, nEditing); // save
                     $(nEditing).find("td:first").html("Untitled");
                     nEditing = null;
@@ -100,7 +100,7 @@
                     return;
                 }
             }
-
+ 
             var aiNew = oTable.fnAddData(['', '', '', '', '', '']);
             var nRow = oTable.fnGetNodes(aiNew[0]);
             CeateRow(oTable, nRow);
@@ -111,7 +111,7 @@
         table.on('click', '.delete', function (e) {
             e.preventDefault();
 
-            if (confirm("Are you sure to delete this row ?") == false) {
+            if (confirm("Anda yakin ingin meghapus data ini ?") == false) {
                 return;
             }
 
@@ -120,7 +120,7 @@
             oTable.fnDeleteRow(nRow);
             $.get("kelas/delete/" + nodelete[0]  , function(data, status){
             });
-            alert("Data Berhasil dihapus !");
+            //alert("Data Berhasil dihapus !");
         });
 
         table.on('click', '.cancel', function (e) {
@@ -152,12 +152,66 @@
                 if (nNew) {
                     saveRow(oTable, nEditing);
                     nEditing = null;
-                    alert("Added! Do not forget to do some ajax to sync with backend :)");
+                    
+                    // post data dengan ajax
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    var nkelas = oTable.fnGetData(nRow);
+                    var data = { namakelas: nkelas[1]};
+
+                    $.ajax({
+                        url: "kelas/createkelas",
+                        type: "POST",
+                        data: JSON.stringify(data),
+                        cache: false,
+                        contentType: 'application/json; charset=utf-8',
+                        processData: false,
+                        success: function (response)
+                        {
+                            console.log(response);
+                        }
+                    });
+
+                    alert("Data Kelas Berhasil Ditambah");
                     nNew = false;
+                    setTimeout(
+                        function() 
+                        {
+                            //Refresh data
+                            location.reload();
+                        }, 3000);
+                    
+
                 } else {
-                   saveRow(oTable, nEditing);
+                    saveRow(oTable, nEditing);
                     nEditing = null;
-                    alert("Updated! Do not forget to do some ajax to sync with backend :)"); 
+
+                    // post data dengan ajax
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    var nkelas = oTable.fnGetData(nRow);
+                    var data = { idkel: nkelas[0], namakelas: nkelas[1] };
+
+                    $.ajax({
+                        url: "kelas/editkelas",
+                        type: "POST",
+                        data: JSON.stringify(data),
+                        cache: false,
+                        contentType: 'application/json; charset=utf-8',
+                        processData: false,
+                        success: function (response)
+                        {
+                            console.log(response);
+                        }
+                    });
+
+                    //alert("Updated! Do not forget to do some ajax to sync with backend :)"); 
                 }
                 
             } else {

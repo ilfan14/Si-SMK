@@ -30,7 +30,9 @@ Route::group(array('prefix' => 'home'), function () {
     Route::group(array('prefix' => 'kelas'), function () {
     	Route::get('/', array('as' => 'listkelas', 'uses' => 'KelasController@index'));
         Route::get('delete/{idkelas}', array('as' => 'deletekelas', 'uses' => 'KelasController@delete'));
-
+        Route::post('createkelas', array('as' => 'createkelas', 'uses' => 'KelasController@create'));
+        Route::post('editkelas', array('as' => 'editkelas', 'uses' => 'KelasController@edit'));
+        Route::get('testcetak', 'KelasController@cetak');
     });
 });
 
