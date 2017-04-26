@@ -19,10 +19,10 @@
         <ul class="sub-menu">
 
             <li {!! ((Request::is('home/users/*')) && !(Request::is('home/users/create')) ? 'class="active" id="active"' : '') !!}>
-                    <a href="{{ URL::route('users.show', $iduser ) }}">
-                        <i class="fa fa-angle-double-right"></i>
-                        Profile Saya
-                    </a>
+                <a href="{{ URL::route('users.show', $iduser ) }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    Profile Saya
+                </a>
             </li>
 
         @role('Admin')
@@ -34,6 +34,39 @@
             </li>
         
         @endrole
+        
+    </ul>
+
+
+    </li>
+
+
+    <li {!! (Request::is('home/siswa') || Request::is('home/kelas') || Request::is('home/siswa/create') || Request::is('home/siswa/*') || Request::is('home/kelas') ? 'class="active"' : '') !!}>
+        <a href="#">
+            <i class="livicon" data-name="box" data-size="18" "
+               data-loop="true"></i>
+            <span class="title">Data Siswa</span>
+            <span class="fa arrow"></span>
+        </a>
+
+
+        <ul class="sub-menu">
+
+            <li {!! ((Request::is('home/users/*')) && !(Request::is('home/users/create')) ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::route('users.show', $iduser ) }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    Daftar Siswa
+                </a>
+            </li>
+
+        
+            <li {!! (Request::is('home/kelas') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('home/users') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    Daftar Kelas
+                </a>
+            </li>
+        
         
     </ul>
 

@@ -1,6 +1,5 @@
 @extends('admin.layouts.default')
 
-
 {{-- Page title --}}
 @section('title')
     Dashboard

@@ -25,6 +25,11 @@ Route::group(array('prefix' => 'home'), function () {
         Route::post('gantigambar', array('as' => 'gantigambar', 'uses' => 'UserController@changeimage'));
         Route::post('passwordreset', 'UserController@passwordreset');
         Route::get('{userId}', array('as' => 'users.show', 'uses' => 'UserController@show'));
+    });
+
+    Route::group(array('prefix' => 'kelas'), function () {
+    	Route::get('/', array('as' => 'listkelas', 'uses' => 'KelasController@index'));
+        Route::get('delete/{idkelas}', array('as' => 'deletekelas', 'uses' => 'KelasController@delete'));
 
     });
 });
