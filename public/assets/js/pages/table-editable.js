@@ -148,9 +148,18 @@
                 nEditing = nRow;
             } else if (nEditing == nRow && this.innerHTML == "Save") {
                 /* Editing this row and want to save it */
-                saveRow(oTable, nEditing);
-                nEditing = null;
-                alert("Updated! Do not forget to do some ajax to sync with backend :)");
+                // jika add data atau else edit data
+                if (nNew) {
+                    saveRow(oTable, nEditing);
+                    nEditing = null;
+                    alert("Added! Do not forget to do some ajax to sync with backend :)");
+                    nNew = false;
+                } else {
+                   saveRow(oTable, nEditing);
+                    nEditing = null;
+                    alert("Updated! Do not forget to do some ajax to sync with backend :)"); 
+                }
+                
             } else {
                 /* No edit in progress - let's start one */
                 editRow(oTable, nRow);

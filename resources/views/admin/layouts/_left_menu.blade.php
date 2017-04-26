@@ -61,7 +61,7 @@
 
         
             <li {!! (Request::is('home/kelas') ? 'class="active" id="active"' : '') !!}>
-                <a href="{{ URL::to('home/users') }}">
+                <a href="{{ URL::to('home/kelas') }}">
                     <i class="fa fa-angle-double-right"></i>
                     Daftar Kelas
                 </a>

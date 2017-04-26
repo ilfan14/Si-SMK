@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\Request;
 class KelasController extends Controller
 {
     //
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
+    
     public function index()
     {
         // Grab all the kelas
