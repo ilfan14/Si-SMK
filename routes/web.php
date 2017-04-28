@@ -34,6 +34,10 @@ Route::group(array('prefix' => 'home'), function () {
         Route::post('editkelas', array('as' => 'editkelas', 'uses' => 'KelasController@edit'));
         Route::get('testcetak', 'KelasController@cetak');
     });
+
+    Route::group(array('prefix' => 'siswa'), function () {
+        Route::get('/', array('as' => 'listsiswa', 'uses' => 'SiswaController@index'));
+    });
 });
 
 

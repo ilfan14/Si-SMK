@@ -52,8 +52,8 @@
 
         <ul class="sub-menu">
 
-            <li {!! ((Request::is('home/users/*')) && !(Request::is('home/users/create')) ? 'class="active" id="active"' : '') !!}>
-                <a href="{{ URL::route('users.show', $iduser ) }}">
+            <li {!! ((Request::is('home/siswa')) && !(Request::is('home/siswa/create')) ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ route('listsiswa') }}">
                     <i class="fa fa-angle-double-right"></i>
                     Daftar Siswa
                 </a>

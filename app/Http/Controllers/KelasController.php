@@ -6,7 +6,6 @@ use Illuminate\Http\Request as UserRequest;
 use App\Kelas;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
-use Input;
 use Excel;
 
 class KelasController extends Controller

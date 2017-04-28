@@ -17,6 +17,8 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('username')->unique();
             $table->string('name');
+            $table->enum('job', ['guru', 'siswa', 'staf'])->nullable();
+            $table->string('status')->default('nonaktif');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('picture')->nullable();

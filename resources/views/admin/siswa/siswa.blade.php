@@ -74,35 +74,40 @@ Daftar Kelas
                                     <table class="table table-striped table-bordered table-hover dataTable no-footer" id="sample_editable_1" role="grid">
                                         <thead>
                                             <tr role="row">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="width: 88px;">ID Kelas</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="">Nomor Induk</th>
                                                 <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
                                                  Full Name
-                                            : activate to sort column ascending" style="width: 222px;">Kelas</th>
+                                            : activate to sort column ascending" style="width: 300px;">Nama</th>
+                                                <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+                                                 Full Name
+                                            : activate to sort column ascending" style="width: 100px;">Kelas</th>
+                                                
                                                 <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
                                                  Edit
-                                            : activate to sort column ascending" style="width: 88px;">Ubah</th>
+                                            : activate to sort column ascending" style="width: 20px;">Ubah</th>
                                                 <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
                                                  Delete
-                                            : activate to sort column ascending" style="width: 125px;">Hapus</th>
+                                            : activate to sort column ascending" style="width: 20px;">Hapus</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         
 
-                                            @foreach ($kelas as $list)
+                                            @foreach ($siswa as $siswa)
                                                 @if ($loop->index % 2 )
                                                     <tr role="row" class="even">
                                                 @else 
                                                     <tr role="row" class="odd">
                                                 @endif
                                                 
-                                                <td class="sorting_1">{!! $list->id_kelas !!}</td>
-                                                <td>{!! $list->nama_kelas !!}</td>
+                                                <td class="sorting_1">{!! $siswa->username !!}</td>
+                                                <td>{!! $siswa->name !!}</td>
+                                                <td>{!! $siswa->nama_kelas !!}</td>
                                                 <td>
-                                                    <a class="edit" href="javascript:;">Ubah</a>
+                                                    <a class="edit" href="javascript:;" style="width: 20px;">Ubah</a>
                                                 </td>
                                                 <td>
-                                                    <a class="delete" href="javascript:;">Hapus</a>
+                                                    <a class="delete" href="javascript:;" style="width: 20px;">Hapus</a>
                                                 </td>
                                                 </tr>
                                             @endforeach
@@ -127,5 +132,5 @@ Daftar Kelas
     <script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/dataTables.bootstrap.js') }}" ></script>
     <script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/dataTables.responsive.js') }}" ></script>
     <script type="text/javascript" src="{{ asset('assets/vendors/select2/js/select2.js') }}" ></script>
-    <script type="text/javascript" src="{{ asset('assets/js/pages/table_kelas.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('assets/js/pages/table_siswa.js') }}" ></script>
 @stop

@@ -17,8 +17,8 @@
             var jqTds = $('>td', nRow);
             jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[0] + '" disabled>';
             jqTds[1].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[1] + '">';
-            jqTds[2].innerHTML = '<a class="edit" href="">Save</a>';
-            jqTds[3].innerHTML = '<a class="cancel" href="">Cancel</a>';
+            jqTds[2].innerHTML = '<a class="edit" href="">Simpan</a>';
+            jqTds[3].innerHTML = '<a class="cancel" href="">Batal</a>';
         }
 
         function CeateRow(oTable, nRow) {
@@ -26,16 +26,16 @@
             var jqTds = $('>td', nRow);
             jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="" disabled>';
             jqTds[1].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[1] + '">';
-            jqTds[2].innerHTML = '<a class="edit" href="">Save</a>';
-            jqTds[3].innerHTML = '<a class="cancel" href="">Cancel</a>';
+            jqTds[2].innerHTML = '<a class="edit" href="">Simpan</a>';
+            jqTds[3].innerHTML = '<a class="cancel" href="">Batal</a>';
         }
 
         function saveRow(oTable, nRow) {
             var jqInputs = $('input', nRow);
             oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
             oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-            oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 2, false);
-            oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 3, false);
+            oTable.fnUpdate('<a class="edit" href="">Ubah</a>', nRow, 2, false);
+            oTable.fnUpdate('<a class="delete" href="">Hapus</a>', nRow, 3, false);
             oTable.fnDraw();
         }
 
@@ -43,7 +43,7 @@
             var jqInputs = $('input', nRow);
             oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
             oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-            oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 2, false);
+            oTable.fnUpdate('<a class="edit" href="">Ubah</a>', nRow, 2, false);
             oTable.fnDraw();
         }
 
@@ -146,7 +146,7 @@
                 restoreRow(oTable, nEditing);
                 editRow(oTable, nRow);
                 nEditing = nRow;
-            } else if (nEditing == nRow && this.innerHTML == "Save") {
+            } else if (nEditing == nRow && this.innerHTML == "Simpan") {
                 /* Editing this row and want to save it */
                 // jika add data atau else edit data
                 if (nNew) {
@@ -175,7 +175,7 @@
                         }
                     });
 
-                    alert("Data Kelas Berhasil Ditambah");
+                    //alert("Data Kelas Berhasil Ditambah");
                     nNew = false;
                     setTimeout(
                         function() 
