@@ -14,9 +14,21 @@ class AddToRoles extends Seeder
     {
         // beri hak akses default user pertama menjadi admin
 
-        $user = User::where('id', '=', '1')->first();
-        $user->attachRole(1);
+        $admin = User::where('id', '=', '1')->first();
+        $admin->attachRole(1);
         
+        // hak akses siswa
+        $siswa = User::where('job','=','siswa')->get();
+
+        foreach ($siswa as $key => $value) {
+            $value->attachRole(3);
+        }
+
+        $guru = User::where('job','=','guru')->get();
+
+        foreach ($guru as $key => $value) {
+            $value->attachRole(2);
+        }
 
 
     }

@@ -79,8 +79,14 @@ Daftar Kelas
                                                  Full Name
                                             : activate to sort column ascending" style="width: 300px;">Nama</th>
                                                 <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
-                                                 Full Name
-                                            : activate to sort column ascending" style="width: 100px;">Kelas</th>
+                                                 Gender
+                                            : activate to sort column ascending" style="width: 20px;">Gender</th>
+                                                <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+                                                 Alamat
+                                            : activate to sort column ascending" style="width: 200px;">Alamat</th>
+                                                <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
+                                                 Kelas
+                                            : activate to sort column ascending" style="width: 30px;">Kelas</th>
                                                 
                                                 <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
                                                  Edit
@@ -102,6 +108,8 @@ Daftar Kelas
                                                 
                                                 <td class="sorting_1">{!! $siswa->username !!}</td>
                                                 <td>{!! $siswa->name !!}</td>
+                                                <td>{!! $siswa->gender !!}</td>
+                                                <td>{!! $siswa->alamat !!}</td>
                                                 <td>{!! $siswa->nama_kelas !!}</td>
                                                 <td>
                                                     <a class="edit" href="javascript:;" style="width: 20px;">Ubah</a>

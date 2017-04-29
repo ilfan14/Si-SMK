@@ -25,7 +25,7 @@
                 </a>
             </li>
 
-        @role('Admin')
+        @role(['Admin','Guru'])
             <li {!! (Request::is('home/users') ? 'class="active" id="active"' : '') !!}>
                 <a href="{{ URL::to('home/users') }}">
                     <i class="fa fa-angle-double-right"></i>

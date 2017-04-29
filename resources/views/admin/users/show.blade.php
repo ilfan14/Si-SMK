@@ -128,13 +128,13 @@ View User Details
                                                         <tr>
                                                             <td>Job</td>
                                                             <td>
-                                                                {{ $user->dob }}
+                                                                {{ $user->job }}
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td>Alamat</td>
                                                             <td>
-                                                                {{ $user->address }}
+                                                                {{ $user->alamat }}
                                                             </td>
                                                         </tr>
                                                         <tr>

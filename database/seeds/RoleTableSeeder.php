@@ -39,5 +39,6 @@ class RoleTableSeeder extends Seeder
         	Role::create($value);
         }
 
+        
     }
 }

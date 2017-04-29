@@ -15,9 +15,15 @@ class TableRombelMigration extends Migration
     {
         //
         Schema::create('rombel', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_kelas');
-            $table->integer('user_id');
+            $table->integer('id_kelas')->unsigned();
+            $table->integer('user_id')->unsigned();
+
+            $table->foreign('id_kelas')->references('id_kelas')->on('kelas')
+                ->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->primary(['id_kelas', 'user_id']);
         });
     }
 

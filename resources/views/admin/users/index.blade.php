@@ -59,15 +59,8 @@ Users List
                     	<tr>
                             <td>{!! $user->id !!}</td>
                     		<td>{!! $user->name !!}</td>
-            				<td>{!! $user->email !!}</td>
-            				<td>
-            					{{-- @if($activation = Activation::completed($user))
-            						Activated
-            					@else
-            						Pending
-            					@endif
-            					--}}
-            				</td>
+                            <td>{!! $user->email !!}</td>
+            				<td>{!! $user->status !!}</td>
             				<td>{!! $user->created_at->diffForHumans() !!}</td>
             				<td>
                                 <a href="{{--{{ route('users.show', $user->id) }}--}}"><i class="livicon" data-name="info" data-size="18" data-loop="true" data-c="#428BCA" data-hc="#428BCA" title="view user"></i></a>

@@ -15,17 +15,39 @@ class DummyUserTableSeeder extends Seeder
         //
         $buatuser=[
         		[
+                    'username' => 'admin',
+                    'name' => 'Admin',
+                    'job' => 'guru',
+                    'email' => 'admin@a.com',
+                    'status' => 'aktif',
+                    'password' => bcrypt('admin')
+
+                ],
+                [
+                    'username' => 'guru',
+                    'name' => 'Guru',
+                    'job' => 'guru',
+                    'email' => 'guru@a.com',
+                    'status' => 'aktif',
+                    'password' => bcrypt('guru')
+
+                ],
+                [
         			'username' => '111',
-        			'name' => 'Ilfan Admin',
-        			'email' => 'ilfan@a.com',
-        			'password' => bcrypt('sikatasik')
+        			'name' => 'Siswa',
+                    'job' => 'siswa',
+        			'email' => 'siswa@a.com',
+                    'status' => 'aktif',
+        			'password' => bcrypt('user')
 
         		],
         		[
         			'username' => '222',
         			'name' => 'Ilfan User',
+                    'job' => 'siswa',
         			'email' => 'ilfanUser@a.com',
-        			'password' => bcrypt('sikatasik')
+                    'status' => 'aktif',
+        			'password' => bcrypt('user')
 
         		]
         		
