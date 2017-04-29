@@ -1,6 +1,8 @@
  jQuery(document).ready(function()
     {
 
+  
+
         function restoreRow(oTable, nRow) {
             var aData = oTable.fnGetData(nRow);
             var jqTds = $('>td', nRow);
@@ -27,19 +29,23 @@
             var jqTds = $('>td', nRow);
             jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[0] + '">';
             jqTds[1].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[1] + '">';
-            jqTds[2].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[2] + '">';
+            jqTds[2].innerHTML = '<select name="gender"> <option>Laki-laki</option><option>Perempuan</option></select>';
             jqTds[3].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[3] + '">';
-            jqTds[4].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[4] + '">';
+            jqTds[4].innerHTML = '<select name="ikelas" id="selectkelas" ></select>';
             jqTds[5].innerHTML = '<a class="edit" href="">Simpan</a>';
             jqTds[6].innerHTML = '<a class="cancel" href="">Batal</a>';
         }
 
         function saveRow(oTable, nRow) {
             var jqInputs = $('input', nRow);
+            var jqSelects = $('select', nRow);
             oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
             oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-            oTable.fnUpdate('<a class="edit" href="">Ubah</a>', nRow, 2, false);
-            oTable.fnUpdate('<a class="delete" href="">Hapus</a>', nRow, 3, false);
+            oTable.fnUpdate(jqSelects[0].value, nRow, 2, false);
+            oTable.fnUpdate(jqInputs[2].value, nRow, 3, false);
+            oTable.fnUpdate(jqSelects[1].value, nRow, 4, false);
+            oTable.fnUpdate('<a class="edit" href="">Ubah</a>', nRow, 5, false);
+            oTable.fnUpdate('<a class="delete" href="">Hapus</a>', nRow, 6, false);
             oTable.fnDraw();
         }
 
@@ -107,11 +113,30 @@
  
             var aiNew = oTable.fnAddData(['', '', '', '', '', '', '']);
             var nRow = oTable.fnGetNodes(aiNew[0]);
+
+            $.ajax({
+                url:'../get/listkelas',
+                type:'GET',
+                dataType: 'json',
+                success: function( json ) {
+                    $.each(json, function(i, value) {
+                        $('#selectkelas')
+                              .append($('<option></option>', {text:value["nama_kelas"]})
+                              .attr('value', value["nama_kelas"]));
+
+                    });
+                }
+            });
             CeateRow(oTable, nRow);
             nEditing = nRow;
             nNew = true;
         });
 
+        function getdata()
+        {
+            
+
+        }
         table.on('click', '.delete', function (e) {
             e.preventDefault();
 
@@ -157,17 +182,20 @@
                     saveRow(oTable, nEditing);
                     nEditing = null;
                     
+                    var nsiswa = oTable.fnGetData(nRow);
+
                     // post data dengan ajax
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         }
                     });
-                    var nkelas = oTable.fnGetData(nRow);
-                    var data = { namakelas: nkelas[1]};
+                    var nsiswa = oTable.fnGetData(nRow);
+                    // alert(nsiswa);
+                    var data = { nomorinduk: nsiswa[0], namasiswa: nsiswa[1], gender: nsiswa[2], alamat: nsiswa[3], kelas: nsiswa[4]};
 
                     $.ajax({
-                        url: "kelas/createkelas",
+                        url: "siswa/tambahsiswa",
                         type: "POST",
                         data: JSON.stringify(data),
                         cache: false,
@@ -181,12 +209,12 @@
 
                     //alert("Data Kelas Berhasil Ditambah");
                     nNew = false;
-                    setTimeout(
-                        function() 
-                        {
-                            //Refresh data
-                            location.reload();
-                        }, 3000);
+                    // setTimeout(
+                    //     function() 
+                    //     {
+                    //         //Refresh data
+                    //         location.reload();
+                    //     }, 3000);
                     
 
                 } else {
@@ -199,8 +227,8 @@
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         }
                     });
-                    var nkelas = oTable.fnGetData(nRow);
-                    var data = { idkel: nkelas[0], namakelas: nkelas[1] };
+                    var nsiswa = oTable.fnGetData(nRow);
+                    var data = { idkel: nsiswa[0], namakelas: nsiswa[1] };
 
                     $.ajax({
                         url: "kelas/editkelas",

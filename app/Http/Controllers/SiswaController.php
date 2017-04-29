@@ -33,4 +33,37 @@ class SiswaController extends Controller
         // Show the page
         return View('admin.siswa.siswa', compact('siswa', 'iduser'));
     }
+
+
+
+    public function create(UserRequest $request)
+    {
+
+        $tambahsiswa = new User;
+
+        $tambahsiswa->username = $request->get('nomorinduk');
+        $tambahsiswa->name = $request->get('namasiswa');
+        $tambahsiswa->job = 'siswa';
+        $tambahsiswa->status = 'aktif';
+        $tambahsiswa->password = bcrypt('1234');
+        $tambahsiswa->email = $request->get('nomorinduk') . '@email.com';
+        $tambahsiswa->gender = $request->get('gender');
+        $tambahsiswa->alamat = $request->get('alamat');
+        $tambahsiswa->save();
+
+        $idkelas = DB::table('kelas')->select('id_kelas')->where('nama_kelas', $request->get('kelas'))->get();
+        foreach ($idkelas as $key => $value) {
+            $kelasid = $value->id_kelas;
+        }
+        $idsiswa = User::where('username', $request->get('nomorinduk'))->get();
+        foreach ($idsiswa as $key => $value) {
+            $siswaid = $value->id;
+        }
+        $tambahrombel = new Rombel;
+        $tambahrombel->id_kelas = $kelasid;
+        $tambahrombel->user_id = $siswaid;
+        $tambahrombel->save();
+
+        // echo "Work";
+    }
 }

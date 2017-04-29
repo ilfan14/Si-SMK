@@ -16,4 +16,9 @@ class Kelas extends Model
     ];
 
     public $timestamps = false;
+
+    public function listkelas()
+    {
+    	return Kelas::all();
+    }
 }

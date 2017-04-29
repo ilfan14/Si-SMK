@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Daftar Kelas
+Daftar Siswa
 @parent
 @stop
 
@@ -20,7 +20,7 @@ Daftar Kelas
 @section('content')
 
 <section class="content-header">
-                <h1>Daftar Kelas</h1>
+                <h1>Daftar Siswa</h1>
                 <ol class="breadcrumb">
                     <li>
                         <a href="{{ route('dashboard') }}">
@@ -28,7 +28,7 @@ Daftar Kelas
                             Dashboard
                         </a>
                     </li>
-                    <li class="active">Daftar Kelas</li>
+                    <li class="active">Daftar Siswa</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -41,7 +41,7 @@ Daftar Kelas
                             <div class="portlet-title">
                                 <div class="caption">
                                     <i class="livicon" data-name="edit" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
-                                    Daftar Kelas
+                                    Daftar Siswa
                                 </div>
                             </div>
                             <div class="portlet-body">
@@ -125,6 +125,12 @@ Daftar Kelas
                                     </table>
                                 </div>
                                 <!-- END EXAMPLE TABLE PORTLET-->
+
+                                <div id="myselect">
+                                    <select >
+                                        <option  value=""></option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
