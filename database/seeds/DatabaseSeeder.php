@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DummyUserTableSeeder::class);
         $this->call(AddToRoles::class);
         $this->call(KelasTableSeeder::class);
+        $this->call(AddMapelSeeder::class);
     }
 }
