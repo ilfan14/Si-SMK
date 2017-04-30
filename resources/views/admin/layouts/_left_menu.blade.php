@@ -41,7 +41,7 @@
     </li>
 
 
-    <li {!! (Request::is('home/siswa') || Request::is('home/kelas') || Request::is('home/siswa/create') || Request::is('home/siswa/*') || Request::is('home/kelas') ? 'class="active"' : '') !!}>
+    <li {!! (Request::is('home/siswa') || Request::is('home/kelas') || Request::is('home/siswa/create') || Request::is('home/siswa/*') || Request::is('home/siswa') ? 'class="active"' : '') !!}>
         <a href="#">
             <i class="livicon" data-name="box" data-size="18" "
                data-loop="true"></i>
@@ -49,9 +49,7 @@
             <span class="fa arrow"></span>
         </a>
 
-
         <ul class="sub-menu">
-
             <li {!! ((Request::is('home/siswa')) && !(Request::is('home/siswa/create')) ? 'class="active" id="active"' : '') !!}>
                 <a href="{{ route('listsiswa') }}">
                     <i class="fa fa-angle-double-right"></i>
@@ -66,13 +64,39 @@
                     Daftar Kelas
                 </a>
             </li>
-        
-        
-    </ul>
+        </ul>
 
 
     </li>
 
+
+    <li {!! (Request::is('home/nilai') || Request::is('home/nilai') || Request::is('home/nilai/create') || Request::is('home/nilai/*') || Request::is('home/nilai') ? 'class="active"' : '') !!}>
+        <a href="#">
+            <i class="livicon" data-name="inbox" data-size="18" "
+               data-loop="true"></i>
+            <span class="title">Data Nilai</span>
+            <span class="fa arrow"></span>
+        </a>
+
+        <ul class="sub-menu">
+            <li {!! ((Request::is('home/nilai')) && !(Request::is('home/nilai/create')) ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ route('listsiswa') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    Mata Pelajaran
+                </a>
+            </li>
+
+        
+            <li {!! (Request::is('home/nilai') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('home/kelas') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    Nilai Siswa
+                </a>
+            </li>
+        </ul>
+
+
+    </li>
 
 
 @include('admin/layouts/menu')

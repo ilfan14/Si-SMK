@@ -66,4 +66,51 @@ class SiswaController extends Controller
 
         // echo "Work";
     }
+
+
+    public function edit(UserRequest $request)
+    {
+
+        $oldnik = $request->get('niklama');
+        $oldkelas = $request->get('kellama');
+
+        $editsiswa = User::where('username', $oldnik)->first();
+        $editsiswa->username = $request->get('nomorinduk');
+        $editsiswa->name = $request->get('namasiswa');
+        $editsiswa->gender = $request->get('gender');
+        $editsiswa->alamat = $request->get('alamat');
+        $editsiswa->save();
+
+        $editkelas = Kelas::where('nama_kelas', $oldkelas)->first();
+        if ($oldkelas == $request->get('kelas'))
+        {
+            // nothing abaikan update kelas
+        } else {
+            // update kelas 
+            $idkelas = DB::table('kelas')->select('id_kelas')->where('nama_kelas', $request->get('kelas'))->get();
+            foreach ($idkelas as $key => $value) {
+                $kelasid = $value->id_kelas;
+            }
+            $oldidkelas = DB::table('kelas')->select('id_kelas')->where('nama_kelas', $request->get('kellama'))->get();
+            foreach ($oldidkelas as $key => $value) {
+                $oldkelasid = $value->id_kelas;
+            }
+            $idsiswa = User::where('username', $request->get('nomorinduk'))->get();
+            foreach ($idsiswa as $key => $value) {
+                $siswaid = $value->id;
+            }
+
+            DB::table('rombel')->where('user_id', $siswaid)->update(['id_kelas' => $kelasid]);
+            
+        }
+
+        echo "work";
+    }
+
+
+
+    public function delete($niksiswa) 
+    {
+        User::where('username', $niksiswa)->delete();
+    }
 }

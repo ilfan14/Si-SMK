@@ -17,11 +17,20 @@
         function editRow(oTable, nRow) {
             var aData = oTable.fnGetData(nRow);
             var jqTds = $('>td', nRow);
-            jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[0] + '" disabled>';
+            var dataGender = ['Laki-laki', 'Perempuan'];
+            var dataToHtml = null;
+            for (var i = 0; i <= dataGender.length - 1; i++) {
+                if (dataGender[i] == aData[2]){
+                    dataToHtml += '<option value="' + aData[2] + '" selected>' + aData[2] + '</option>';
+                } else {
+                    dataToHtml += '<option value="' + dataGender[i] + '">' + dataGender[i] + '</option>';
+                }
+            }
+            jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[0] + '">';
             jqTds[1].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[1] + '">';
-            jqTds[2].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[2] + '">';
+            jqTds[2].innerHTML = '<select name="gender"> ' + dataToHtml + '</select>';
             jqTds[3].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[3] + '">';
-            jqTds[4].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[4] + '">';
+            jqTds[4].innerHTML = '<select name="ikelas" id="selectkelas" ></select>';
             jqTds[5].innerHTML = '<a class="edit" href="">Simpan</a>';
             jqTds[6].innerHTML = '<a class="cancel" href="">Batal</a>';
         }
@@ -94,6 +103,9 @@
         var nEditing = null;
         var nNew = false;
 
+        var oldNik = null;
+        var oldKel = null;
+
         $('#sample_editable_1_new').click(function (e) {
             e.preventDefault();
 
@@ -149,7 +161,7 @@
             var nRow = $(this).parents('tr')[0];
             var nodelete = oTable.fnGetData(nRow);
             oTable.fnDeleteRow(nRow);
-            $.get("kelas/delete/" + nodelete[0]  , function(data, status){
+            $.get("siswa/delete/" + nodelete[0]  , function(data, status){
             });
             //alert("Data Berhasil dihapus !");
         });
@@ -177,6 +189,7 @@
                 restoreRow(oTable, nEditing);
                 editRow(oTable, nRow);
                 nEditing = nRow;
+
             } else if (nEditing == nRow && this.innerHTML == "Simpan") {
                 /* Editing this row and want to save it */
                 // jika add data atau else edit data
@@ -230,10 +243,10 @@
                         }
                     });
                     var nsiswa = oTable.fnGetData(nRow);
-                    var data = { idkel: nsiswa[0], namakelas: nsiswa[1] };
+                    var data = { niklama: oldNik, kellama: oldKel, nomorinduk: nsiswa[0], namasiswa: nsiswa[1], gender: nsiswa[2], alamat: nsiswa[3], kelas: nsiswa[4]};
 
                     $.ajax({
-                        url: "kelas/editkelas",
+                        url: "siswa/editsiswa",
                         type: "POST",
                         data: JSON.stringify(data),
                         cache: false,
@@ -252,6 +265,28 @@
                 /* No edit in progress - let's start one */
                 editRow(oTable, nRow);
                 nEditing = nRow;
+                var oldData = oTable.fnGetData(nRow);
+                oldKel = oldData[4];
+                oldNik = oldData[0];
+                $.ajax({
+                    url:'../get/listkelas',
+                    type:'GET',
+                    dataType: 'json',
+                    success: function( json ) {
+                        $.each(json, function(i, value) {
+                            if ( oldData[4] == value["nama_kelas"] ) {
+                                $('#selectkelas')
+                                  .append($('<option selected>' + value["nama_kelas"] + '</option>')
+                                  .attr('value', value["nama_kelas"]));
+                            } else {
+                                $('#selectkelas')
+                                  .append($('<option></option>', {text:value["nama_kelas"]})
+                                  .attr('value', value["nama_kelas"]));
+                            }
+                        });
+                    }
+                });
+
             }
         });
     });

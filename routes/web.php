@@ -35,6 +35,8 @@ Route::group(array('prefix' => 'home'), function () {
     Route::group(array('prefix' => 'siswa'), function () {
         Route::get('/', array('as' => 'listsiswa', 'uses' => 'SiswaController@index'));
         Route::post('tambahsiswa', array('as' => 'tambahsiswa', 'uses' => 'SiswaController@create'));
+        Route::post('editsiswa', array('as' => 'editsiswa', 'uses' => 'SiswaController@edit'));
+        Route::get('delete/{niksiswa}', array('as' => 'deletesiswa', 'uses' => 'SiswaController@delete'));
     });
 });
 
