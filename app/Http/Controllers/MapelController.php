@@ -39,4 +39,25 @@ class MapelController extends Controller
 
         echo "work";
     }
+
+    public function edit(UserRequest $request)
+    {
+        $editmapel = Mapel::where('kode_mapel', $request->get('oldkodemapel'))->first();
+        if ($request->get('oldkodemapel') == $request->get('kodemapel'))
+        {
+            $editmapel->nama_mapel = $request->get('namamapel');
+            $editmapel->save();
+        } else {
+            $editmapel->kode_mapel = $request->get('kodemapel');
+            $editmapel->nama_mapel = $request->get('namamapel');
+            $editmapel->save();
+        }
+
+        echo "work";
+    }
+
+    public function delete($kdmapel) 
+    {
+        Mapel::where('kode_mapel', $kdmapel)->delete();
+    }
 }

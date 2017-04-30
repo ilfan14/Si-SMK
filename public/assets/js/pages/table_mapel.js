@@ -14,22 +14,10 @@
         function editRow(oTable, nRow) {
             var aData = oTable.fnGetData(nRow);
             var jqTds = $('>td', nRow);
-            var dataGender = ['Laki-laki', 'Perempuan'];
-            var dataToHtml = null;
-            for (var i = 0; i <= dataGender.length - 1; i++) {
-                if (dataGender[i] == aData[2]){
-                    dataToHtml += '<option value="' + aData[2] + '" selected>' + aData[2] + '</option>';
-                } else {
-                    dataToHtml += '<option value="' + dataGender[i] + '">' + dataGender[i] + '</option>';
-                }
-            }
             jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[0] + '">';
             jqTds[1].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[1] + '">';
-            jqTds[2].innerHTML = '<select name="gender"> ' + dataToHtml + '</select>';
-            jqTds[3].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[3] + '">';
-            jqTds[4].innerHTML = '<select name="ikelas" id="selectkelas" ></select>';
-            jqTds[5].innerHTML = '<a class="edit" href="">Simpan</a>';
-            jqTds[6].innerHTML = '<a class="cancel" href="">Batal</a>';
+            jqTds[2].innerHTML = '<a class="edit" href="">Simpan</a>';
+            jqTds[3].innerHTML = '<a class="cancel" href="">Batal</a>';
         }
 
         function CeateRow(oTable, nRow) {
@@ -92,9 +80,7 @@
 
         var nEditing = null;
         var nNew = false;
-
-        var oldNik = null;
-        var oldKel = null;
+        var oldKdmapel = null;
 
         $('#sample_editable_1_new').click(function (e) {
             e.preventDefault();
@@ -117,20 +103,6 @@
  
             var aiNew = oTable.fnAddData(['', '', '', '', '', '', '']);
             var nRow = oTable.fnGetNodes(aiNew[0]);
-
-            $.ajax({
-                url:'../get/listkelas',
-                type:'GET',
-                dataType: 'json',
-                success: function( json ) {
-                    $.each(json, function(i, value) {
-                        $('#selectkelas')
-                              .append($('<option></option>', {text:value["nama_kelas"]})
-                              .attr('value', value["nama_kelas"]));
-
-                    });
-                }
-            });
             CeateRow(oTable, nRow);
             nEditing = nRow;
             nNew = true;
@@ -151,7 +123,7 @@
             var nRow = $(this).parents('tr')[0];
             var nodelete = oTable.fnGetData(nRow);
             oTable.fnDeleteRow(nRow);
-            $.get("siswa/delete/" + nodelete[0]  , function(data, status){
+            $.get("mapel/delete/" + nodelete[0]  , function(data, status){
             });
             //alert("Data Berhasil dihapus !");
         });
@@ -210,15 +182,7 @@
                             console.log(response);
                         }
                     });
-
-                    //alert("Data Kelas Berhasil Ditambah");
                     nNew = false;
-                    // setTimeout(
-                    //     function() 
-                    //     {
-                    //         //Refresh data
-                    //         location.reload();
-                    //     }, 3000);
                     
 
                 } else {
@@ -232,10 +196,10 @@
                         }
                     });
                     var nmapel = oTable.fnGetData(nRow);
-                    var data = { niklama: oldNik, kellama: oldKel, nomorinduk: nmapel[0], namasiswa: nmapel[1], gender: nmapel[2], alamat: nmapel[3], kelas: nmapel[4]};
+                    var data = { oldkodemapel: oldKdmapel, kodemapel: nmapel[0], namamapel: nmapel[1]};
 
                     $.ajax({
-                        url: "siswa/editsiswa",
+                        url: "mapel/editmapel",
                         type: "POST",
                         data: JSON.stringify(data),
                         cache: false,
@@ -246,8 +210,6 @@
                             console.log(response);
                         }
                     });
-
-                    //alert("Updated! Do not forget to do some ajax to sync with backend :)"); 
                 }
                 
             } else {
@@ -255,27 +217,7 @@
                 editRow(oTable, nRow);
                 nEditing = nRow;
                 var oldData = oTable.fnGetData(nRow);
-                oldKel = oldData[4];
-                oldNik = oldData[0];
-                $.ajax({
-                    url:'../get/listkelas',
-                    type:'GET',
-                    dataType: 'json',
-                    success: function( json ) {
-                        $.each(json, function(i, value) {
-                            if ( oldData[4] == value["nama_kelas"] ) {
-                                $('#selectkelas')
-                                  .append($('<option selected>' + value["nama_kelas"] + '</option>')
-                                  .attr('value', value["nama_kelas"]));
-                            } else {
-                                $('#selectkelas')
-                                  .append($('<option></option>', {text:value["nama_kelas"]})
-                                  .attr('value', value["nama_kelas"]));
-                            }
-                        });
-                    }
-                });
-
+                oldKdmapel = oldData[0];
             }
         });
     });
