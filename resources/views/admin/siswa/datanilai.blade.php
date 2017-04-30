@@ -74,7 +74,7 @@ Daftar Mata Pelajaran
                                     <table class="table table-striped table-bordered table-hover dataTable no-footer" id="sample_editable_1" role="grid">
                                         <thead>
                                             <tr role="row">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="">ID Mapel</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="">Kode Mata Pelajaran</th>
                                                 <th class="sorting" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" aria-label="
                                                  Full Name
                                             : activate to sort column ascending" style="width: 300px;">Nama Mata Pelajaran</th>
