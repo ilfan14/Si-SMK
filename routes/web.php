@@ -38,6 +38,14 @@ Route::group(array('prefix' => 'home'), function () {
         Route::post('editsiswa', array('as' => 'editsiswa', 'uses' => 'SiswaController@edit'));
         Route::get('delete/{niksiswa}', array('as' => 'deletesiswa', 'uses' => 'SiswaController@delete'));
     });
+
+
+    Route::group(array('prefix' => 'mapel'), function () {
+        Route::get('/', array('as' => 'listmapel', 'uses' => 'MapelController@index'));
+        Route::post('tambahmapel', array('as' => 'tambahmapel', 'uses' => 'MapelController@create'));
+        // Route::post('editmapel', array('as' => 'editmapel', 'uses' => 'MapelController@edit'));
+        // Route::get('delete/{nikmapel}', array('as' => 'deletemapel', 'uses' => 'MapelController@delete'));
+    });
 });
 
 

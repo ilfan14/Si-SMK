@@ -70,7 +70,7 @@
     </li>
 
 
-    <li {!! (Request::is('home/nilai') || Request::is('home/nilai') || Request::is('home/nilai/create') || Request::is('home/nilai/*') || Request::is('home/nilai') ? 'class="active"' : '') !!}>
+    <li {!! (Request::is('home/mapel') || Request::is('home/mapel') || Request::is('home/mapel/create') || Request::is('home/mapel/*') || Request::is('home/mapel') ? 'class="active"' : '') !!}>
         <a href="#">
             <i class="livicon" data-name="inbox" data-size="18" "
                data-loop="true"></i>
@@ -79,8 +79,8 @@
         </a>
 
         <ul class="sub-menu">
-            <li {!! ((Request::is('home/nilai')) && !(Request::is('home/nilai/create')) ? 'class="active" id="active"' : '') !!}>
-                <a href="{{ route('listsiswa') }}">
+            <li {!! ((Request::is('home/mapel')) && !(Request::is('home/mapel/create')) ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ route('listmapel') }}">
                     <i class="fa fa-angle-double-right"></i>
                     Mata Pelajaran
                 </a>
