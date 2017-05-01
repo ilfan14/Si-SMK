@@ -15,7 +15,7 @@ class TableMatapelajaranMigration extends Migration
     {
         // create table kelas
         Schema::create('mapel', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_mapel');
             $table->string('kode_mapel')->unique();
             $table->string('nama_mapel')->nullable();
         });

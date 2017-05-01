@@ -1,45 +1,17 @@
 $(document).ready(function() {
-    $('#table1').DataTable( {
-        "responsive":true,
-        initComplete: function () {
-            this.api().columns().every( function () {
-                var column = this;
-                var select = $('<select><option value=""></option></select>')
-                    .appendTo( $(column.footer()).empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
-
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
-
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            } );
-        }
-    } );
-
-$('select').select2({
-    placeholder: "Select a value",
-    theme:"bootstrap"
-});
-
     //table2
     /* Formatting function for row details - modify as you need */
     function format ( d ) {
         // `d` is the original data object for the row
+        alert("test");
         return '<table class="table table-striped" cellpadding="5" style="padding-left:50px;">'+
             '<tr>'+
             '<td>User name:</td>'+
-            '<td>'+d.UserName+'</td>'+
+            '<td>'+d.username+'</td>'+
             '</tr>'+
             '<tr>'+
             '<td>contact no:</td>'+
-            '<td>'+d.contact+'</td>'+
+            '<td>'+d.job+'</td>'+
             '</tr>'+
             '<tr>'+
             '<td>Extra info:</td>'+
@@ -49,8 +21,10 @@ $('select').select2({
     }
 
     $(document).ready(function() {
+
+
         var table2 = $('#table2').DataTable( {
-            "ajax": "../assets/js/pages/data.txt",
+            "ajax": "nilai/siswawithnilai",
             "columns": [
                 {
                     "className":      'details-control',
@@ -58,10 +32,10 @@ $('select').select2({
                     "data":           null,
                     "defaultContent": ''
                 },
-                { "data": "#" },
-                { "data": "FirstName" },
-                { "data": "LastName" },
-                { "data": "UserE-mail" }
+                { "data": "id" },
+                { "data": "username" },
+                { "data": "name" },
+                { "data": "job" }
             ],
             "order": [[1, 'asc']],
             "responsive":true
@@ -86,33 +60,5 @@ $('select').select2({
     } );
 
 
-
-    //table3
-    jQuery(document).ready(function() {
-
-        var table3 = $('#table3').DataTable({
-            "responsive":true
-        });
-
-        $('button.toggle-vis').on('click', function(e) {
-            e.preventDefault();
-
-            // Get the column API object
-            var column = table3.column($(this).attr('data-column'));
-
-            // Toggle the visibility
-            column.visible(!column.visible());
-        });
-
-    });
 } );
 
-
-//table4
-
-var table4 = $('#table4').DataTable({
-    "responsive":true
-});
-$("#table5").DataTable({
-    "responsive":true
-});
