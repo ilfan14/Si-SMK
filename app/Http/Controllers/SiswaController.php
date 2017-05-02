@@ -100,8 +100,15 @@ class SiswaController extends Controller
                 $siswaid = $value->id;
             }
 
-            DB::table('rombel')->where('user_id', $siswaid)->update(['id_kelas' => $kelasid]);
             
+            if (!isset($oldkelas)){
+                $tambahrombel = New Rombel;
+                $tambahrombel->user_id = $siswaid;
+                $tambahrombel->id_kelas = $kelasid;
+                $tambahrombel->save();
+            } else {
+                DB::table('rombel')->where('user_id', $siswaid)->update(['id_kelas' => $kelasid]);
+            }            
         }
 
         echo "work";

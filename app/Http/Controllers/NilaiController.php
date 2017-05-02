@@ -28,14 +28,14 @@ class NilaiController extends Controller
     public function siswawithnilai()
     {
         // Grab all the kelas
-        //$siswa = User::where('job', 'siswa')->select('id', 'username', 'job', 'name')->get();
-        // $siswa = DB::table('users')
-        //                     ->leftjoin('nilai','nilai.user_id', '=', 'users.id')
-        //                     ->leftjoin('mapel','mapel.kode_mapel','=','nilai.kode_mapel')
-        //                     ->where('users.job', '=', 'siswa')
-        //                     ->get();
+        $siswa = DB::table('users')
+                            ->leftjoin('rombel','rombel.user_id', '=', 'users.id')
+                            ->leftjoin('kelas','kelas.id_kelas','=','rombel.id_kelas')
+                            ->where('users.job', '=', 'siswa')
+                            ->select('id','username', 'name', 'nama_kelas', 'gender')
+                            ->get();
 
-        $siswa = User::where('job','siswa')->get();
+        // $siswa = User::where('job','siswa')->get();
         return response()->json(['data' => $siswa]);
     }
 

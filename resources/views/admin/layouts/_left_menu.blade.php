@@ -70,7 +70,7 @@
     </li>
 
 
-    <li {!! (Request::is('home/mapel') || Request::is('home/mapel') || Request::is('home/mapel/create') || Request::is('home/mapel/*') || Request::is('home/mapel') ? 'class="active"' : '') !!}>
+    <li {!! (Request::is('home/mapel') || Request::is('home/nilai') || Request::is('home/mapel/create') || Request::is('home/mapel/*') || Request::is('home/mapel') ? 'class="active"' : '') !!}>
         <a href="#">
             <i class="livicon" data-name="inbox" data-size="18" "
                data-loop="true"></i>
@@ -88,7 +88,7 @@
 
         
             <li {!! (Request::is('home/nilai') ? 'class="active" id="active"' : '') !!}>
-                <a href="{{ URL::to('home/kelas') }}">
+                <a href="{{ route('lihatnilai') }}">
                     <i class="fa fa-angle-double-right"></i>
                     Nilai Siswa
                 </a>

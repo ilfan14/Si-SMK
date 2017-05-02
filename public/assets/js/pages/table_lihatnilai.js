@@ -26,7 +26,7 @@ $(document).ready(function() {
                 '</tr>'+
                 '<tr>'+
                 '<td>contact no:</td>'+
-                '<td>'+d.job+'</td>'+
+                '<td>'+d.gender+'</td>'+
                 '</tr>'+
                 '<tr>'+
                 '<td>Extra info:</td>'+
@@ -49,7 +49,8 @@ $(document).ready(function() {
                 { "data": "id" },
                 { "data": "username" },
                 { "data": "name" },
-                { "data": "job" }
+                { "data": "nama_kelas" },
+                { "data": "gender" }
             ],
             "order": [[1, 'asc']],
             "responsive":true

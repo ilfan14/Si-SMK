@@ -50,10 +50,11 @@ Data Nilai Siswa
                                     <thead>
                                     <tr>
                                         <th style="width: 20px;"></th>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>User E-mail</th>
+                                        <th>Id User</th>
+                                        <th>Nik</th>
+                                        <th>Nama</th>
+                                        <th>Kelas</th>
+                                        <th>Jenis Kelamin</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -76,5 +77,5 @@ Data Nilai Siswa
     <script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/dataTables.bootstrap.js') }}" ></script>
     <script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/dataTables.responsive.js') }}" ></script>
     <script type="text/javascript" src="{{ asset('assets/vendors/select2/js/select2.js') }}" ></script>
-    <script type="text/javascript" src="{{ asset('assets/js/pages/table-advanced2.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('assets/js/pages/table_lihatnilai.js') }}" ></script>
 @stop
