@@ -51,7 +51,7 @@ Route::group(array('prefix' => 'home'), function () {
         Route::get('/', array('as' => 'lihatnilai', 'uses' => 'NilaiController@index'));
         Route::get('siswawithnilai', array('as' => 'siswawithnilai', 'uses' => 'NilaiController@siswawithnilai'));
         Route::get('onlynilai/{userid}', array('as' => 'onlynilai', 'uses' => 'NilaiController@onlynilai'));
-    //     Route::post('tambahmapel', array('as' => 'tambahmapel', 'uses' => 'MapelController@create'));
+        Route::post('tambahnilai', array('as' => 'tambahnilai', 'uses' => 'NilaiController@create'));
     //     Route::post('editmapel', array('as' => 'editmapel', 'uses' => 'MapelController@edit'));
     //     Route::get('delete/{nikmapel}', array('as' => 'deletemapel', 'uses' => 'MapelController@delete'));
     });

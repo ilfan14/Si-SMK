@@ -12,6 +12,10 @@ Data Nilai Siswa
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/select2/css/select2.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/select2/css/select2-bootstrap.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/pages/tables.css') }}" />
+
+    <!--  penambahan show modal -->
+    <link href="{{ asset('assets/vendors/modal/css/component.css') }}" rel="stylesheet" />
+
 @stop
 
 {{-- Page content --}}
@@ -65,9 +69,55 @@ Data Nilai Siswa
                         </div>
                     </div>
                 </div>
-            </section>
-            <!-- content -->
 
+                <!--- responsive model -->
+                <div class="modal fade in" id="responsive" tabindex="-1" role="dialog" aria-hidden="false" style="display:none;">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <form action="{{ route('tambahnilai') }}" autocomplete="on" method="post" role="form">
+                                <!-- CSRF Token -->
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title">Tambah Nilai</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p>
+                                                    <label>Id Siswa</label>
+                                                    <input readonly="readonly" id="idsiswa" name="idsiswa" type="text" placeholder="Id Siswa" class="form-control " value="ID">
+                                                </p>
+                                                <p>
+                                                    <label>Nama Siswa</label>
+                                                    <input readonly="readonly" id="namasiswa" name="namasiswa" type="text" placeholder="Nama Siswa" class="form-control disable">
+                                                </p>
+                                                <p>
+                                                    <label>Kode Mata Pelajaran</label>
+                                                    <input id="name2" name="kodemapel" type="text" placeholder="Kode Mata Pelajaran" class="form-control">
+                                                </p>
+                                                <p>
+                                                    <label>Nilai </label>
+                                                    <input id="name3" name="nilai" type="text" placeholder="Nilai" class="form-control">
+                                                </p>
+                                                <p>
+                                                    <label>Keterangan </label>
+                                                    <input id="keterangan" name="keterangan" type="text" placeholder="Keterangan" class="form-control">
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" data-dismiss="modal" class="btn">Batal</button>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+                <!-- END modal-->
+
+            </section>
     @stop
 
 {{-- page level scripts --}}
@@ -78,4 +128,9 @@ Data Nilai Siswa
     <script type="text/javascript" src="{{ asset('assets/vendors/datatables/js/dataTables.responsive.js') }}" ></script>
     <script type="text/javascript" src="{{ asset('assets/vendors/select2/js/select2.js') }}" ></script>
     <script type="text/javascript" src="{{ asset('assets/js/pages/table_lihatnilai.js') }}" ></script>
+
+
+    <!-- show modal js  -->
+    <script src="{{ asset('assets/vendors/modal/js/classie.js') }}" ></script>
+    <script src="{{ asset('assets/vendors/modal/js/modalEffects.js') }}" ></script>
 @stop

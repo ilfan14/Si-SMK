@@ -10,6 +10,7 @@ use App\Rombel;
 use App\User;
 use App\Nilai;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class NilaiController extends Controller
 {
@@ -41,7 +42,21 @@ class NilaiController extends Controller
 
     public function onlynilai($id)
     {
-        $nilai = Nilai::where('user_id', $id)->get();
+        $nilai = DB::table('nilai')->where('user_id', $id)
+                                    ->join('mapel', 'mapel.kode_mapel', '=', 'nilai.kode_mapel')
+                                    ->get();
         return response()->json($nilai);
+    }
+
+    public function create(UserRequest $request)
+    {
+        $nilai = new Nilai;
+        $nilai->kode_mapel = $request->get('kodemapel');
+        $nilai->user_id = $request->get('idsiswa');
+        $nilai->nilai = $request->get('nilai');
+        $nilai->keterangan = $request->get('keterangan');
+        $nilai->save();
+
+        return Redirect::back()->with('msg', 'The Message');
     }
 }

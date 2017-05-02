@@ -16,4 +16,6 @@ class Nilai extends Model
     ];
 
     public $timestamps = false;
+
+
 }
