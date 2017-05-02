@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Request;
 use App\Kelas;
 use App\Rombel;
 use App\User;
+use App\Nilai;
 use Illuminate\Support\Facades\DB;
 
 class NilaiController extends Controller
@@ -28,11 +29,19 @@ class NilaiController extends Controller
     {
         // Grab all the kelas
         //$siswa = User::where('job', 'siswa')->select('id', 'username', 'job', 'name')->get();
-        $siswa = DB::table('users')
-                            ->leftjoin('nilai','nilai.user_id', '=', 'users.id')
-                            ->leftjoin('mapel','mapel.kode_mapel','=','nilai.kode_mapel')
-                            ->where('users.job', '=', 'siswa')
-                            ->get();
+        // $siswa = DB::table('users')
+        //                     ->leftjoin('nilai','nilai.user_id', '=', 'users.id')
+        //                     ->leftjoin('mapel','mapel.kode_mapel','=','nilai.kode_mapel')
+        //                     ->where('users.job', '=', 'siswa')
+        //                     ->get();
+
+        $siswa = User::where('job','siswa')->get();
         return response()->json(['data' => $siswa]);
+    }
+
+    public function onlynilai($id)
+    {
+        $nilai = Nilai::where('user_id', $id)->get();
+        return response()->json($nilai);
     }
 }

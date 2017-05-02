@@ -3,26 +3,40 @@ $(document).ready(function() {
     /* Formatting function for row details - modify as you need */
     function format ( d ) {
         // `d` is the original data object for the row
-        alert("test");
-        return '<table class="table table-striped" cellpadding="5" style="padding-left:50px;">'+
-            '<tr>'+
-            '<td>User name:</td>'+
-            '<td>'+d.username+'</td>'+
-            '</tr>'+
-            '<tr>'+
-            '<td>contact no:</td>'+
-            '<td>'+d.job+'</td>'+
-            '</tr>'+
-            '<tr>'+
-            '<td>Extra info:</td>'+
-            '<td>And any further details here (images etc)...</td>'+
-            '</tr>'+
-            '</table>';
+        // alert(d.id);
+        var urlget = "nilai/onlynilai/" + d.id;
+
+        $.ajax({
+                url: urlget,
+                type:'GET',
+                dataType: 'json',
+                success: function( json ) {
+                    $.each(json, function(i, value) {
+                        $('#tabeltest')
+                              .append($('<tr><td>Pelajaran</td><td>' + value["kode_mapel"] + '</td></tr>')
+                              .attr('value', value["id_nilai    "]));
+                    });
+                }
+        });
+
+        return '<table id="tabeltest" class="table table-striped" cellpadding="5" style="padding-left:50px;">'+
+                '<tr>'+
+                '<td>User name:</td>'+
+                '<td>'+d.username+'</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td>contact no:</td>'+
+                '<td>'+d.job+'</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td>Extra info:</td>'+
+                '<td>And any further details here (images etc)...</td>'+
+                '</tr>'+
+                '</table>';
+        
     }
 
     $(document).ready(function() {
-
-
         var table2 = $('#table2').DataTable( {
             "ajax": "nilai/siswawithnilai",
             "columns": [
