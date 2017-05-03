@@ -11,6 +11,7 @@ use App\User;
 use App\Nilai;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Session;
 
 class NilaiController extends Controller
 {
@@ -50,13 +51,14 @@ class NilaiController extends Controller
 
     public function create(UserRequest $request)
     {
-        $nilai = new Nilai;
-        $nilai->kode_mapel = $request->get('kodemapel');
-        $nilai->user_id = $request->get('idsiswa');
-        $nilai->nilai = $request->get('nilai');
-        $nilai->keterangan = $request->get('keterangan');
-        $nilai->save();
+        // $nilai = new Nilai;
+        // $nilai->kode_mapel = $request->get('kodemapel');
+        // $nilai->user_id = $request->get('idsiswa');
+        // $nilai->nilai = $request->get('nilai');
+        // $nilai->keterangan = $request->get('keterangan');
+        // $nilai->save();
 
-        return Redirect::back()->with('msg', 'The Message');
+        Session::flash('message', "Special message goes here");
+        return Redirect::back();
     }
 }

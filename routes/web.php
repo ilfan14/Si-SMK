@@ -45,6 +45,7 @@ Route::group(array('prefix' => 'home'), function () {
         Route::post('tambahmapel', array('as' => 'tambahmapel', 'uses' => 'MapelController@create'));
         Route::post('editmapel', array('as' => 'editmapel', 'uses' => 'MapelController@edit'));
         Route::get('delete/{nikmapel}', array('as' => 'deletemapel', 'uses' => 'MapelController@delete'));
+        Route::get('listkodemapel', array('as' => 'listkodemapel', 'uses' => 'MapelController@listkodemapel'));
     });
 
     Route::group(array('prefix' => 'nilai'), function () {

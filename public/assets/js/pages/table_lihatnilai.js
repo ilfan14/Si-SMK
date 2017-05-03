@@ -48,6 +48,7 @@ $(document).ready(function() {
                                         '<tr>' + 
                                         '<th>Nama Mata Pelajaran</th>' + 
                                         '<th>Nilai</th>' + 
+                                        '<th>Keterangan</th>' + 
                                         '<tr>' +
                                         '</thead>'+
                                         '<tbody id="tabelnilai">'+
@@ -62,10 +63,10 @@ $(document).ready(function() {
                            
                             document.getElementById("datanilai").innerHTML = "Data Nilai Siswa";
                             $('#tabelnilai')
-                                .append($('<tr role="row" id="nilaidata' + value["kode_mapel"] + '"></tr>')
+                                .append($('<tr role="row" id="nilaidata' + value["id_nilai"] + '"></tr>')
                                 );
-                            $('#nilaidata' + value["kode_mapel"])
-                                .append($('<td>' + value["nama_mapel"] + '</td><td>' + value["nilai"] + '</td>')
+                            $('#nilaidata' + value["id_nilai"])
+                                .append($('<td>' + value["nama_mapel"] + '</td><td>' + value["nilai"] + '</td><td>' + value["keterangan"] + '</td>')
                                 );
                             
 
@@ -140,6 +141,41 @@ $(document).ready(function() {
             } else {
                 $('#idsiswa').attr('value', iddiklik);
                 $('#namasiswa').attr('value', namadiklik);
+
+                // aneh data tidak terhapus jika tidak dua kali 
+                var list = document.getElementById("kodemapel");          
+                console.log(list.length);
+                for (var i = list.length - 1; i >= 0; i--) {
+                    list.removeChild(list.childNodes[i]);
+                };
+                var listkedua = document.getElementById("kodemapel");         
+                console.log(listkedua.length);
+                for (var i = listkedua.length - 1; i >= 0; i--) {
+                    listkedua.removeChild(listkedua.childNodes[i]);
+                };
+                // end keanehan
+
+                $.ajax({
+                    url: 'mapel/listkodemapel',
+                    type:'GET',
+                    dataType: 'json',
+                    success: function( json ) {
+                        if(!isEmpty(json)){
+
+                            
+                            $.each(json, function(i, value) {
+
+                                $('#kodemapel')
+                                    .append($('<option value="' + value["kode_mapel"] + '">' + value["kode_mapel"] + '</option>')
+                                    );
+                            });
+
+                        } else {
+                            console.log("nodata");
+                        }
+                        
+                    }
+                });
             }
             
         } );

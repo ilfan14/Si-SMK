@@ -94,7 +94,9 @@ Data Nilai Siswa
                                                 </p>
                                                 <p>
                                                     <label>Kode Mata Pelajaran</label>
-                                                    <input id="name2" name="kodemapel" type="text" placeholder="Kode Mata Pelajaran" class="form-control">
+                                                    <select class="form-control" id="kodemapel" name="kodemapel">
+                                                        
+                                                    </select>
                                                 </p>
                                                 <p>
                                                     <label>Nilai </label>
@@ -102,7 +104,10 @@ Data Nilai Siswa
                                                 </p>
                                                 <p>
                                                     <label>Keterangan </label>
-                                                    <input id="keterangan" name="keterangan" type="text" placeholder="Keterangan" class="form-control">
+                                                    <select id="keterangan" name="keterangan" class="form-control">
+                                                        <option value="Ulangan Harian">Ulangan Harian</option>
+                                                        <option value="Ujian Semester">Ujian Semester</option>
+                                                    </select>
                                                 </p>
                                             </div>
                                         </div>
@@ -118,6 +123,11 @@ Data Nilai Siswa
                 <!-- END modal-->
 
             </section>
+
+
+            @if (Session::has('message'))
+               <div class="alert alert-info">{{ Session::get('message') }}</div>
+            @endif
     @stop
 
 {{-- page level scripts --}}

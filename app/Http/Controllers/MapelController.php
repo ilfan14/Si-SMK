@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Request;
 use App\Mapel;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use Response;
 
 class MapelController extends Controller
 {
@@ -59,5 +60,13 @@ class MapelController extends Controller
     public function delete($kdmapel) 
     {
         Mapel::where('kode_mapel', $kdmapel)->delete();
+    }
+
+
+    public function listkodemapel()
+    {
+        $kodemapel = Mapel::select('kode_mapel')->get();
+        return response()->json($kodemapel);
+
     }
 }
