@@ -66,7 +66,7 @@ $(document).ready(function() {
                                 .append($('<tr role="row" id="nilaidata' + value["id_nilai"] + '"></tr>')
                                 );
                             $('#nilaidata' + value["id_nilai"])
-                                .append($('<td>' + value["nama_mapel"] + '</td><td>' + value["nilai"] + '</td><td>' + value["keterangan"] + '</td>')
+                                .append($('<td>' + value["nama_mapel"] + '</td><td>' + value["nilai"] + '</td><td>' + value["keterangan"] + '</td><td><a class="btn btn-success btn-large" id="tomboltest" href="#">TestButton</a></td>')
                                 );
                             
 
@@ -127,6 +127,7 @@ $(document).ready(function() {
             var tr = $(this).closest('tr');
             var row = table2.row( tr );
             var ygdiklik = ($(this).attr('colspan'));
+            console.log(this.childNodes[0].id);
             if (ygdiklik != 6 ){
                 if ( row.child.isShown() ) {
                 // This row is already open - close it
