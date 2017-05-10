@@ -45,7 +45,7 @@ Data Nilai Siswa
                         <div class="panel panel-info filterable">
                             <div class="panel-heading clearfix">
                                 <h3 class="panel-title pull-left">
-                                    <i class="livicon" data-name="gift" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
+                                    <i class="livicon" data-name="box" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
                                     Tabel Data Nilai Siswa
                                 </h3>
                             </div>

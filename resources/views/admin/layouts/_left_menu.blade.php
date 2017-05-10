@@ -3,7 +3,7 @@
         <a href="{{ route('dashboard') }}">
             <i class="livicon" data-name="home" data-size="18" data-c="#418BCA" data-hc="#418BCA"
                data-loop="true"></i>
-            <span class="title">Dashboard</span>
+            <span class="title">Beranda</span>
         </a>
     </li>
 
@@ -40,7 +40,7 @@
 
     </li>
 
-
+@role(['Admin','Guru'])
     <li {!! (Request::is('home/siswa') || Request::is('home/kelas') || Request::is('home/siswa/create') || Request::is('home/siswa/*') || Request::is('home/siswa') ? 'class="active"' : '') !!}>
         <a href="#">
             <i class="livicon" data-name="box" data-size="18" "
@@ -69,6 +69,7 @@
 
     </li>
 
+@endrole
 
     <li {!! (Request::is('home/mapel') || Request::is('home/nilai') || Request::is('home/mapel/create') || Request::is('home/mapel/*') || Request::is('home/mapel') ? 'class="active"' : '') !!}>
         <a href="#">
@@ -78,7 +79,9 @@
             <span class="fa arrow"></span>
         </a>
 
+
         <ul class="sub-menu">
+@role(['Admin','Guru'])
             <li {!! ((Request::is('home/mapel')) && !(Request::is('home/mapel/create')) ? 'class="active" id="active"' : '') !!}>
                 <a href="{{ route('listmapel') }}">
                     <i class="fa fa-angle-double-right"></i>
@@ -86,17 +89,46 @@
                 </a>
             </li>
 
-        
+
+
+
             <li {!! (Request::is('home/nilai') ? 'class="active" id="active"' : '') !!}>
                 <a href="{{ route('lihatnilai') }}">
                     <i class="fa fa-angle-double-right"></i>
                     Nilai Siswa
                 </a>
             </li>
+
+@endrole
+
+
+@role(['Siswa'])
+            <li {!! (Request::is('home/nilai') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ route('lihatnilaisiswa') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    Lihat Nilai
+                </a>
+            </li>
+
+@endrole
         </ul>
 
 
     </li>
+
+
+
+
+     <li {!! (Request::is('home/mapel') || Request::is('home/nilai') || Request::is('home/mapel/create') || Request::is('home/mapel/*') || Request::is('home/mapel') ? 'class="active"' : '') !!}>
+        <a href="/home">
+            <i class="livicon" data-name="inbox" data-size="18" "
+               data-loop="true"></i>
+            <span class="title">Informasi</span>
+            <span class="fa arrow"></span>
+        </a>
+    </li>
+
+
 
 
 @include('admin/layouts/menu')

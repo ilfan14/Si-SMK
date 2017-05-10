@@ -66,7 +66,7 @@ $(document).ready(function() {
                                 .append($('<tr role="row" id="nilaidata' + value["id_nilai"] + '"></tr>')
                                 );
                             $('#nilaidata' + value["id_nilai"])
-                                .append($('<td>' + value["nama_mapel"] + '</td><td>' + value["nilai"] + '</td><td>' + value["keterangan"] + '</td><td><a class="btn btn-success btn-large" id="tomboledit" href="#">Edit</a></td>')
+                                .append($('<td>' + value["nama_mapel"] + '</td><td>' + value["nilai"] + '</td><td>' + value["keterangan"] + '</td><td><a class="btn btn-success btn-large" id="tomboledit" href="nilai/deletenilai/' + value["id_nilai"] + '" >Hapus</a></td>')
                                 );
                             
 
@@ -134,12 +134,15 @@ $(document).ready(function() {
 
             } else {
                 buttondiklik = this.childNodes[0].id;
+                buttondiklikval = this.childNodes[0].value;
             }
+
+
 
             // mengambil id dari button edit / delete
             // var buttondiklik = this.childNodes[0].id;
             // console.log(buttondiklik);
-           console.log(this);
+           // console.log(this);
             if (ygdiklik == 6 && buttondiklik != 'tomboledit'){
                 console.log('masuk if not else');
                 $('#idsiswa').attr('value', iddiklik);
@@ -187,6 +190,7 @@ $(document).ready(function() {
                
                 if (buttondiklik == 'tomboledit'){
                     console.log(buttondiklik);
+                    console.log(buttondiklikval);
 
                 } else {
                     if ( row.child.isShown() ) {

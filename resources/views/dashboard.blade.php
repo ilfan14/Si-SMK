@@ -25,13 +25,34 @@
 {{-- Page content --}}
 @section('content')
 
+    @role(['Siswa'])
     <section class="content-header">
-        <h1>Welcome to Dashboard</h1>
+        <h1>Selamat Datang di Beranda</h1>
         <ol class="breadcrumb">
             <li class="active">
                 <a href="#">
                     <i class="livicon" data-name="home" data-size="16" data-color="#333" data-hovercolor="#333"></i>
-                    Dashboard
+                    Beranda
+                </a>
+            </li>
+        </ol>
+    </section>
+
+    <section>
+        <div style="text-align: center; font-size: xx-large;">Belum Ada informasi</div>
+    </section>
+        
+    @endrole
+        
+    @role(['Guru'])
+
+    <section class="content-header">
+        <h1>Selamat Datang di Beranda</h1>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a href="#">
+                    <i class="livicon" data-name="home" data-size="16" data-color="#333" data-hovercolor="#333"></i>
+                    Beranda
                 </a>
             </li>
         </ol>
@@ -209,5 +230,7 @@
             </div>
         </div>
     </section>
+
+    @endrole
 
 @stop

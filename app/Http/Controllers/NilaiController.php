@@ -51,14 +51,30 @@ class NilaiController extends Controller
 
     public function create(UserRequest $request)
     {
-        // $nilai = new Nilai;
-        // $nilai->kode_mapel = $request->get('kodemapel');
-        // $nilai->user_id = $request->get('idsiswa');
-        // $nilai->nilai = $request->get('nilai');
-        // $nilai->keterangan = $request->get('keterangan');
-        // $nilai->save();
+        $nilai = new Nilai;
+        $nilai->kode_mapel = $request->get('kodemapel');
+        $nilai->user_id = $request->get('idsiswa');
+        $nilai->nilai = $request->get('nilai');
+        $nilai->keterangan = $request->get('keterangan');
+        $nilai->save();
 
         Session::flash('message', "Special message goes here");
         return Redirect::back();
+    }
+
+    public function delete($idnilai) 
+    {
+        Nilai::where('id_nilai', $idnilai)->delete();
+        return Redirect::back();
+    }
+
+    public function lihatilaisiswa()
+    {
+        $iduser = Auth::id();
+        $nilai = DB::table('nilai')->where('user_id', $iduser)
+                                    ->join('mapel', 'mapel.kode_mapel', '=', 'nilai.kode_mapel')
+                                    ->get();
+        // Show the page
+        return View('admin.siswa.lihatnilaisiswa', compact('nilai', 'iduser'));
     }
 }
