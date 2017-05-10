@@ -16,103 +16,7 @@
                 lineColor: '#fff'
             });
 
-    /* Calendar */
-
-
-            /* initialize the calendar
-                     -----------------------------------------------------------------*/
-            //Date for the calendar events (dummy data)
-             var date = new Date();
-            var d = date.getDate(),
-                m = date.getMonth(),
-                y = date.getFullYear();
-             $('#calendar').fullCalendar({
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month'
-                },
-                //Random events
-                events: [{
-                        title: 'Team Out',
-                        start: new Date(y, m, 1),
-                        backgroundColor: ('#418BCA')
-                    },{
-                    title: 'Long Event',
-                    start: new Date(y, m, d - 8),
-                    end: new Date(y, m, d - 4),
-                    backgroundColor: "#F89A14",
-                    borderColor: "#F89A14"
-                    },
-
-                     {
-                       title: 'Holiday',
-                       start: new Date(y, m,  10),
-                       backgroundColor: ('#01BC8C')
-                    }, {
-                       title: 'Seminar',
-                       start: new Date(y, m, 12),
-                       backgroundColor: ('#67C5DF')
-                    },{
-                       title: 'Anniversary Celebrations',
-                       start: new Date(y, m, 22),
-                       backgroundColor: ('#EF6F6C')
-                    },{
-                       title: 'Event Day',
-                       start: new Date(y, m, 31),
-                       backgroundColor: ('#EF6F6C')
-                    },{
-                    title: 'Client Meeting',
-                    start: new Date(y, m,  28),
-                    end: new Date(y, m,30),
-                    backgroundColor: "#A9B6BC",
-                    borderColor: "#A9B6BC"
-                    }],
-                editable: true,
-                droppable: false,
-                 height:450
-            });
-
-            /* ADDING EVENTS */
-            var currColor = "#418BCA"; //default
-            //Color chooser button
-            var colorChooser = $("#color-chooser-btn");
-            $("#color-chooser > li > a").click(function(e) {
-                e.preventDefault();
-                //Save color
-                currColor = $(this).css("background-color");
-                //Add color effect to button
-                colorChooser
-                    .css({
-                        "background-color": currColor,
-                        "border-color": currColor
-                    })
-                    .html($(this).text() + ' <span class="caret"></span>');
-            });
-            $("#add-new-event").click(function(e) {
-                e.preventDefault();
-                //Get value and make sure it is not null
-                var val = $("#new-event").val();
-                if (val.length == 0) {
-                    return;
-                }
-
-                //Create event
-                var event = $("<div />");
-                event.css({
-                    "background-color": currColor,
-                    "border-color": currColor,
-                    "color": "#fff"
-                }).addClass("external-event");
-                event.html(val);
-                $('#external-events').prepend(event);
-
-                //Add draggable funtionality
-                ini_events(event);
-
-                //Remove event from text input
-                $("#new-event").val("");
-            });
+    
     /* realtime chart */
     var data = [], totalPoints = 300;
         function getRandomData() {
@@ -187,7 +91,7 @@
              decimal : '.' // character to use as a decimal
          }
 
-     var demo = new CountUp("myTargetElement1", 12.52, 9500, 0, 6, options);
+     var demo = new CountUp("myTargetElement1", 12.52, 1000, 0, 6, options);
         demo.start();
         var demo = new CountUp("myTargetElement2", 1, 100, 0, 6, options);
         demo.start();
@@ -230,83 +134,4 @@
                 }
             }
     //Percentage Monitor
-              $(document).ready(function()
-
-        {
-
-            /** BEGIN WIDGET PIE FUNCTION **/
-            if ($('.widget-easy-pie-1').length > 0)
-            {
-                $('.widget-easy-pie-1').easyPieChart({
-                    easing: 'easeOutBounce',
-                    barColor : '#F9AE43',
-                    lineWidth: 5
-                });
-            }
-            if ($('.widget-easy-pie-2').length > 0)
-            {
-                $('.widget-easy-pie-2').easyPieChart({
-                    easing: 'easeOutBounce',
-                    barColor : '#F9AE43',
-                    lineWidth: 5,
-                    onStep: function(from, to, percent) {
-                        $(this.el).find('.percent').text(Math.round(percent));
-                    }
-                });
-            }
-
-            if ($('.widget-easy-pie-3').length > 0)
-            {
-                $('.widget-easy-pie-3').easyPieChart({
-                    easing: 'easeOutBounce',
-                    barColor : '#EF6F6C',
-                    lineWidth: 5
-                });
-            }
-            /** END WIDGET PIE FUNCTION **/
-
-
-
-        });
-
-    //world map
-    $(function(){
-      $('#world-map-markers').vectorMap({
-        map: 'world_mill_en',
-        scaleColors: ['#C8EEFF', '#0071A4'],
-        normalizeFunction: 'polynomial',
-        hoverOpacity: 0.7,
-        hoverColor: false,
-        markerStyle: {
-          initial: {
-            fill: '#EF6F6C',
-            stroke: '#383f47'
-          }
-        },
-        backgroundColor: '#515763',
-        markers: [
-            {latLng: [60,-100], name: 'canada - 1222 views'},
-            {latLng: [43.93, 12.46], name: 'San Marino- 300 views'},
-            {latLng: [47.14, 9.52], name: 'Liechtenstein- 52 views'},
-            {latLng: [12.05, -61.75], name: 'Grenada- 5 views'},
-            {latLng: [41.90, 12.45], name: 'Vatican City- 1254 views'},
-            {latLng: [50, 0], name: 'France - 5254 views'},
-            {latLng: [0, 120], name: 'Indonesia - 525 views'},
-            {latLng: [-25, 130], name: 'Australia - 4586 views'},
-            {latLng: [0, 20], name: 'Africa - 1 views'},
-            {latLng: [35, 100], name: 'China -29 views'},
-            {latLng: [46, 105], name: 'Mongolia - 2123 views'},
-            {latLng: [40, 70], name: 'Kyrgiztan - 24446 views'},
-            {latLng: [58, 50], name: 'Russia - 3405 views'},
-            {latLng: [35, 135], name: 'Japan - 47566 views'}
-        ]
-      });
-    });
-     $(document).ready(function() {
-         var composeHeight = $('#calendar').height() + 21 - $('.adds').height();
-         $('.list_of_items').slimScroll({
-             color: '#A9B6BC',
-             height: composeHeight + 'px',
-             size: '5px'
-         });
-     });
+             
