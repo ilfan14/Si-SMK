@@ -1,5 +1,5 @@
 <li class="dropdown messages-menu">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="livicon"
+    <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="livicon"
                                                                    data-name="message-flag"
                                                                    data-loop="true" data-color="#42aaca"
                                                                    data-hovercolor="#42aaca"
@@ -77,5 +77,5 @@
         <li class="footer">
             <a href="#">View all</a>
         </li>
-    </ul>
+    </ul> -->
 </li>

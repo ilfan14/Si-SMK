@@ -104,7 +104,7 @@
     <aside class="left-side sidebar-offcanvas">
         <section class="sidebar ">
             <div class="page-sidebar  sidebar-nav">
-                <div class="nav_icons">
+                <!-- <div class="nav_icons">
                     <ul class="sidebar_threeicons">
                         <li>
                             <a href="link to form builder">
@@ -131,7 +131,7 @@
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="clearfix"></div>
                 <!-- BEGIN SIDEBAR MENU -->
                 @include('admin.layouts._left_menu')
