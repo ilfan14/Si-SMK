@@ -119,7 +119,7 @@
 
 
 
-     <li {!! (Request::is('home/mapel') || Request::is('home/nilai') || Request::is('home/mapel/create') || Request::is('home/mapel/*') || Request::is('home/mapel') ? 'class="active"' : '') !!}>
+     <li {!! (Request::is('home/info') || Request::is('home/nilai') || Request::is('home/info/create') || Request::is('home/info/*') || Request::is('home/info') ? 'class="active"' : '') !!}>
         <a href="/home">
             <i class="livicon" data-name="inbox" data-size="18" "
                data-loop="true"></i>
