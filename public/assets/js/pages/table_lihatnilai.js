@@ -66,7 +66,7 @@ $(document).ready(function() {
                                 .append($('<tr role="row" id="nilaidata' + value["id_nilai"] + '"></tr>')
                                 );
                             $('#nilaidata' + value["id_nilai"])
-                                .append($('<td>' + value["nama_mapel"] + '</td><td>' + value["nilai"] + '</td><td>' + value["keterangan"] + '</td><td><a class="btn btn-success btn-large" id="tomboltest" href="#">TestButton</a></td>')
+                                .append($('<td>' + value["nama_mapel"] + '</td><td>' + value["nilai"] + '</td><td>' + value["keterangan"] + '</td><td><a class="btn btn-success btn-large" id="tomboledit" href="#">Edit</a></td>')
                                 );
                             
 
@@ -127,19 +127,21 @@ $(document).ready(function() {
             var tr = $(this).closest('tr');
             var row = table2.row( tr );
             var ygdiklik = ($(this).attr('colspan'));
-            console.log(this.childNodes[0].id);
-            if (ygdiklik != 6 ){
-                if ( row.child.isShown() ) {
-                // This row is already open - close it
-                row.child.hide();
-                tr.removeClass('shown');
-                }
-                else {
-                    // Open this row
-                    row.child( format(row.data()) ).show();
-                    tr.addClass('shown');
-                }
+            var buttondiklik = null;
+
+             // if untuk menghilangkan error console 
+            if(($(this).attr('class')) == ' details-control') {
+
             } else {
+                buttondiklik = this.childNodes[0].id;
+            }
+
+            // mengambil id dari button edit / delete
+            // var buttondiklik = this.childNodes[0].id;
+            // console.log(buttondiklik);
+           console.log(this);
+            if (ygdiklik == 6 && buttondiklik != 'tomboledit'){
+                console.log('masuk if not else');
                 $('#idsiswa').attr('value', iddiklik);
                 $('#namasiswa').attr('value', namadiklik);
 
@@ -177,7 +179,29 @@ $(document).ready(function() {
                         
                     }
                 });
+
+
+                
+            } else {
+                console.log('masuk else');
+               
+                if (buttondiklik == 'tomboledit'){
+                    console.log(buttondiklik);
+
+                } else {
+                    if ( row.child.isShown() ) {
+                        // This row is already open - close it
+                        row.child.hide();
+                        tr.removeClass('shown');
+                    } else {
+                        // Open this row
+                        row.child( format(row.data()) ).show();
+                        tr.addClass('shown');
+                    }
+                }
             }
+            
+                
             
         } );
 
