@@ -63,6 +63,7 @@ Route::group(array('prefix' => 'home'), function () {
     Route::group(array('prefix' => 'absen'), function () {
         Route::get('/', array('as' => 'absen', 'uses' => 'AbsensiController@index'));
         Route::post('absenkelas', array('as' => 'absenkelas', 'uses' => 'AbsensiController@absenkelas'));
+        Route::post('doabsen', array('as' => 'doabsen', 'uses' => 'AbsensiController@doabsen'));
 
 
     });

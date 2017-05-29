@@ -41,50 +41,64 @@ Simple Tables
                                     Absensi Kelas (KELAS)
                                 </div>
                             </div>
-                            <div class="portlet-body">
-                                <div class="table-scrollable">
-                                    <table class="table table-striped table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 20px;">No</th>
-                                                <th >Nama Siswa</th>
-                                                <th style="width: 150px;">Jenis Kelamin</th>
-                                                <th >Agama</th>
-                                                <th style="width: 30px; position: absolute;">Absensi</th>
-                                                <th style="width: 30px;"> </th>
-                                                <th style="width: 30px;"> </th>
-                                                <th style="width: 30px;"> </th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($siswa as $siswa)
+                            <div class="portlet-body" >
+                                <div class="table-scrollable" >
+                                        <table class="table table-striped table-hover">
+                                            <thead>
                                                 <tr>
-                                                <td>{!! $loop->index+1 !!}</td>
-                                                <td>{!! $siswa->name !!}</td>
-                                                <td>{!! $siswa->gender !!}</td>
-                                                <td>{!! $siswa->agama !!}</td>
-                                                <td style="width: 30px;"> H </td>
-                                                <td> <span class="label label-sm label-danger"> A </span></td>
-                                                <td> <span> I </span></td>
-                                                <td> <span> S </span></td>
-                                                <td> <span> P </span></td>
+                                                    <th style="width: 20px;">No</th>
+                                                    <th >Nama Siswa</th>
+                                                    <th style="width: 150px;">Jenis Kelamin</th>
+                                                    <th >Agama</th>
+                                                    <th style="width: 150px; position: absolute;">Absensi</th>
+                                                    
+
                                                 </tr>
-                                            @endforeach
+                                            </thead>
+                                            <tbody id="tableabsenkelas">
+                                                @foreach ($siswa as $siswa)
+                                                    <tr id=idke-{!! $siswa->id !!}>
+                                                        <input type="hidden" name="iduser[]" value={!! $siswa->id !!} >
+                                                        <td>{!! $loop->index+1 !!}</td>
+                                                        <td>{!! $siswa->name !!}</td>
+                                                        <td>{!! $siswa->gender !!}</td>
+                                                        <td>{!! $siswa->agama !!}</td>
+                                                        <td style="width: 150px;"> 
+                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="H"> <label> H</label>
+                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="A"> <label> A</label>
+                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="I"> <label> I</label>
+                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="S"> <label> S</label>
+                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="P"> <label> P</label>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
 
 
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
+                                        <div style="text-align: right;">
+                                        <button type="button" role="button" class="btn btn-default" onclick="testfunction()">Simpan</button>
+                                            
+                                        </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </section>
+
+            <form method="POST" action="{{ route ('doabsen') }}" id="kirimdata"> 
+            {{ csrf_field() }} 
+            
+            </form>
             <!-- content -->
         
     @stop
 
 {{-- page level scripts --}}
 @section('footer_scripts')
+
+        <script src="{{ asset('assets/js/kelasabsen.js') }}" ></script>
+
 @stop

@@ -43,5 +43,10 @@ class AbsensiController extends Controller
         return View('admin.siswa.absenkelas', compact('siswa', 'iduser'));
     }
 
+    public function doabsen( UserRequest $request) 
+    {
+        dd($request);
+    }
+
 
 }
