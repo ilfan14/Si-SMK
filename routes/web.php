@@ -25,7 +25,8 @@ Route::group(array('prefix' => 'home'), function () {
     });
 
     Route::group(array('prefix' => 'kelas'), function () {
-    	Route::get('/', array('as' => 'listkelas', 'uses' => 'KelasController@index'));
+        Route::get('/', array('as' => 'listkelas', 'uses' => 'KelasController@index'));
+    	Route::get('listkelas/{jeniskelas}', array('as' => 'listkelas', 'uses' => 'KelasController@searchkelas'));
         Route::get('delete/{idkelas}', array('as' => 'deletekelas', 'uses' => 'KelasController@delete'));
         Route::post('createkelas', array('as' => 'createkelas', 'uses' => 'KelasController@create'));
         Route::post('editkelas', array('as' => 'editkelas', 'uses' => 'KelasController@edit'));
@@ -56,6 +57,13 @@ Route::group(array('prefix' => 'home'), function () {
     //     Route::post('editmapel', array('as' => 'editmapel', 'uses' => 'MapelController@edit'));
         Route::get('deletenilai/{idnilai}', array('as' => 'deletenilai', 'uses' => 'NilaiController@delete'));
         Route::get('siswa', array('as' => 'lihatnilaisiswa', 'uses' => 'NilaiController@lihatilaisiswa'));
+    });
+
+
+    Route::group(array('prefix' => 'absen'), function () {
+        Route::get('/', array('as' => 'absen', 'uses' => 'AbsensiController@index'));
+        Route::post('absenkelas', array('as' => 'absenkelas', 'uses' => 'AbsensiController@absenkelas'));
+
 
     });
 

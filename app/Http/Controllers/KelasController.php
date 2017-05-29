@@ -74,4 +74,28 @@ class KelasController extends Controller
         })->export('xls');
 
     }
+
+    public function searchkelas($jeniskelas){
+        switch ($jeniskelas) {
+            case 1:
+                $search = "TKJ";
+                break;            
+            case 2:
+                $search = "AP";
+                break;
+            case 3:
+                $search = "AK";
+                break;
+            case 4:
+                $search = "PBK";
+                break;
+            case 5:
+                $search = "PRW";
+                break;
+        }
+
+        $hasilsearch = Kelas::where('nama_kelas', $search)->orWhere('nama_kelas', 'like', '%' . $search . '%')->get();
+
+        return $hasilsearch;
+    }
 }

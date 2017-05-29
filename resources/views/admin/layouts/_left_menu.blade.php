@@ -129,6 +129,15 @@
     </li>
 
 
+    <li {!! (Request::is('home/absen') || Request::is('home/absen') || Request::is('home/absen/create') || Request::is('home/absen/*') || Request::is('home/absen') ? 'class="active"' : '') !!}>
+        <a href="{{ route('absen') }} ">
+            <i class="livicon" data-name="inbox" data-size="18" "
+               data-loop="true"></i>
+            <span class="title">Absensi</span>
+            <span class="fa arrow"></span>
+        </a>
+    </li>
+
 
 
 @include('admin/layouts/menu')
