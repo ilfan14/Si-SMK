@@ -1,4 +1,4 @@
-function testfunction() {
+function submitFunction() {
 
 
 	var banyakdata = document.getElementById("tableabsenkelas").childElementCount; 

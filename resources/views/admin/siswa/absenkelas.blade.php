@@ -43,7 +43,7 @@ Simple Tables
                             </div>
                             <div class="portlet-body" >
                                 <div class="table-scrollable" >
-                                    <form action="javascript:testfunction();" >
+                                    <form action="javascript:submitFunction();" >
                                         <table class="table table-striped table-hover">
                                             <thead>
                                                 <tr>
