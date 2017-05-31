@@ -12,6 +12,7 @@ use App\Nilai;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Session;
+use Carbon;
 
 
 class AbsensiController extends Controller
@@ -36,15 +37,21 @@ class AbsensiController extends Controller
 
         $siswa = DB::table('users')
                             ->leftjoin('rombel','rombel.user_id', '=', 'users.id')
+                            ->leftjoin('kelas','kelas.id_kelas','=','rombel.id_kelas')
                             ->where('rombel.id_kelas', '=', $kelassiswa->id_kelas)
-                            ->select('id','username', 'name', 'gender', 'agama')
+                            ->select('id','username', 'name', 'gender', 'agama', 'kelas.id_kelas')
                             ->get();
-
-        return View('admin.siswa.absenkelas', compact('siswa', 'iduser'));
+        $kelas = $request->get('listkelas');
+        $tglsekarang = Carbon\Carbon::now()->format('d M Y \\J\\a\\m H:i ');
+        return View('admin.siswa.absenkelas', compact('siswa', 'iduser', 'tglsekarang', 'kelas'));
     }
 
     public function doabsen( UserRequest $request) 
     {
+        $tglsekarang = Carbon\Carbon::now()->format('d M Y');
+        echo date_default_timezone_get() . "<br>";
+        echo $tglsekarang;
+
         dd($request);
     }
 

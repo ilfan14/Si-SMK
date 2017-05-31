@@ -18,7 +18,7 @@ Simple Tables
 
 <section class="content-header">
                 <!--section starts-->
-                <h1>Jam Waktu</h1>
+                <h1>{!! $tglsekarang !!}</h1>
                 <ol class="breadcrumb">
                     <li>
                         <a href="{{ route('dashboard') }}">
@@ -38,11 +38,12 @@ Simple Tables
                             <div class="portlet-title">
                                 <div class="caption">
                                     <i class="livicon" data-name="film" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
-                                    Absensi Kelas (KELAS)
+                                    Absensi Kelas {!! $kelas !!}
                                 </div>
                             </div>
                             <div class="portlet-body" >
                                 <div class="table-scrollable" >
+                                    <form action="javascript:testfunction();" >
                                         <table class="table table-striped table-hover">
                                             <thead>
                                                 <tr>
@@ -56,28 +57,33 @@ Simple Tables
                                                 </tr>
                                             </thead>
                                             <tbody id="tableabsenkelas">
+                                                
+                                                    
+                                                
                                                 @foreach ($siswa as $siswa)
                                                     <tr id=idke-{!! $siswa->id !!}>
                                                         <input type="hidden" name="iduser[]" value={!! $siswa->id !!} >
+                                                        <input type="hidden" name="idkelas[]" value={!! $siswa->id_kelas !!} >
                                                         <td>{!! $loop->index+1 !!}</td>
                                                         <td>{!! $siswa->name !!}</td>
                                                         <td>{!! $siswa->gender !!}</td>
                                                         <td>{!! $siswa->agama !!}</td>
                                                         <td style="width: 150px;"> 
-                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="H"> <label> H</label>
-                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="A"> <label> A</label>
-                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="I"> <label> I</label>
-                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="S"> <label> S</label>
-                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="P"> <label> P</label>
+                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="H" required> <label> H</label>
+                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="A" > <label> A</label>
+                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="I" > <label> I</label>
+                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="S" > <label> S</label>
+                                                            <input type="radio" name="absensi-{!! $siswa->id !!}" value="P" > <label> P</label>
                                                         </td>
                                                     </tr>
                                                 @endforeach
 
-
                                             </tbody>
                                         </table>
                                         <div style="text-align: right;">
-                                        <button type="button" role="button" class="btn btn-default" onclick="testfunction()">Simpan</button>
+                                        <button type="submit" role="button" class="btn btn-default" >Simpan</button>
+                                        </form>
+
                                             
                                         </div>
                                 </div>

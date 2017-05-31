@@ -16,12 +16,12 @@ function testfunction() {
 		Regex = /idke-(.*)/;
 		iduser = Regex.exec(x); 
 
-
 		var absensi = $('input[name="absensi-' + iduser[1] +'"]:checked').val();
-
+		var idkelas = $('input[name="idkelas[]"]').val();
 		$('#kirimdata').append($('<input type=hidden name=postiduser[] value=' + iduser[1] + '></input>'));
-
 		$('#kirimdata').append($('<input type=hidden name=postabsensi[] value=' + absensi + '></input>'));
+		$('#kirimdata').append($('<input type=hidden name=postidkelas[] value=' + idkelas + '></input>'));
+
 
 		document.getElementById('kirimdata').submit();
 	}
