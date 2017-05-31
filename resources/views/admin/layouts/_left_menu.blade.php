@@ -121,7 +121,7 @@
 
      <li {!! (Request::is('home/info') || Request::is('home/nilai') || Request::is('home/info/create') || Request::is('home/info/*') || Request::is('home/info') ? 'class="active"' : '') !!}>
         <a href="/home">
-            <i class="livicon" data-name="inbox" data-size="18" "
+            <i class="livicon" data-name="paper-plane" data-size="18" "
                data-loop="true"></i>
             <span class="title">Informasi</span>
             <span class="fa arrow"></span>
@@ -131,7 +131,7 @@
 
     <li {!! (Request::is('home/absen') || Request::is('home/absen') || Request::is('home/absen/create') || Request::is('home/absen/*') || Request::is('home/absen') ? 'class="active"' : '') !!}>
         <a href="{{ route('absen') }} ">
-            <i class="livicon" data-name="inbox" data-size="18" "
+            <i class="livicon" data-name="calendar" data-size="18" "
                data-loop="true"></i>
             <span class="title">Absensi</span>
             <span class="fa arrow"></span>

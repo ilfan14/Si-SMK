@@ -37,7 +37,7 @@ Simple Tables
                         <div class="portlet box warning">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="livicon" data-name="film" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
+                                    <i class="livicon" data-name="calendar" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
                                     Absensi Kelas {!! $kelas !!}
                                 </div>
                             </div>
