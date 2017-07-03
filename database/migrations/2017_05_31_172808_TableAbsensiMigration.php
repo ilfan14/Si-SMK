@@ -18,7 +18,7 @@ class TableAbsensiMigration extends Migration
             $table->increments('id_absensi');
             $table->integer('user_id')->unsigned();
             $table->integer('id_kelas')->unsigned();
-            $table->string('ketabsensi');
+            $table->string('ket_absensi', 2);
             $table->dateTime('tgl_absensi')->default(DB::raw('CURRENT_TIMESTAMP'));
 
 
