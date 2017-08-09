@@ -17,15 +17,18 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('username')->unique();
             $table->string('name');
+            $table->integer('data_pengguna_id')->unsigned()->nullable();
             $table->enum('job', ['guru', 'siswa', 'staf'])->nullable();
             $table->enum('gender', ['Laki-laki', 'Perempuan'])->nullable();
-            $table->string('alamat')->nullable();
             $table->string('status')->default('nonaktif');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('picture')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            
+                           
         });
     }
 
@@ -37,5 +40,7 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+        Schema::disableForeignKeyConstraints();
+
     }
 }

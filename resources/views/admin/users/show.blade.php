@@ -134,7 +134,7 @@ View User Details
                                                         <tr>
                                                             <td>Alamat</td>
                                                             <td>
-                                                                {{ $user->alamat }}
+                                                                {{ $datapengguna->alamat }}
                                                             </td>
                                                         </tr>
                                                         <tr>

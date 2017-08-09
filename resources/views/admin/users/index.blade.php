@@ -2,8 +2,8 @@
 
 {{-- Page title --}}
 @section('title')
-Users List
-@parent
+    Users List
+    @parent
 @stop
 
 {{-- page level styles --}}

@@ -31,4 +31,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public function datapengguna()
+    {
+        return $this->belongsTo('App\data_pengguna', 'data_pengguna_id', 'id');
+    }
+
 }
