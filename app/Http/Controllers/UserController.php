@@ -97,12 +97,25 @@ class UserController extends Controller
 
     }
 
-    public function editprofile()
+    public function editprofile($id)
     {
 
-        $iduser = Auth::id();
+        try {
+            $iduser = Auth::id();
+            // Get the user information
+            $user = User::find($id);
 
-        return View('admin.users.EditProfile', compact('iduser'));
+            $datapengguna = User::find($id)->datapengguna;
+
+        } catch (UserNotFoundException $e) {
+            // Prepare the error message
+            $error = Lang::get('users/message.user_not_found', compact('id'));
+
+            // Redirect to the user management page
+            return Redirect::route('admin.users.index')->with('error', $error);
+        }
+
+        return View('admin.users.EditProfile', compact('user','iduser', 'datapengguna'));
     }
 
 
