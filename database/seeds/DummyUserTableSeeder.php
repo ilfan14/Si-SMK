@@ -17,7 +17,7 @@ class DummyUserTableSeeder extends Seeder
         		[
                     'username' => 'admin',
                     'name' => 'Admin',
-                    'job' => 'guru',
+                    'job' => 'Admin',
                     'email' => 'admin@a.com',
                     'status' => 'aktif',
                     'password' => bcrypt('admin')
@@ -26,7 +26,7 @@ class DummyUserTableSeeder extends Seeder
                 [
                     'username' => 'guru',
                     'name' => 'Guru',
-                    'job' => 'guru',
+                    'job' => 'Guru',
                     'email' => 'guru@a.com',
                     'status' => 'aktif',
                     'password' => bcrypt('guru')
@@ -35,7 +35,7 @@ class DummyUserTableSeeder extends Seeder
                 [
         			'username' => '111',
         			'name' => 'Siswa',
-                    'job' => 'siswa',
+                    'job' => 'Siswa',
         			'email' => 'siswa@a.com',
                     'status' => 'aktif',
         			'password' => bcrypt('user')
@@ -44,7 +44,7 @@ class DummyUserTableSeeder extends Seeder
         		[
         			'username' => '222',
         			'name' => 'Ilfan User',
-                    'job' => 'siswa',
+                    'job' => 'Siswa',
         			'email' => 'ilfanUser@a.com',
                     'status' => 'aktif',
         			'password' => bcrypt('user')

@@ -141,4 +141,47 @@ class UserController extends Controller
     }
 
 
+   public function adduser()
+   {
+        try {
+            $iduser = Auth::id();
+        } catch (UserNotFoundException $e) {
+            // Prepare the error message
+            $error = Lang::get('users/message.user_not_found', compact('id'));
+
+            // Redirect to the user management page
+            return Redirect::route('admin.users.index')->with('error', $error);
+        }
+
+        return View('admin.users.tambahuser', compact('iduser'));
+   }
+
+   public function createuser(UserRequest $request)
+   {
+        $adduser = new User;
+        $adduser->username     = $request->input('iusername');
+        $adduser->password     = bcrypt($request->input('ipassword'));
+        $adduser->job     = $request->input('ijabatan');
+        $adduser->status     = $request->input('istatus');
+        $adduser->username     = $request->input('iusername');
+        $adduser->name     = $request->input('inama');
+        $adduser->gender       = $request->input('ijeniskelamin');
+        $adduser->email        = $request->input('iemail');
+        $adduser->save();
+
+        $datapengguna = new data_pengguna([
+            'alamat' => $request->input('ialamat'),
+            'tempat_lahir' => $request->input('itempatlahir'),
+            'tanggal_lahir' => $request->input('itanggallahir'),
+            'no_hp' => $request->input('inohp'),
+        ]);
+
+        $datapengguna->save();
+        $relasiuser = User::find($adduser->id);
+        $relasiuser->datapengguna()->associate($datapengguna);
+        $relasiuser->save();
+
+        echo "No error";
+   }
+
 }

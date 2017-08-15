@@ -18,10 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('name');
             $table->integer('data_pengguna_id')->unsigned()->nullable();
-            $table->enum('job', ['guru', 'siswa', 'staf'])->nullable();
+            $table->enum('job', ['Guru', 'Siswa', 'Orang Tua', 'Admin'])->nullable();
             $table->enum('gender', ['Laki-laki', 'Perempuan'])->nullable();
             $table->string('status')->default('nonaktif');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('password');
             $table->string('picture')->nullable();
             $table->rememberToken();

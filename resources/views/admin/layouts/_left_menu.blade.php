@@ -25,7 +25,7 @@
 
         <ul class="sub-menu">
 
-            <li {!! ((Request::is('home/users/*')) && !(Request::is('home/users/create')) ? 'class="active" id="active"' : '') !!}>
+            <li {!! ((Request::is('home/users/')) && !(Request::is('home/users/create')) ? 'class="active" id="active"' : '') !!}>
                 <a href="{{ URL::route('users.show', $iduser ) }}">
                     <i class="fa fa-angle-double-right"></i>
                     Profile Saya
@@ -43,7 +43,7 @@
         
 
             <li {!! (Request::is('home/users/tambah') ? 'class="active" id="active"' : '') !!}>
-                <a href="{{ URL::to('home/users/tambah') }}">
+                <a href="{{ URL::route('tambahuser') }}">
                     <i class="fa fa-angle-double-right"></i>
                     Tambah Pengguna
                 </a>

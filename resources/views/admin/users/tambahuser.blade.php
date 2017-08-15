@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-    Edit User
+    Tambah Pengguna
     @parent
 @stop
 
@@ -22,7 +22,7 @@
 
     <section class="content-header">
         <!--section starts-->
-        <h1>Edit User</h1>
+        <h1>Tambah Pengguna</h1>
     </section>
     <!--section ends-->
     <section class="content">
@@ -33,7 +33,7 @@
                         <h3 class="panel-title">
                             <i class="livicon" data-name="search" data-size="16" data-loop="true" data-c="#fff"
                                data-hc="white"></i>
-                            Form Edit User : {{ $user->name }}
+                            Tambah Pengguna :
                         </h3>
                         <span class="pull-right clickable">
                             <i class="glyphicon glyphicon-chevron-up"></i>
@@ -41,18 +41,57 @@
 
                     </div>
                     <div class="panel-body">
-                        <form method="POST" name="FormEdit" onsubmit="return Validation()" enctype="multipart/form-data"
-                              action="{{ route('updateprofile', $user->id) }}">
-                              {{ method_field('PUT') }}
+                        <form method="POST" name="FormTambah" onsubmit="return Validation()" enctype="multipart/form-data"
+                              action="{{ route('createuser') }}">
                               {{ csrf_field() }}
+
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                    <label for="txtUsername" class="control-label">Username</label>
+
+                                        <input type="text" name="iusername" id="iusername" class="form-control input-md">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                    <label for="txtPassword" class="control-label">Password</label>
+
+                                        <input type="password" name="ipassword" id="ipassword" class="form-control input-md">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                    <label for="txtJabatan" class="control-label">Jabatan : </label>
+                                        {{ Form::select('ijabatan', ['Guru' => 'Guru', 'Orang Tua' => 'Orang Tua', 'Admin' => 'Admin'], ['class' => 'form-control select2']) }}
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                    <label for="txtStatus" class="control-label">Status Akun : </label>
+                                        {{ Form::select('istatus', ['nonaktif' => 'Non-Aktif', 'aktif' => 'Aktif'], ['class' => 'form-control select2']) }}
+
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                     <label for="txtName" class="control-label">Nama</label>
 
-                                        <input type="text" name="inama" id="inama" class="form-control input-md"
-                                               value='{{ $user->name }}' >
+                                        <input type="text" name="inama" id="inama" class="form-control input-md">
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +99,7 @@
                                 <div class="form-group">
                                     <label for="txtEmail" class="control-label">Email</label>
                                     <input type="text" name="iemail" id="iemail" class="form-control input-md"
-                                           value='{{ $user->email }}' >
+                                           >
                                 </div>
                             </div>
 
@@ -68,7 +107,7 @@
                                 <div class="form-group">
                                     <label for="txtTempatLahir" class="control-label">Tempat Lahir</label>
                                     <input type="text" name="itempatlahir" id="itempatlahir" class="form-control input-md"
-                                           value='{{ $datapengguna->tempat_lahir }}' >
+                                            >
                                 </div>
                             </div>
 
@@ -76,7 +115,7 @@
                                 <div class="form-group">
                                     <label for="txtDate" class="control-label">Tanggal Lahir</label>
                                     <input type="date" name="itanggallahir" id="itanggallahir" class="form-control input-md"
-                                           value='{{ $datapengguna->tanggal_lahir }}' >
+                                            >
                                 </div>
                             </div>
 
@@ -84,13 +123,13 @@
                                 <div class="form-group">
                                     <label for="txtAddress1" class="control-label">Alamat</label>
                                     <input type="text" name="ialamat" id="ialamat"
-                                           class="form-control input-md" value='{{ $datapengguna->alamat }}' >
+                                           class="form-control input-md" >
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="e1" class="control-label">Jenis Kelamin</label>
-                                    {{ Form::select('ijeniskelamin', ['Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'], $user->gender, ['class' => 'form-control select2']) }}
+                                    {{ Form::select('ijeniskelamin', ['Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'], ['class' => 'form-control select2']) }}
 
                                 </div>
                             </div>
@@ -98,7 +137,7 @@
                                 <div class="form-group">
                                     <label for="txtPhone" class="control-label">No HP</label>                             
                                     <input type="text" name="inohp" id="inohp" class="form-control input-md"
-                                           value='0{{ $datapengguna->no_hp }}' >
+                                            >
                                 </div>
                             </div>
         
@@ -132,7 +171,7 @@
     <script src="{{ asset('assets/vendors/intl-tel-input/js/intlTelInput.min.js') }}"
             type="text/javascript"></script>
 
-    <script src="{{ asset('assets/js/pages/validationEditprofile.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/pages/validationTambahUser.js') }}" type="text/javascript"></script>
     {{-- <script>
          $("#phone").intlTelInput();
      </script>

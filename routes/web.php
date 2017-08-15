@@ -21,6 +21,8 @@ Route::group(array('prefix' => 'home'), function () {
         Route::get('/', array('as' => 'users', 'uses' => 'UserController@index'));
         Route::post('gantigambar', array('as' => 'gantigambar', 'uses' => 'UserController@changeimage'));
         Route::post('passwordreset', 'UserController@passwordreset');
+        Route::get('tambah', 'UserController@adduser')->name('tambahuser');
+        Route::post('tambah', 'UserController@createuser')->name('createuser');
         Route::get('editprofile', 'UserController@editprofile')->name('editprofile');
         Route::put('update/{iduser}', 'UserController@updateprofile')->name('updateprofile');
         Route::get('{userId}', array('as' => 'users.show', 'uses' => 'UserController@show'));
