@@ -114,8 +114,21 @@ View User Details
                                                             <td>
                                                                 {{ $user->name }}
                                                             </td>
-
                                                         </tr>
+
+                                                        <tr>
+                                                            <td>Tempat Lahir </td>
+                                                            <td>
+                                                                {{ $datapengguna->tempat_lahir }}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tanggal Lahir </td>
+                                                            <td>
+                                                                {{ $datapengguna->tanggal_lahir }}
+                                                            </td>
+                                                        </tr>
+
                                                         <tr>
                                                             <td>Email</td>
                                                             <td>
@@ -131,7 +144,7 @@ View User Details
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Job</td>
+                                                            <td>Jabatan</td>
                                                             <td>
                                                                 {{ $user->job }}
                                                             </td>
@@ -140,6 +153,12 @@ View User Details
                                                             <td>Alamat</td>
                                                             <td>
                                                                 {{ $datapengguna->alamat }}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>No Hp </td>
+                                                            <td>
+                                                                0{{ $datapengguna->no_hp }}
                                                             </td>
                                                         </tr>
                                                         <tr>

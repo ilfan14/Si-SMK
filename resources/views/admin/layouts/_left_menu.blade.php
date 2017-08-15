@@ -11,7 +11,14 @@
         <a href="#">
             <i class="livicon" data-name="user" data-size="18" data-c="#6CC66C" data-hc="#6CC66C"
                data-loop="true"></i>
-            <span class="title">User Profile</span>
+            @role(['Admin','Guru'])
+
+            <span class="title">Data Pengguna</span>
+            @endrole
+
+            @role(['Siswa'])
+            <span class="title">Profile</span>
+            @endrole
             <span class="fa arrow"></span>
         </a>
 
@@ -25,18 +32,25 @@
                 </a>
             </li>
 
-        @role(['Admin','Guru'])
+        @role(['Admin'])
             <li {!! (Request::is('home/users') ? 'class="active" id="active"' : '') !!}>
                 <a href="{{ URL::to('home/users') }}">
                     <i class="fa fa-angle-double-right"></i>
-                    Daftar Users
+                    Daftar Pengguna
                 </a>
             </li>
-        
-        @endrole
-        
-    </ul>
 
+        
+
+            <li {!! (Request::is('home/users/tambah') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('home/users/tambah') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    Tambah Pengguna
+                </a>
+            </li>
+            @endrole
+        </ul>
+    
 
     </li>
 
