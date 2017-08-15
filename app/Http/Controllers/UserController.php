@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request as UserRequest;
 use App\User;
+use App\data_pengguna;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Redirect;
 use File;
 use Illuminate\Support\Facades\DB;
 
@@ -97,15 +99,16 @@ class UserController extends Controller
 
     }
 
-    public function editprofile($id)
+    public function editprofile()
     {
 
         try {
             $iduser = Auth::id();
-            // Get the user information
-            $user = User::find($id);
 
-            $datapengguna = User::find($id)->datapengguna;
+            // Get the user information
+            $user = User::find($iduser);
+
+            $datapengguna = User::find($iduser)->datapengguna;
 
         } catch (UserNotFoundException $e) {
             // Prepare the error message
@@ -116,6 +119,25 @@ class UserController extends Controller
         }
 
         return View('admin.users.EditProfile', compact('user','iduser', 'datapengguna'));
+    }
+
+    public function updateprofile(UserRequest $request, $id)
+    {
+
+        $user = User::find($id);
+        $user->name     = $request->input('inama');
+        $user->gender       = $request->input('ijeniskelamin');
+        $user->email        = $request->input('iemail');
+        $user->save();
+        
+        $datapengguna = data_pengguna::find($user->data_pengguna_id);
+        $datapengguna->tempat_lahir     = $request->input('itempatlahir');
+        $datapengguna->tanggal_lahir    = $request->input('itanggallahir');
+        $datapengguna->alamat          = $request->input('ialamat');
+        $datapengguna->no_hp            = $request->input('inohp');
+        $datapengguna->save();
+
+        return Redirect::route('users.show', $id)->with('status', 'Profil Berhasil di Ubah');
     }
 
 

@@ -35,21 +35,23 @@
                                data-hc="white"></i>
                             Form Edit User : {{ $user->name }}
                         </h3>
-                                <span class="pull-right clickable">
-                                        <i class="glyphicon glyphicon-chevron-up"></i>
-                                    </span>
+                        <span class="pull-right clickable">
+                            <i class="glyphicon glyphicon-chevron-up"></i>
+                        </span>
+
                     </div>
                     <div class="panel-body">
                         <form method="POST" name="frmOnline" onsubmit="return Validation()" enctype="multipart/form-data"
-                              action="update/idusernantitulisdisini">
-                              <input type="hidden" name="_method" value="PUT"></input>
+                              action="{{ route('updateprofile', $user->id) }}">
+                              {{ method_field('PUT') }}
+                              {{ csrf_field() }}
 
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                     <label for="txtName" class="control-label">Nama</label>
 
-                                        <input type="text" name="txtName" id="txtName" class="form-control input-md"
+                                        <input type="text" name="inama" id="inama" class="form-control input-md"
                                                value='{{ $user->name }}' >
                                     </div>
                                 </div>
@@ -57,7 +59,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="txtEmail" class="control-label">Email</label>
-                                    <input type="text" name="txtEmail" id="txtEmail" class="form-control input-md"
+                                    <input type="text" name="iemail" id="iemail" class="form-control input-md"
                                            value='{{ $user->email }}' >
                                 </div>
                             </div>
@@ -65,7 +67,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="txtTempatLahir" class="control-label">Tempat Lahir</label>
-                                    <input type="text" name="txtTempatLahir" id="txtTempatlahir" class="form-control input-md"
+                                    <input type="text" name="itempatlahir" id="itempatlahir" class="form-control input-md"
                                            value='{{ $datapengguna->tempat_lahir }}' >
                                 </div>
                             </div>
@@ -73,7 +75,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="txtDate" class="control-label">Tanggal Lahir</label>
-                                    <input type="date" name="txtDate" id="txtDate" class="form-control input-md"
+                                    <input type="date" name="itanggallahir" id="itanggallahir" class="form-control input-md"
                                            value='{{ $datapengguna->tanggal_lahir }}' >
                                 </div>
                             </div>
@@ -81,21 +83,21 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="txtAddress1" class="control-label">Alamat</label>
-                                    <input type="text" name="display_name" id="txtAddress1"
+                                    <input type="text" name="ialamat" id="ialamat"
                                            class="form-control input-md" value='{{ $datapengguna->alamat }}' >
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="e1" class="control-label">Jenis Kelamin</label>
-                                    {{ Form::select('e1', ['Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'], $user->gender, ['class' => 'form-control select2']) }}
+                                    {{ Form::select('ijeniskelamin', ['Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'], $user->gender, ['class' => 'form-control select2']) }}
 
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="txtPhone" class="control-label">No HP</label>                             
-                                    <input type="text" name="display_name" id="txtPhone" class="form-control input-md"
+                                    <input type="text" name="inohp" id="inohp" class="form-control input-md"
                                            value='0{{ $datapengguna->no_hp }}' >
                                 </div>
                             </div>

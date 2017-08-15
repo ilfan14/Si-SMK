@@ -39,6 +39,11 @@ View User Details
     </section>
     <!--section ends-->
     <section class="content">
+    @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+    @endif
         <div class="row">
             <div class="col-lg-12">
                 <ul class="nav  nav-tabs ">
@@ -146,7 +151,12 @@ View User Details
                                                     </table>
                                                 </div>
                                             </div>
+                                            <div class="col-md-offset-10">    
+                                                <a href="{{ route('editprofile') }}" class="btn btn-primary"> Edit Profile</a>
+                                            </div>
                                         </div>
+
+                                        
                                     </div>
                                 </div>
                             </div>
