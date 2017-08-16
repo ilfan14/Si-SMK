@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\data_pengguna;
 
 class DummyUserTableSeeder extends Seeder
 {
@@ -54,7 +55,19 @@ class DummyUserTableSeeder extends Seeder
         ];
 
         foreach ($buatuser as $key => $value) {
-        	User::create($value);
+        	$createuser = User::create($value);
+
+            $datapengguna = new data_pengguna([
+                'alamat' => 'Alamat Default',
+                'tempat_lahir' => 'Tempat Lahir'
+            ]);
+            $datapengguna->save();
+
+            $relasdatapenggunauser = User::find($createuser->id);
+            $relasdatapenggunauser->datapengguna()->associate($datapengguna);
+            $relasdatapenggunauser->save();
         }
+
+
     }
 }

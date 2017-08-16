@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request as UserRequest;
 use App\User;
 use App\data_pengguna;
+use App\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Http\UploadedFile;
@@ -176,12 +177,27 @@ class UserController extends Controller
             'no_hp' => $request->input('inohp'),
         ]);
 
+        // create datapengguna relasi dengan user
         $datapengguna->save();
-        $relasiuser = User::find($adduser->id);
-        $relasiuser->datapengguna()->associate($datapengguna);
-        $relasiuser->save();
+        $relasdatapenggunauser = User::find($adduser->id);
+        $relasdatapenggunauser->datapengguna()->associate($datapengguna);
+        $relasdatapenggunauser->save();
 
-        echo "No error";
+        // add role to new user
+        if ($adduser->job == 'Admin') {
+            // admin roles
+            $adduser->attachRole(1);
+        } elseif ($adduser->job == 'Guru') {
+            # guru roles
+            $adduser->attachRole(2);
+
+        } elseif ($adduser->job == 'Orang Tua') {
+            $adduser->attachRole(4);
+        }
+
+
+        return Redirect::route('users')->with('status', 'Pengguna Berhasil ditambah');
+
    }
 
 }

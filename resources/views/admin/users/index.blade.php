@@ -26,7 +26,7 @@
             </a>
         </li>
         <li>Users</li>
-        <li class="active">Users</li>
+        <li class="active">List User</li>
     </ol>
 </section>
 
@@ -35,6 +35,11 @@
 <!-- Main content -->
 <section class="content paddingleft_right15">
     <div class="row">
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+        @endif
         <div class="panel panel-primary ">
             <div class="panel-heading">
                 <h4 class="panel-title"> <i class="livicon" data-name="user" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>

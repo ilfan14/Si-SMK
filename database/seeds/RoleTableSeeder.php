@@ -18,21 +18,27 @@ class RoleTableSeeder extends Seeder
         		[
         			'name' => 'Admin',
         			'display_name' => 'Display Roles Listing Admin',
-        			'description' => 'Deskprisi RoleRead'
+        			'description' => 'Deskprisi Role Admin'
 
         		],
         		[
         			'name' => 'Guru',
         			'display_name' => 'Display Roles Listing Guru',
-        			'description' => 'Deskprisi RoleWrite'
+        			'description' => 'Deskprisi Role Guru'
 
         		],
         		[
         			'name' => 'Siswa',
         			'display_name' => 'Display Roles Listing Siswa',
-        			'description' => 'Deskprisi RoleCreate'
+        			'description' => 'Deskprisi Role Siswa'
 
-        		]
+        		],
+                [
+                    'name' => 'Orang Tua',
+                    'display_name' => 'Display Roles Listing Orang Tua',
+                    'description' => 'Deskprisi Role Orang tua'
+
+                ]
         ];
 
         foreach ($jenisakun as $key => $value) {
