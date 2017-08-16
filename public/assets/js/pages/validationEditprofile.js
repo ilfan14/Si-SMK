@@ -2,14 +2,37 @@
 
 
         // get variable from HTML
-        var Name = document.FormEdit.inama;
-        var tempatlahir = document.FormEdit.itempatlahir;
-        var tgllahir = document.FormEdit.itanggallahir;
-        var Email = document.FormEdit.iemail;
-        var Address1 = document.FormEdit.ialamat;
-        var Phone = document.FormEdit.txtPhone;
-        var Conditions = document.FormEdit.e1;
-        var chkConditions = document.FormEdit.chkConditions;
+        var username = document.FormTambah.iusername;
+        var password = document.FormTambah.ipassword;
+        var Name = document.FormTambah.inama;
+        var tempatlahir = document.FormTambah.itempatlahir;
+        var tgllahir = document.FormTambah.itanggallahir;
+        var Email = document.FormTambah.iemail;
+        var Address1 = document.FormTambah.ialamat;
+        var Phone = document.FormTambah.inohp;
+
+
+        // validation username
+
+        if (username.value == "") {
+            alert("Username Harus diisi");
+            username.focus();
+            return false;
+
+        }
+
+        // end validation username
+
+        // validation password
+
+        if (password.value == "") {
+            alert("Password Harus Diisi");
+            password.focus();
+            return false;
+
+        }
+
+        // end validation password
 
 
         // name validation
@@ -33,7 +56,7 @@
 
         // tempat lahir validation
         if (tempatlahir.value == "") {
-            alert("Masukan Nama Tempat Lahir animationDelay = 'inherit'");
+            alert("Tempat Lahir harus diisi");
             tempatlahir.focus();
             return false;
 
@@ -63,24 +86,24 @@
         //email validation
         if (Email.value == "") {
             alert("Masukan Email anda, jika tidak mempunyai email inputkan a@a.com");
-            txtEmail.focus();
+            Email.focus();
             return false;
         }
 
 
-        var x = document.forms["FormEdit"]["txtEmail"].value;
+        var x = document.forms["FormTambah"]["iemail"].value;
         var atpos = x.indexOf("@");
         var dotpos = x.lastIndexOf(".");
         if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
             alert("Alamat Email Tidak Valid");
-            txtEmail.focus();
+            Email.focus();
             return false;
         }
         //address validation
 
         if (Address1.value == "") {
             alert("Masukan alamat anda!");
-            txtAddress1.focus();
+            Address1.focus();
             return false;
         }
         //address validation
@@ -88,14 +111,13 @@
        
        // phone validation
         if (Phone.value != "") {
-            var reg = /^[987][0-9]{9}$/;
-            if (reg.test(Phone.value) == false) {
+            var ck_phone = /^[0-9 ]{5,12}$/;
+            if (!ck_phone.test(Phone.value)) {
                 alert("Masukan Nomor Handphone Yang benar contoh : 089694201527");
-                txtPhone.focus();
+                Phone.focus();
                 return false;
             }
         }
         //Mobile Validation Completed
-        
         return true;
     }

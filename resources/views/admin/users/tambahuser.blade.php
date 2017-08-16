@@ -121,14 +121,14 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="txtAddress1" class="control-label">Alamat</label>
+                                    <label for="txtAlamat" class="control-label">Alamat</label>
                                     <input type="text" name="ialamat" id="ialamat"
                                            class="form-control input-md" >
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="e1" class="control-label">Jenis Kelamin</label>
+                                    <label for="txtjeniskelamin" class="control-label">Jenis Kelamin</label>
                                     {{ Form::select('ijeniskelamin', ['Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'], ['class' => 'form-control select2']) }}
 
                                 </div>

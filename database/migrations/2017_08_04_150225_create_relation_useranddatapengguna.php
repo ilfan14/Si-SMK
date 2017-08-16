@@ -15,7 +15,6 @@ class CreateRelationUseranddatapengguna extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-
             $table->foreign('data_pengguna_id')->references('id')->on('data_pengguna')->onUpdate('cascade')->onDelete('cascade');
         });
                 

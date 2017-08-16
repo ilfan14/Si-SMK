@@ -9,9 +9,7 @@
         var tgllahir = document.FormTambah.itanggallahir;
         var Email = document.FormTambah.iemail;
         var Address1 = document.FormTambah.ialamat;
-        var Phone = document.FormTambah.txtPhone;
-        var Conditions = document.FormTambah.e1;
-        var chkConditions = document.FormTambah.chkConditions;
+        var Phone = document.FormTambah.inohp;
 
 
         // validation username
@@ -58,7 +56,7 @@
 
         // tempat lahir validation
         if (tempatlahir.value == "") {
-            alert("Masukan Nama Tempat Lahir animationDelay = 'inherit'");
+            alert("Tempat Lahir harus diisi");
             tempatlahir.focus();
             return false;
 
@@ -93,7 +91,7 @@
         }
 
 
-        var x = document.forms["FormTambah"]["Email"].value;
+        var x = document.forms["FormTambah"]["iemail"].value;
         var atpos = x.indexOf("@");
         var dotpos = x.lastIndexOf(".");
         if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
@@ -105,7 +103,7 @@
 
         if (Address1.value == "") {
             alert("Masukan alamat anda!");
-            txtAddress1.focus();
+            Address1.focus();
             return false;
         }
         //address validation
@@ -113,14 +111,13 @@
        
        // phone validation
         if (Phone.value != "") {
-            var reg = /^[987][0-9]{9}$/;
-            if (reg.test(Phone.value) == false) {
+            var ck_phone = /^[0-9 ]{5,12}$/;
+            if (!ck_phone.test(Phone.value)) {
                 alert("Masukan Nomor Handphone Yang benar contoh : 089694201527");
-                txtPhone.focus();
+                Phone.focus();
                 return false;
             }
         }
         //Mobile Validation Completed
-        
         return true;
     }
