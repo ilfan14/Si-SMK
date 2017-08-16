@@ -24,6 +24,8 @@ Route::group(array('prefix' => 'home'), function () {
         Route::get('tambah', 'UserController@adduser')->name('tambahuser');
         Route::post('tambah', 'UserController@createuser')->name('createuser');
         Route::get('editprofile', 'UserController@editprofile')->name('editprofile');
+        Route::get('confirm-delete/{userId}', 'UserController@deletewithmodal')->name('confirm-deleteuser');
+        Route::delete('delete/{userid}', 'UserController@destroy' )->name('finaldelete');
         Route::put('update/{iduser}', 'UserController@updateprofile')->name('updateprofile');
         Route::get('{userId}', array('as' => 'users.show', 'uses' => 'UserController@show'));
     });

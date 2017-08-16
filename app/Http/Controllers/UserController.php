@@ -200,4 +200,33 @@ class UserController extends Controller
 
    }
 
+   public function deletewithmodal($iddelete)
+   {
+        $model = 'Pengguna';
+        $confirm_route = $error = null;
+        try {
+            // Get user information
+            $user = User::find($iddelete);
+
+        } catch (UserNotFoundException $e) {
+            // Prepare the error message
+            $error = 'User Tidak Ditemukan';
+            return View('admin.layouts.modal_confirm', compact('error', 'model', 'confirm_route'));
+        }
+        $confirm_route = route('finaldelete', ['id' => $user->id]);
+        return View('admin.layouts.modal_confirm', compact('error', 'model', 'confirm_route', 'user'));
+   }
+
+   public function destroy($id)
+   {
+        $huser = User::find($id);
+        $huser->delete();
+
+        $hdata = data_pengguna::find($huser->data_pengguna_id);
+        $hdata->delete();
+
+        return Redirect::route('users')->with('status', 'Pengguna Berhasil dihapus');
+
+   }
+
 }
