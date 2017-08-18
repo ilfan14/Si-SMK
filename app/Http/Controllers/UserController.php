@@ -26,7 +26,7 @@ class UserController extends Controller
     public function index()
     {
         // Grab all the users
-        $users = User::All();
+        $users = User::where('job', '!=', 'Siswa' )->get();
         $iduser = Auth::id();
         // Show the page
         return View('admin.users.index', compact('users', 'iduser'));
@@ -122,23 +122,122 @@ class UserController extends Controller
         return View('admin.users.EditProfile', compact('user','iduser', 'datapengguna'));
     }
 
+    public function goupdateprofile($id)
+    {
+
+        try {
+            $iduser = Auth::id();
+
+            // Get the user information
+            $user = User::find($id);
+
+            $datapengguna = $user->datapengguna;
+
+            if ($user->job == 'Orang Tua') {
+                $siswa = User::where([['job', '=', 'siswa'], ['data_pengguna_id', '=', $datapengguna->id]])->first();
+
+            }
+
+
+        } catch (UserNotFoundException $e) {
+            // Prepare the error message
+            $error = Lang::get('users/message.user_not_found', compact('id'));
+
+            // Redirect to the user management page
+            return Redirect::route('admin.users.index')->with('error', $error);
+        }
+
+        return View('admin.users.update', compact('user','iduser', 'datapengguna','siswa'));
+    }
+
     public function updateprofile(UserRequest $request, $id)
     {
 
-        $user = User::find($id);
-        $user->name     = $request->input('inama');
-        $user->gender       = $request->input('ijeniskelamin');
-        $user->email        = $request->input('iemail');
-        $user->save();
-        
-        $datapengguna = data_pengguna::find($user->data_pengguna_id);
-        $datapengguna->tempat_lahir     = $request->input('itempatlahir');
-        $datapengguna->tanggal_lahir    = $request->input('itanggallahir');
-        $datapengguna->alamat          = $request->input('ialamat');
-        $datapengguna->no_hp            = $request->input('inohp');
-        $datapengguna->save();
+        if ($request->input('tipeform') == 'editprofile')
+        {
+            $user = User::find($id);
+            $user->name     = $request->input('inama');
+            $user->gender       = $request->input('ijeniskelamin');
+            $user->email        = $request->input('iemail');
+            $user->save();
+                
+            if ($user->job == 'Orang Tua'){
+                // update untuk orang tua
+                $datapengguna = data_pengguna::find($user->data_pengguna_id);
+                $datapengguna->tempat_lahir_ortu     = $request->input('itempatlahir');
+                $datapengguna->tanggal_lahir_ortu    = $request->input('itanggallahir');
+                $datapengguna->alamat_ortu          = $request->input('ialamat');
+                $datapengguna->no_hp_ortu            = $request->input('inohp');
+            } else {
+                // update selain orang tua
+                $datapengguna = data_pengguna::find($user->data_pengguna_id);
+                $datapengguna->tempat_lahir     = $request->input('itempatlahir');
+                $datapengguna->tanggal_lahir    = $request->input('itanggallahir');
+                $datapengguna->alamat          = $request->input('ialamat');
+                $datapengguna->no_hp            = $request->input('inohp');
+            }
+            
+            $datapengguna->save();
 
-        return Redirect::route('users.show', $id)->with('status', 'Profil Berhasil di Ubah');
+            return Redirect::route('users.show', $id)->with('status', 'Profil Berhasil di Ubah');
+        } elseif ($request->input('tipeform') == 'updateprofile') {
+            // dd("update profile");
+            $updateuser = User::find($id);
+            $oldjob = $updateuser->job;
+            $updateuser->username     = $request->input('iusername');
+            if ($request->input('ipassword') == null){
+                // do nothing no update password
+            } else {
+                $updateuser->password     = bcrypt($request->input('ipassword'));
+            }
+            $updateuser->job     = $request->input('ijabatan');
+            $updateuser->data_pengguna_id = $request->input('listsiswa');
+            $updateuser->status     = $request->input('istatus');
+            $updateuser->name     = $request->input('inama');
+            $updateuser->gender       = $request->input('ijeniskelamin');
+            $updateuser->email        = $request->input('iemail');
+            $updateuser->save();
+
+            if ($oldjob == $updateuser->job ) {
+                $datapengguna = data_pengguna::find($updateuser->data_pengguna_id);
+            
+                // jika orang tua
+                if ($updateuser->job == 'Orang Tua')
+                {
+                    // update data ke orang tua
+                    $datapengguna->no_hp_ortu       = $request->input('inohp');
+                    $datapengguna->alamat_ortu      = $request->input('ialamat');
+                    $datapengguna->tempat_lahir_ortu     = $request->input('itempatlahir');
+                    $datapengguna->tanggal_lahir_ortu    = $request->input('itanggallahir');
+
+
+                } else {
+                    $datapengguna->no_hp        = $request->input('inohp');
+                    $datapengguna->alamat       = $request->input('ialamat');
+                    $datapengguna->tempat_lahir     = $request->input('itempatlahir');
+                    $datapengguna->tanggal_lahir    = $request->input('itanggallahir');
+                }
+
+            } elseif ($oldjob == 'Orang Tua') {
+                $datapengguna = new data_pengguna;
+                $datapengguna->no_hp        = $request->input('inohp');
+                $datapengguna->alamat       = $request->input('ialamat');
+                $datapengguna->tempat_lahir     = $request->input('itempatlahir');
+                $datapengguna->tanggal_lahir    = $request->input('itanggallahir');
+            } else {
+                $datapengguna = data_pengguna::find($updateuser->data_pengguna_id);
+                $datapengguna->no_hp        = $request->input('inohp');
+                $datapengguna->alamat       = $request->input('ialamat');
+                $datapengguna->tempat_lahir     = $request->input('itempatlahir');
+                $datapengguna->tanggal_lahir    = $request->input('itanggallahir');
+            }
+            
+            
+            $datapengguna->save();
+
+            return Redirect::route('users')->with('status', 'Profile Berhasil diubah');
+        }
+        
     }
 
 
@@ -164,18 +263,33 @@ class UserController extends Controller
         $adduser->password     = bcrypt($request->input('ipassword'));
         $adduser->job     = $request->input('ijabatan');
         $adduser->status     = $request->input('istatus');
-        $adduser->username     = $request->input('iusername');
         $adduser->name     = $request->input('inama');
         $adduser->gender       = $request->input('ijeniskelamin');
         $adduser->email        = $request->input('iemail');
         $adduser->save();
 
-        $datapengguna = new data_pengguna([
-            'alamat' => $request->input('ialamat'),
-            'tempat_lahir' => $request->input('itempatlahir'),
-            'tanggal_lahir' => $request->input('itanggallahir'),
-            'no_hp' => $request->input('inohp'),
-        ]);
+        
+        if ($adduser->job == 'Orang Tua')
+        {
+            // data orang tua
+            $datapengguna = data_pengguna::find($request->input('listsiswa'));
+            $adduser->nama_ortu_wali            = $request->input('inama');
+            $datapengguna->alamat_ortu          = $request->input('ialamat');
+            $datapengguna->tempat_lahir_ortu    = $request->input('itempatlahir');
+            $datapengguna->tanggal_lahir_ortu   = $request->input('itanggallahir');
+            $datapengguna->no_hp_ortu           = $request->input('inohp');
+            
+        } else 
+        {
+            // data selain ortu
+            $datapengguna = new data_pengguna([
+                'alamat' => $request->input('ialamat'),
+                'tempat_lahir' => $request->input('itempatlahir'),
+                'tanggal_lahir' => $request->input('itanggallahir'),
+                'no_hp' => $request->input('inohp'),
+            ]);
+
+        }
 
         // create datapengguna relasi dengan user
         $datapengguna->save();

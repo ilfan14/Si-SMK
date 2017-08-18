@@ -46,6 +46,8 @@
                               {{ method_field('PUT') }}
                               {{ csrf_field() }}
 
+                            <input type="text" hidden value="editprofile" name="tipeform"> </input>
+
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
@@ -63,7 +65,14 @@
                                            value='{{ $user->email }}' >
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="e1" class="control-label">Jenis Kelamin</label>
+                                    {{ Form::select('ijeniskelamin', ['Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'], $user->gender, ['class' => 'form-control select2']) }}
 
+                                </div>
+                            </div>
+                            @if ($user->job != 'Orang Tua')
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="txtTempatLahir" class="control-label">Tempat Lahir</label>
@@ -87,13 +96,7 @@
                                            class="form-control input-md" value='{{ $datapengguna->alamat }}' >
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="e1" class="control-label">Jenis Kelamin</label>
-                                    {{ Form::select('ijeniskelamin', ['Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'], $user->gender, ['class' => 'form-control select2']) }}
-
-                                </div>
-                            </div>
+                            
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="txtPhone" class="control-label">No HP</label>                             
@@ -101,6 +104,42 @@
                                            value='0{{ $datapengguna->no_hp }}' >
                                 </div>
                             </div>
+
+                            @else
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="txtTempatLahir" class="control-label">Tempat Lahir</label>
+                                    <input type="text" name="itempatlahir" id="itempatlahir" class="form-control input-md"
+                                           value='{{ $datapengguna->tempat_lahir_ortu }}' >
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="txtDate" class="control-label">Tanggal Lahir</label>
+                                    <input type="date" name="itanggallahir" id="itanggallahir" class="form-control input-md"
+                                           value='{{ $datapengguna->tanggal_lahir_ortu }}' >
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="txtAddress1" class="control-label">Alamat</label>
+                                    <input type="text" name="ialamat" id="ialamat"
+                                           class="form-control input-md" value='{{ $datapengguna->alamat_ortu }}' >
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="txtPhone" class="control-label">No HP</label>                             
+                                    <input type="text" name="inohp" id="inohp" class="form-control input-md"
+                                           value='0{{ $datapengguna->no_hp_ortu }}' >
+                                </div>
+                            </div>
+
+                            @endif
         
                             <div class="col-md-12 mar-10">
                                 <div class="col-xs-6 col-md-6">

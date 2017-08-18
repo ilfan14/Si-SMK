@@ -16,7 +16,7 @@
             <span class="title">Data Pengguna</span>
             @endrole
 
-            @role(['Siswa'])
+            @role(['Siswa', 'Orang Tua'])
             <span class="title">Profile</span>
             @endrole
             <span class="fa arrow"></span>
@@ -57,7 +57,7 @@
 @role(['Admin','Guru'])
     <li {!! (Request::is('home/siswa') || Request::is('home/kelas') || Request::is('home/siswa/create') || Request::is('home/siswa/*') || Request::is('home/siswa') ? 'class="active"' : '') !!}>
         <a href="#">
-            <i class="livicon" data-name="box" data-size="18" "
+            <i class="livicon" data-name="box" data-size="18"
                data-loop="true"></i>
             <span class="title">Data Siswa</span>
             <span class="fa arrow"></span>
@@ -85,9 +85,9 @@
 
 @endrole
 
-    <li {!! (Request::is('home/mapel') || Request::is('home/nilai') || Request::is('home/mapel/create') || Request::is('home/mapel/*') || Request::is('home/mapel') ? 'class="active"' : '') !!}>
+    <li {!! (Request::is('home/mapel') || Request::is('home/nilai') || Request::is('home/nilai/*') || Request::is('home/mapel/create') || Request::is('home/mapel/*') || Request::is('home/mapel') ? 'class="active"' : '') !!}>
         <a href="#">
-            <i class="livicon" data-name="inbox" data-size="18" "
+            <i class="livicon" data-name="inbox" data-size="18"
                data-loop="true"></i>
             <span class="title">Data Nilai</span>
             <span class="fa arrow"></span>
@@ -113,6 +113,13 @@
                 </a>
             </li>
 
+            <li {!! (Request::is('home/nilai/tambahnilaikelas') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ route('tambahnilaikelas') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    Tambah Nilai
+                </a>
+            </li>
+
 @endrole
 
 
@@ -133,19 +140,29 @@
 
 
 
-     <li {!! (Request::is('home/info') || Request::is('home/nilai') || Request::is('home/info/create') || Request::is('home/info/*') || Request::is('home/info') ? 'class="active"' : '') !!}>
-        <a href="/home">
-            <i class="livicon" data-name="paper-plane" data-size="18" "
+     <li {!! ( Request::is('home/info') || Request::is('home/info/*') ? 'class="active"' : '') !!}>
+        <a href="#">
+            <i class="livicon" data-name="paper-plane" data-size="18"
                data-loop="true"></i>
             <span class="title">Informasi</span>
             <span class="fa arrow"></span>
         </a>
+
+        <ul class="sub-menu">
+
+            <li {!! (Request::is('home/info/sms') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ route('sms') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    SMS Gateway
+                </a>
+            </li>
+        </ul>
     </li>
 
 
     <li {!! (Request::is('home/absen') || Request::is('home/absen') || Request::is('home/absen/create') || Request::is('home/absen/*') || Request::is('home/absen') ? 'class="active"' : '') !!}>
         <a href="{{ route('absen') }} ">
-            <i class="livicon" data-name="calendar" data-size="18" "
+            <i class="livicon" data-name="calendar" data-size="18"
                data-loop="true"></i>
             <span class="title">Absensi</span>
             <span class="fa arrow"></span>

@@ -30,6 +30,11 @@ Daftar Siswa
                     </li>
                     <li class="active">Daftar Siswa</li>
                 </ol>
+                @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+                @endif
             </section>
             <!-- Main content -->
             <section class="content">
@@ -47,10 +52,10 @@ Daftar Siswa
                             <div class="portlet-body">
                                 <div class="table-toolbar">
                                     <div class="btn-group">
-                                        <button id="sample_editable_1_new" class=" btn btn-custom">
+                                        <a href="{{ route('addsiswa') }}" class=" btn btn-custom">
                                             Tambah
                                             <i class="fa fa-plus"></i>
-                                        </button>
+                                        </a>
                                     </div>
                                     <div class="btn-group pull-right">
                                         <button class="btn dropdown-toggle btn-custom" data-toggle="dropdown">

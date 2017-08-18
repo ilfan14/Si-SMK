@@ -44,7 +44,7 @@
         
     @endrole
         
-    @role(['Guru'])
+    @role(['Guru', 'Admin'])
 
     <section class="content-header">
         <h1>Selamat Datang di Beranda</h1>

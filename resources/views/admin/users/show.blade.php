@@ -109,6 +109,7 @@ View User Details
                                                 <div class="table-responsive">
                                                     <table class="table table-bordered table-striped" id="users">
 
+                                                    @if ($user->job != 'Orang Tua')
                                                         <tr>
                                                             <td>Nama</td>
                                                             <td>
@@ -167,6 +168,67 @@ View User Details
                                                                 {!! $user->created_at->diffForHumans() !!}
                                                             </td>
                                                         </tr>
+                                                    @else 
+                                                        <tr>
+                                                            <td>Nama</td>
+                                                            <td>
+                                                                {{ $user->name }}
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>Tempat Lahir </td>
+                                                            <td>
+                                                                {{ $datapengguna->tempat_lahir_ortu }}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tanggal Lahir </td>
+                                                            <td>
+                                                                {{ $datapengguna->tanggal_lahir_ortu }}
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>Email</td>
+                                                            <td>
+                                                                {{ $user->email }}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Jenis Kelamin
+                                                            </td>
+                                                            <td>
+                                                                {{ $user->gender }}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Jabatan</td>
+                                                            <td>
+                                                                {{ $user->job }}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Alamat</td>
+                                                            <td>
+                                                                {{ $datapengguna->alamat_ortu }}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>No Hp </td>
+                                                            <td>
+                                                                0{{ $datapengguna->no_hp_ortu }}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Teregister</td>
+                                                            <td>
+                                                                {!! $user->created_at->diffForHumans() !!}
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                        
                                                     </table>
                                                 </div>
                                             </div>

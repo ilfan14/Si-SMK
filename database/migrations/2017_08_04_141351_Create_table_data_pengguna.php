@@ -20,6 +20,9 @@ class CreateTableDataPengguna extends Migration
             $table->date('tanggal_lahir')->nullable();
             $table->bigInteger('no_hp')->nullable();
             $table->string('nama_ortu_wali')->nullable();
+            $table->string('tempat_lahir_ortu')->nullable();
+            $table->date('tanggal_lahir_ortu')->nullable();
+            $table->string('alamat_ortu')->nullable();
             $table->bigInteger('no_hp_ortu')->nullable();
         });
     }

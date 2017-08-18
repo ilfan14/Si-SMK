@@ -24,6 +24,7 @@ Route::group(array('prefix' => 'home'), function () {
         Route::get('tambah', 'UserController@adduser')->name('tambahuser');
         Route::post('tambah', 'UserController@createuser')->name('createuser');
         Route::get('editprofile', 'UserController@editprofile')->name('editprofile');
+        Route::get('goupdateprofile/{userid}', 'UserController@goupdateprofile')->name('goupdateprofile');
         Route::get('confirm-delete/{userId}', 'UserController@deletewithmodal')->name('confirm-deleteuser');
         Route::delete('delete/{userid}', 'UserController@destroy' )->name('finaldelete');
         Route::put('update/{iduser}', 'UserController@updateprofile')->name('updateprofile');
@@ -41,6 +42,8 @@ Route::group(array('prefix' => 'home'), function () {
 
     Route::group(array('prefix' => 'siswa'), function () {
         Route::get('/', array('as' => 'listsiswa', 'uses' => 'SiswaController@index'));
+        Route::get('add', array('as' => 'addsiswa', 'uses' => 'SiswaController@addsiswa'));
+        Route::get('daftarsiswa', array('as' => 'daftarsiswa', 'uses' => 'SiswaController@searchsiswa'));
         Route::post('tambahsiswa', array('as' => 'tambahsiswa', 'uses' => 'SiswaController@create'));
         Route::post('editsiswa', array('as' => 'editsiswa', 'uses' => 'SiswaController@edit'));
         Route::get('delete/{niksiswa}', array('as' => 'deletesiswa', 'uses' => 'SiswaController@delete'));
@@ -59,8 +62,10 @@ Route::group(array('prefix' => 'home'), function () {
         Route::get('/', array('as' => 'lihatnilai', 'uses' => 'NilaiController@index'));
         Route::get('siswawithnilai', array('as' => 'siswawithnilai', 'uses' => 'NilaiController@siswawithnilai'));
         Route::get('onlynilai/{userid}', array('as' => 'onlynilai', 'uses' => 'NilaiController@onlynilai'));
+        Route::get('tambahnilaikelas', array('as' => 'tambahnilaikelas', 'uses' => 'NilaiController@tambahnilaipilihkelas'));
+        Route::post('goinputnilaikelas', array('as' => 'goinputnilaikelas', 'uses' => 'NilaiController@goinputnilaikelas'));
+        Route::post('gosavenilai', array('as' => 'gosavenilai', 'uses' => 'NilaiController@gosavenilai'));
         Route::post('tambahnilai', array('as' => 'tambahnilai', 'uses' => 'NilaiController@create'));
-    //     Route::post('editmapel', array('as' => 'editmapel', 'uses' => 'MapelController@edit'));
         Route::get('deletenilai/{idnilai}', array('as' => 'deletenilai', 'uses' => 'NilaiController@delete'));
         Route::get('siswa', array('as' => 'lihatnilaisiswa', 'uses' => 'NilaiController@lihatilaisiswa'));
     });
@@ -73,6 +78,18 @@ Route::group(array('prefix' => 'home'), function () {
 
 
     });
+
+    Route::group(array('prefix' => 'info'), function () {
+        Route::get('/', array('as' => 'info', 'uses' => 'InfoController@index'));
+        Route::get('sms', array('as' => 'sms', 'uses' => 'InfoController@smsgateway'));
+        Route::post('kirimsms', array('as' => 'kirimsms', 'uses' => 'InfoController@kirimsms'));
+    });
+
+    Route::group(array('prefix' => 'modem'), function () {
+        Route::get('cek', array('as' => 'info', 'uses' => 'InfoController@apimodem'));
+        Route::get('update/{idsms}', array('as' => 'updatesms', 'uses' => 'InfoController@modemupdatestatus'));
+    });
+
 
 });
 

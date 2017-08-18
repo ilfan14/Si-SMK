@@ -77,4 +77,42 @@ class NilaiController extends Controller
         // Show the page
         return View('admin.siswa.lihatnilaisiswa', compact('nilai', 'iduser'));
     }
+
+    public function tambahnilaipilihkelas()
+    {
+        $iduser = Auth::id();
+        return view('admin.siswa.tambahnilai', compact('iduser'));
+    }
+
+    public function goinputnilaikelas(UserRequest $request)
+    {
+        $iduser = Auth::id();
+
+        $idkelas = $request->input('listkelas');
+        $kodemapel = $request->input('mapel');
+        $listsiswa = DB::table('rombel')->where('rombel.id_kelas', '=', $idkelas)
+                                        ->join('users', 'rombel.user_id', '=', 'users.id')
+                                        ->join('kelas', 'rombel.id_kelas', '=', 'kelas.id_kelas')
+                                        ->select('users.id','username','name','gender', 'nama_kelas')
+                                        ->get();
+        return view('admin.siswa.inputnilai', compact('iduser','listsiswa','kodemapel'));
+
+    }
+
+    public function gosavenilai(UserRequest $request)
+    {
+        $daftarnilai = $request->input('daftarnilai');
+        $listid = $request->input('idsiswa');
+        $kodemapel = $request->input('kodemapel');
+
+        foreach($listid as $key=>$value) {
+            // do stuff
+            $nilai = new Nilai;
+            $nilai->kode_mapel = $kodemapel;
+            $nilai->user_id = $value;
+            $nilai->nilai = $daftarnilai[$key];
+            $nilai->keterangan = $request->get('keterangan');
+            $nilai->save();
+        }
+    }
 }

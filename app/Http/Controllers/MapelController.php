@@ -65,7 +65,7 @@ class MapelController extends Controller
 
     public function listkodemapel()
     {
-        $kodemapel = Mapel::select('kode_mapel')->get();
+        $kodemapel = Mapel::select('kode_mapel','nama_mapel')->get();
         return response()->json($kodemapel);
 
     }

@@ -55,7 +55,7 @@
                             <th>Name</th>
                             <th>User E-mail</th>
                             <th>Status</th>
-                            <th>Created At</th>
+                            <th>Job</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -66,15 +66,13 @@
                     		<td>{!! $user->name !!}</td>
                             <td>{!! $user->email !!}</td>
             				<td>{!! $user->status !!}</td>
-            				<td>{!! $user->created_at->diffForHumans() !!}</td>
+            				<td>{!! $user->job !!}</td>
             				<td>
-                                <a href="{{--{{ route('users.show', $user->id) }}--}}"><i class="livicon" data-name="info" data-size="18" data-loop="true" data-c="#428BCA" data-hc="#428BCA" title="view user"></i></a>
-
-                                <a href="{{--{{ route('admin.users.edit', $user->id) }}--}}"><i class="livicon" data-name="edit"
-                                                                                        data-size="18" data-loop="true"
-                                                                                        data-c="#428BCA"
-                                                                                        data-hc="#428BCA"
-                                                                                        title="update user"></i></a>
+                                <a href="{{ route('goupdateprofile', $user->id) }}"><i class="livicon" data-name="edit"
+                                    data-size="18" data-loop="true"
+                                    data-c="#428BCA"
+                                    data-hc="#428BCA"
+                                    title="update user"></i></a>
                                 
                                 
                                 @if (($iduser != $user->id) && ($user->id != 1))
