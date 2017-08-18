@@ -88,7 +88,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 margin_10 animated fadeInUpBig">
+            <!-- <div class="col-lg-3 col-md-6 col-sm-6 margin_10 animated fadeInUpBig">
                 <div class="redbg no-radius">
                     <div class="panel-body squarebox square_boxs">
                         <div class="col-xs-12 pull-left nopadmar">
@@ -114,8 +114,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-md-6 margin_10 animated fadeInDownBig">
+            </div> -->
+            <!-- <div class="col-lg-3 col-sm-6 col-md-6 margin_10 animated fadeInDownBig">
                 <div class="goldbg no-radius">
                     <div class="panel-body squarebox square_boxs">
                         <div class="col-xs-12 pull-left nopadmar">
@@ -141,7 +141,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-lg-3 col-md-6 col-sm-6 margin_10 animated fadeInRightBig">
                 <!-- Trans label pie charts strats here-->
                 <div class="palebluecolorbg no-radius">
