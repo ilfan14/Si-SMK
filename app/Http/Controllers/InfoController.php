@@ -46,6 +46,7 @@ class InfoController extends Controller
     		$sms->notujuan = $request->input('inotujaun');
     		$sms->isipesan = $request->input('isipesan');
     		$sms->kelompok_sms = $maxkelompok->kelompok_sms + 1;
+            $sms->save();
     	} elseif ($request->input('modesms') == 'satusiswa') {
             $siswa = User::find($request->input('idsiswa'));
             $nomorsiswa = $siswa->datapengguna;
