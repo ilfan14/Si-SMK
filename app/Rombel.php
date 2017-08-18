@@ -8,7 +8,7 @@ class Rombel extends Model
 {
     //
 
-    protected $table = 'Rombel';
+    protected $table = 'rombel';
     protected $primaryKey = 'user_id';
 
 
