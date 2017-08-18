@@ -114,7 +114,81 @@
                 </div> -->
 
             </form>
+
+            
         </div>
+        <div class="row">
+            <form method="POST" style="display: none;" id="formsatusiswa" name="FormTulisInfo" onsubmit="return Validation()" enctype="multipart/form-data" action="{{ route('kirimsms') }}">
+                {{ csrf_field() }}
+
+                <input hidden name="modesms" id="modesms" value="satusiswa"></input>
+                <div class="row">
+
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                        <label for="txtNotujuan" class="control-label">Nama Siswa</label>
+
+                        {{ Form::select('idsiswa', $listsiswa , null, ['class' => 'form-control select2']) }}  
+
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="txtIsiPesan" class="control-label">Isi Pesan</label>
+
+                            <textarea id="ispesan" name="isipesan" class="form-control input-md" onkeyup="countChar(this)"></textarea>
+                                <div id="jumlahchar"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6 col-md-6">
+                        <input type="submit" name="btnSubmit" id="btnSubmit" value="Simpan"
+                               class="btn btn-primary btn-block btn-md btn-responsive">
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <input type="reset" value="Batal"
+                               class="btn btn-success btn-block btn-md btn-responsive">
+                    </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <form method="POST" style="display: none;" id="formperkelas" name="FormTulisInfo" onsubmit="return Validation()" enctype="multipart/form-data" action="{{ route('kirimsms') }}">
+                {{ csrf_field() }}
+
+                <input hidden name="modesms" id="modesms" value="perkelas"></input>
+                <div class="row">
+
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                        <label for="txtNotujuan" class="control-label">Kelas</label>
+
+                        {{ Form::select('idkelas', $listkelas , null, ['class' => 'form-control select2']) }}  
+
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="txtIsiPesan" class="control-label">Isi Pesan</label>
+
+                            <textarea id="ispesan" name="isipesan" class="form-control input-md" onkeyup="countChar(this)"></textarea>
+                                <div id="jumlahchar"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6 col-md-6">
+                        <input type="submit" name="btnSubmit" id="btnSubmit" value="Simpan"
+                               class="btn btn-primary btn-block btn-md btn-responsive">
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <input type="reset" value="Batal"
+                               class="btn btn-success btn-block btn-md btn-responsive">
+                    </div>
+            </form>
+        </div>
+        
     </section>
     
 
@@ -136,13 +210,29 @@
         // clear daftar
     function ubahmetode() {
 
+
+
         var metodekirim = document.getElementById('metodekirim');
         var SatuNomor = document.getElementById('SatuNomor');
+        var SatuSiswa = document.getElementById('formsatusiswa');
+        var perkelas = document.getElementById('formperkelas');
+
+
+        SatuNomor.style.display = 'none';
+        SatuSiswa.style.display = 'none';
+        perkelas.style.display = 'none';
+
         if (metodekirim.value === 'Satu Nomor') {
             SatuNomor.style.display = 'block';
-        } else {
-            SatuNomor.style.display = 'none';
+        } 
+        if (metodekirim.value === 'Satu Siswa') {
+            SatuSiswa.style.display = 'block';
         }
+        if (metodekirim.value === 'Perkelas') {
+            perkelas.style.display = 'block';
+        }
+
+
 
     }
 

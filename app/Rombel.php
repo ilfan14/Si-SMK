@@ -9,6 +9,7 @@ class Rombel extends Model
     //
 
     protected $table = 'Rombel';
+    protected $primaryKey = 'user_id';
 
 
     protected $fillable = [

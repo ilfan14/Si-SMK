@@ -43,6 +43,7 @@ Route::group(array('prefix' => 'home'), function () {
     Route::group(array('prefix' => 'siswa'), function () {
         Route::get('/', array('as' => 'listsiswa', 'uses' => 'SiswaController@index'));
         Route::get('add', array('as' => 'addsiswa', 'uses' => 'SiswaController@addsiswa'));
+        Route::get('update/{idsiswa}', array('as' => 'updatesiswa', 'uses' => 'SiswaController@updatesiswa'));
         Route::get('daftarsiswa', array('as' => 'daftarsiswa', 'uses' => 'SiswaController@searchsiswa'));
         Route::post('tambahsiswa', array('as' => 'tambahsiswa', 'uses' => 'SiswaController@create'));
         Route::post('editsiswa', array('as' => 'editsiswa', 'uses' => 'SiswaController@edit'));

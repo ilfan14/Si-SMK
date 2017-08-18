@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use App\smsgateway;
+use App\User;
+use App\Kelas;
+use App\Rombel;
 
 class InfoController extends Controller
 {
@@ -26,9 +29,13 @@ class InfoController extends Controller
     {
 
         $iduser = Auth::id();
-        // dd($siswa);
-        // Show the page
-        return View('admin.info.smsgateway', compact('iduser'));
+        $user = User::where('job', 'Siswa')->select('id','name')->get();
+        $listsiswa = $user->pluck('name','id');
+        $kelas = Kelas::all();
+        $listkelas = $kelas->pluck('nama_kelas','id_kelas');
+
+
+        return View('admin.info.smsgateway', compact('iduser','listsiswa','listkelas'));
     }
 
     public function kirimsms(UserRequest $request)
@@ -39,9 +46,34 @@ class InfoController extends Controller
     		$sms->notujuan = $request->input('inotujaun');
     		$sms->isipesan = $request->input('isipesan');
     		$sms->kelompok_sms = $maxkelompok->kelompok_sms + 1;
-    	}
+    	} elseif ($request->input('modesms') == 'satusiswa') {
+            $siswa = User::find($request->input('idsiswa'));
+            $nomorsiswa = $siswa->datapengguna;
 
-    	$sms->save();
+            $sms = new smsgateway;
+            $sms->notujuan = '0' . $nomorsiswa->no_hp;
+            $sms->isipesan = $request->input('isipesan');
+            $sms->kelompok_sms = $maxkelompok->kelompok_sms + 1;
+        } elseif ($request->input('modesms') == 'perkelas') {
+
+            $userkelas = DB::table('rombel')->where('rombel.id_kelas', '=', $request->input('idkelas'))
+                                        ->join('users', 'rombel.user_id', '=', 'users.id')
+                                        ->join('kelas', 'rombel.id_kelas', '=', 'kelas.id_kelas')
+                                        ->join('data_pengguna', 'data_pengguna.id', '=', 'users.data_pengguna_id')
+                                        ->select('users.id','username','name','gender', 'nama_kelas','data_pengguna.no_hp')
+                                        ->get();
+
+            
+            foreach($userkelas as $key=>$value) {
+                $sms = new smsgateway;
+                $sms->notujuan = '0' . $value->no_hp;
+                $sms->isipesan = $request->input('isipesan');
+                $sms->kelompok_sms = $maxkelompok->kelompok_sms + 1;
+                $sms->save();
+            }  
+        }
+
+
 
 		return Redirect::route('sms')->with('status', 'SMS Berhasil dikrim');
     }

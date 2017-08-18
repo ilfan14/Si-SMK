@@ -117,7 +117,7 @@ Daftar Siswa
                                                 <td>{!! $siswa->alamat !!}</td>
                                                 <td>{!! $siswa->nama_kelas !!}</td>
                                                 <td>
-                                                    <a class="edit" href="javascript:;" style="width: 20px;">Ubah</a>
+                                                    <a href="{{route('updatesiswa', $siswa->id )}}" style="width: 20px;">Ubah</a>
                                                 </td>
                                                 <td>
                                                     <a class="delete" href="javascript:;" style="width: 20px;">Hapus</a>

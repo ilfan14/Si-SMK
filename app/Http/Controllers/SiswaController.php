@@ -101,51 +101,65 @@ class SiswaController extends Controller
         // echo "Work";
     }
 
+    public function updatesiswa($id)
+    {
+        try {
+            $iduser = Auth::id();
+
+            // Get the user information
+            $user = User::find($id);
+            $kelas = Kelas::All();
+            $listkelas = $kelas->pluck('nama_kelas','id_kelas');
+            $datapengguna = $user->datapengguna;
+            $idkelas = Rombel::where('user_id', $user->id)->first();
+            
+
+
+        } catch (UserNotFoundException $e) {
+            // Prepare the error message
+            $error = Lang::get('users/message.user_not_found', compact('id'));
+
+            // Redirect to the user management page
+            return Redirect::route('admin.users.index')->with('error', $error);
+        }
+
+        return View('admin.siswa.updatesiswa', compact('user','iduser', 'datapengguna','listkelas', 'idkelas'));
+    }
+
 
     public function edit(UserRequest $request)
     {
 
-        $oldnik = $request->get('niklama');
-        $oldkelas = $request->get('kellama');
+      
+        $editsiswa = User::find($request->input('idsiswa'));
+        $editsiswa->username = $request->input('iusername');
+        $editsiswa->name = $request->input('inama');
+        $editsiswa->gender = $request->input('ijeniskelamin');
+        if ($request->input('ipassword') == null) {
+            // do nothing
+        } else
+        {
+            $editsiswa->password     = bcrypt($request->input('ipassword'));
 
-        $editsiswa = User::where('username', $oldnik)->first();
-        $editsiswa->username = $request->get('nomorinduk');
-        $editsiswa->name = $request->get('namasiswa');
-        $editsiswa->gender = $request->get('gender');
-        $editsiswa->alamat = $request->get('alamat');
+        }
+        $editsiswa->status     = $request->input('istatus');
+        $editsiswa->email        = $request->input('iemail');
         $editsiswa->save();
 
-        $editkelas = Kelas::where('nama_kelas', $oldkelas)->first();
-        if ($oldkelas == $request->get('kelas'))
-        {
-            // nothing abaikan update kelas
-        } else {
-            // update kelas 
-            $idkelas = DB::table('kelas')->select('id_kelas')->where('nama_kelas', $request->get('kelas'))->get();
-            foreach ($idkelas as $key => $value) {
-                $kelasid = $value->id_kelas;
-            }
-            $oldidkelas = DB::table('kelas')->select('id_kelas')->where('nama_kelas', $request->get('kellama'))->get();
-            foreach ($oldidkelas as $key => $value) {
-                $oldkelasid = $value->id_kelas;
-            }
-            $idsiswa = User::where('username', $request->get('nomorinduk'))->get();
-            foreach ($idsiswa as $key => $value) {
-                $siswaid = $value->id;
-            }
+         // update selain orang tua
+        $datapengguna = data_pengguna::find($editsiswa->data_pengguna_id);
+        $datapengguna->tempat_lahir     = $request->input('itempatlahir');
+        $datapengguna->tanggal_lahir    = $request->input('itanggallahir');
+        $datapengguna->alamat          = $request->input('ialamat');
+        $datapengguna->no_hp            = $request->input('inohp');
+        $datapengguna->save();
 
-            
-            if (!isset($oldkelas)){
-                $tambahrombel = New Rombel;
-                $tambahrombel->user_id = $siswaid;
-                $tambahrombel->id_kelas = $kelasid;
-                $tambahrombel->save();
-            } else {
-                DB::table('rombel')->where('user_id', $siswaid)->update(['id_kelas' => $kelasid]);
-            }            
-        }
+        $updatekelas = Rombel::where('user_id', '=', $editsiswa->id)->first();
+        $updatekelas->id_kelas = $request->input('kelas');
+        $updatekelas->save();
+        // dd($updatekelas);
 
-        echo "work";
+        return Redirect::route('listsiswa')->with('status', 'Siswa Berhasil Diubah');
     }
 
 
