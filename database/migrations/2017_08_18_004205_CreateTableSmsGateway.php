@@ -18,7 +18,7 @@ class CreateTableSmsGateway extends Migration
             $table->string('notujuan');
             $table->string('isipesan');
             $table->enum('status', ['Terkirim', 'Pending'])->default('Pending');
-            $table->integer('kelompok_sms')->unsigned()->nullable();
+            // $table->integer('kelompok_sms')->unsigned()->nullable();
             $table->timestamps();
         });
     }

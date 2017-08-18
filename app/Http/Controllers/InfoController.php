@@ -40,12 +40,12 @@ class InfoController extends Controller
 
     public function kirimsms(UserRequest $request)
     {
-    	$maxkelompok = smsgateway::find(DB::table('smsgateway')->max('kelompok_sms'));
+        // $maxkelompok = smsgateway::find(DB::table('smsgateway')->max('kelompok_sms'));
+    	
     	if ($request->input('modesms') == 'satunomor'){
     		$sms = new smsgateway;
     		$sms->notujuan = $request->input('inotujaun');
     		$sms->isipesan = $request->input('isipesan');
-    		$sms->kelompok_sms = $maxkelompok->kelompok_sms + 1;
             $sms->save();
     	} elseif ($request->input('modesms') == 'satusiswa') {
             $siswa = User::find($request->input('idsiswa'));
@@ -54,7 +54,6 @@ class InfoController extends Controller
             $sms = new smsgateway;
             $sms->notujuan = '0' . $nomorsiswa->no_hp;
             $sms->isipesan = $request->input('isipesan');
-            $sms->kelompok_sms = $maxkelompok->kelompok_sms + 1;
             $sms->save();
             
         } elseif ($request->input('modesms') == 'perkelas') {
@@ -71,7 +70,6 @@ class InfoController extends Controller
                 $sms = new smsgateway;
                 $sms->notujuan = '0' . $value->no_hp;
                 $sms->isipesan = $request->input('isipesan');
-                $sms->kelompok_sms = $maxkelompok->kelompok_sms + 1;
                 $sms->save();
             }  
         }
@@ -83,7 +81,7 @@ class InfoController extends Controller
 
     public function apimodem()
     {
-    	$hasilcek = smsgateway::where('status', '=', 'Pending')->select('id', 'notujuan', 'isipesan','kelompok_sms')->get();
+    	$hasilcek = smsgateway::where('status', '=', 'Pending')->select('id', 'notujuan', 'isipesan')->get();
 
 
 

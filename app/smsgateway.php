@@ -10,7 +10,7 @@ class smsgateway extends Model
     protected $table = 'smsgateway';
 
     protected $fillable = [
-        'notujuan', 'isipesan', 'kelompok_sms', 'status', 
+        'notujuan', 'isipesan', 'status', 
     ];
 
 }
