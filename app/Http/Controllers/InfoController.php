@@ -55,6 +55,8 @@ class InfoController extends Controller
             $sms->notujuan = '0' . $nomorsiswa->no_hp;
             $sms->isipesan = $request->input('isipesan');
             $sms->kelompok_sms = $maxkelompok->kelompok_sms + 1;
+            $sms->save();
+            
         } elseif ($request->input('modesms') == 'perkelas') {
 
             $userkelas = DB::table('rombel')->where('rombel.id_kelas', '=', $request->input('idkelas'))
