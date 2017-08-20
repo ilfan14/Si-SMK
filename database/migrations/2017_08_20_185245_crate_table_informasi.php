@@ -17,7 +17,8 @@ class CrateTableInformasi extends Migration
 
         Schema::create('informasi', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('isi')->nullable();
+            $table->string('judul');
+            $table->text('isi');
             $table->integer('pembuat_user_id')->unsigned();
             $table->enum('untuk', ['Publik', 'Siswa', 'Orang Tua', 'Guru'])->nullable();
             $table->timestamps();
@@ -34,6 +35,6 @@ class CrateTableInformasi extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_pengguna');
+        Schema::dropIfExists('informasi');
     }
 }
