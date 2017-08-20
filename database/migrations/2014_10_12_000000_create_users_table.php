@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->integer('data_pengguna_id')->unsigned()->nullable();
             $table->enum('job', ['Guru', 'Siswa', 'Orang Tua', 'Admin'])->nullable();
             $table->enum('gender', ['Laki-laki', 'Perempuan'])->nullable();
-            $table->string('status')->default('nonaktif');
+            $table->enum('status', ['nonaktif', 'aktif'])->default('nonaktif');
             $table->string('email');
             $table->string('password');
             $table->string('picture')->nullable();
