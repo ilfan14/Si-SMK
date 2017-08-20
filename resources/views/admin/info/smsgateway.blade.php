@@ -87,7 +87,7 @@
                             <label for="txtIsiPesan" class="control-label">Isi Pesan</label>
 
                             <textarea id="ispesan" name="isipesan" class="form-control input-md" onkeyup="countChar(this)"></textarea>
-                                <div id="jumlahchar"></div>
+                                <div id="jumlahcharsatu"></div>
                         </div>
                     </div>
 
@@ -138,7 +138,7 @@
                             <label for="txtIsiPesan" class="control-label">Isi Pesan</label>
 
                             <textarea id="ispesan" name="isipesan" class="form-control input-md" onkeyup="countChar(this)"></textarea>
-                                <div id="jumlahchar"></div>
+                                <div id="jumlahchardua"></div>
                         </div>
                     </div>
 
@@ -174,7 +174,7 @@
                             <label for="txtIsiPesan" class="control-label">Isi Pesan</label>
 
                             <textarea id="ispesan" name="isipesan" class="form-control input-md" onkeyup="countChar(this)"></textarea>
-                                <div id="jumlahchar"></div>
+                                <div id="jumlahchartiga"></div>
                         </div>
                     </div>
 
@@ -241,7 +241,9 @@
         if (len >= 140) {
           val.value = val.value.substring(0, 140);
         } else {
-          $('#jumlahchar').text("Karakter Tersisa : " + (140 - len));
+          $('#jumlahcharsatu').text("Karakter Tersisa : " + (140 - len));
+          $('#jumlahchardua').text("Karakter Tersisa : " + (140 - len));
+          $('#jumlahchartiga').text("Karakter Tersisa : " + (140 - len));
         }
       }
 
