@@ -232,7 +232,9 @@
             perkelas.style.display = 'block';
         }
 
-
+        $('#jumlahcharsatu').text("Karakter Tersisa : 140");
+        $('#jumlahchardua').text("Karakter Tersisa : 140");
+        $('#jumlahchartiga').text("Karakter Tersisa : 140");
 
     }
 
