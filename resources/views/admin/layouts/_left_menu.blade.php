@@ -157,6 +157,16 @@
                 </a>
             </li>
         </ul>
+
+        <ul class="sub-menu">
+
+            <li {!! (Request::is('home/info/sms') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ route('sms') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    Informasi Web / Android
+                </a>
+            </li>
+        </ul>
     </li>
 
 
