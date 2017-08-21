@@ -67,7 +67,7 @@ View User Details
                                     <div class="panel-heading">
                                         <h3 class="panel-title">
 
-                                            User Profile
+                                            Foto Profile
                                         </h3>
 
                                     </div>
