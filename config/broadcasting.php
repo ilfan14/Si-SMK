@@ -36,7 +36,9 @@ return [
             'secret' => env('PUSHER_APP_SECRET'),
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
-                //
+                // for pusher
+                'cluster' => 'ap1',
+                'encrypted' => true
             ],
         ],
 
