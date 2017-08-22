@@ -37,4 +37,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\data_pengguna', 'data_pengguna_id', 'id');
     }
 
+    public function informasi()
+    {
+        return $this->hasMany(\App\Informasi::class);
+    }
+
 }

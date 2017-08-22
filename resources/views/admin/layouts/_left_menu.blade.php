@@ -160,8 +160,8 @@
 
         <ul class="sub-menu">
 
-            <li {!! (Request::is('home/info/sms') ? 'class="active" id="active"' : '') !!}>
-                <a href="{{ route('sms') }}">
+            <li {!! (Request::is('home/info/webandro') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ route('webandro') }}">
                     <i class="fa fa-angle-double-right"></i>
                     Informasi Web / Android
                 </a>

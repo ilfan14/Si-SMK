@@ -7,6 +7,16 @@
         	@show 
     </title>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
+
+
+
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     {{-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --}}
     {{-- WARNING: Respond.js doesn't work if you view the page via file:// --}}
@@ -155,7 +165,12 @@
     <i class="livicon" data-name="plane-up" data-size="18" data-loop="true" data-c="#fff" data-hc="white"></i>
 </a>
 <!-- global js -->
+
+    <!-- <script src="http://code.jquery.com/jquery-3.2.1.js"></script> -->
+
 <script src="{{ asset('assets/js/app.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
 
 
 <!-- end of global js -->

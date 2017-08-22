@@ -11,6 +11,8 @@ use App\smsgateway;
 use App\User;
 use App\Kelas;
 use App\Rombel;
+use App\Informasi;
+use App\Events\OnKirimInfo;
 
 class InfoController extends Controller
 {
@@ -97,6 +99,35 @@ class InfoController extends Controller
 
     	return "Diupdate";
     }
+
+    public function webandro(){
+
+
+        $iduser = Auth::id();
+        // dd($siswa);
+        // Show the page
+        return View('admin.info.tuliswebandro', compact('iduser'));
+    }
+
+    public function kiriminfo(UserRequest $request)
+    {
+
+
+        $iduser = Auth::id();
+        $informasi = new informasi;
+        $informasi->judul = $request->input('ijudul');
+        $informasi->isi = $request->input('isiinformasi');
+        $informasi->untuk = $request->input('ditujukan');
+        $informasi->user_id = $iduser;
+        $informasi->save();
+
+
+
+        broadcast(new OnKirimInfo($informasi))->toOthers();
+
+       return $informasi;
+    }
+    
 
 
 }
