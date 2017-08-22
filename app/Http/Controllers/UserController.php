@@ -191,26 +191,31 @@ class UserController extends Controller
                 $updateuser->password     = bcrypt($request->input('ipassword'));
             }
             $updateuser->job     = $request->input('ijabatan');
-            $updateuser->data_pengguna_id = $request->input('listsiswa');
+
+            if ($request->input('ijabatan') == 'Orang Tua'){
+                $updateuser->data_pengguna_id = $request->input('listsiswa');
+               
+            } 
+
+
             $updateuser->status     = $request->input('istatus');
             $updateuser->name     = $request->input('inama');
             $updateuser->gender       = $request->input('ijeniskelamin');
             $updateuser->email        = $request->input('iemail');
             $updateuser->save();
 
+
             if ($oldjob == $updateuser->job ) {
-                $datapengguna = data_pengguna::find($updateuser->data_pengguna_id);
-            
+                $datapengguna = data_pengguna::find($updateuser->data_pengguna_id);     
                 // jika orang tua
                 if ($updateuser->job == 'Orang Tua')
                 {
                     // update data ke orang tua
+
                     $datapengguna->no_hp_ortu       = $request->input('inohp');
                     $datapengguna->alamat_ortu      = $request->input('ialamat');
                     $datapengguna->tempat_lahir_ortu     = $request->input('itempatlahir');
                     $datapengguna->tanggal_lahir_ortu    = $request->input('itanggallahir');
-
-
                 } else {
                     $datapengguna->no_hp        = $request->input('inohp');
                     $datapengguna->alamat       = $request->input('ialamat');

@@ -75,9 +75,7 @@ href="{{ asset('assets/vendors/bootstrap-datepicker/css/bootstrap-datepicker.css
 
                         <select id="ditujukan" name="ditujukan" class="form-control select2">
                             <option value="Publik">Publik</option>
-                            <option value="Siswa">Siswa</option>
-                            <option value="Orang Tua">Orang Tua</option>
-                            <option value="Guru">Guru</option>
+                            <option value="Pengguna">Pengguna</option>
                         </select>
                     </div>
                 </div>
