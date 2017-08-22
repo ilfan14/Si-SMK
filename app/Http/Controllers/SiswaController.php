@@ -11,6 +11,7 @@ use App\User;
 Use App\data_pengguna;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Validator;
 
 class SiswaController extends Controller
 {
@@ -61,6 +62,10 @@ class SiswaController extends Controller
 
     public function create(UserRequest $request)
     {
+
+
+
+        // Store the blog post...
 
         $adduser = new User;
         $adduser->username     = $request->input('iusername');
