@@ -19,11 +19,11 @@ class CrateTableInformasi extends Migration
             $table->increments('id');
             $table->string('judul');
             $table->text('isi');
-            $table->integer('pembuat_user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->enum('untuk', ['Publik', 'Siswa', 'Orang Tua', 'Guru'])->nullable();
             $table->timestamps();
 
-            $table->foreign('pembuat_user_id')->references('id')->on('users')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
     }
