@@ -40,7 +40,13 @@ Data Nilai Siswa
             <!--section ends-->
             <section class="content">
                 <!-- row-->
+                @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+                @endif
                 <div class="row">
+
                     <div class="col-lg-12">
                         <div class="panel panel-info filterable">
                             <div class="panel-heading clearfix">
