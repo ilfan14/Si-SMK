@@ -201,6 +201,16 @@ class InfoController extends Controller
         return View('admin.info.usercekinfo', compact('info', 'iduser'));
    }
     
+    public function cekinfopublik()
+    {
+         $info = Informasi::where('untuk','Publik')
+                       ->orderBy('created_at', 'desc')
+                       ->take(10)
+                       ->get();
+
+        // Show the page
+        return View('infopublik', compact('info'));
+    }
 
 
 }

@@ -224,7 +224,6 @@
                 <!-- Trans label pie charts strats here-->
                
             </div>
-                <onlineuser></onlineuser>
 
         </div>
 

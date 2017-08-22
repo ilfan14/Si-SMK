@@ -13,6 +13,8 @@ Route::group(array('prefix' => 'get'), function () {
     }));
 });
 
+Route::get('infopublik', 'InfoController@cekinfopublik')->name('infopublik');
+
 
 Route::group(array('prefix' => 'home'), function () {
 	Route::get('/', array('as' => 'dashboard','uses' => 'HomeController@index'));
