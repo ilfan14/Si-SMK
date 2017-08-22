@@ -127,6 +127,44 @@ class InfoController extends Controller
 
        return $informasi;
     }
+
+    public function listinfo()
+    {
+
+        // Grab all the users
+        $info = Informasi::all();
+        $iduser = Auth::id();
+        // Show the page
+        return View('admin.info.listinfo', compact('info', 'iduser'));
+
+    }
+
+    public function konfirmdelete($iddelete)
+    {
+         $model = 'Informasi';
+        $confirm_route = $error = null;
+        try {
+            // Get user information
+            $info = Informasi::find($iddelete);
+
+        } catch (infoNotFoundException $e) {
+            // Prepare the error message
+            $error = 'info Tidak Ditemukan';
+            return View('admin.layouts.modal_confirm', compact('error', 'model', 'confirm_route'));
+        }
+        $confirm_route = route('infofinaldelete', ['id' => $info->id]);
+        return View('admin.layouts.modaldeleteinfo', compact('error', 'model', 'confirm_route', 'info'));
+    }
+
+    public function destroy($id)
+   {
+        $hinfo = Informasi::find($id);
+        $hinfo->delete();
+
+
+        return Redirect::route('listinfo')->with('status', 'Informasi Berhasil dihapus');
+
+   }
     
 
 

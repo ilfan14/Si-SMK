@@ -167,6 +167,17 @@
                 </a>
             </li>
         </ul>
+
+
+        <ul class="sub-menu">
+
+            <li {!! (Request::is('home/info/list') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ route('listinfo') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    Daftar Informasi
+                </a>
+            </li>
+        </ul>
     </li>
 
 

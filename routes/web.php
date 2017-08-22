@@ -86,6 +86,12 @@ Route::group(array('prefix' => 'home'), function () {
         Route::post('kirimsms', array('as' => 'kirimsms', 'uses' => 'InfoController@kirimsms'));
         Route::get('webandro', array('as' => 'webandro', 'uses' => 'InfoController@webandro'));
         Route::post('kiriminfo', array('as' => 'kiriminfo', 'uses' => 'InfoController@kiriminfo'));
+        Route::get('list', array('as' => 'listinfo', 'uses' => 'InfoController@listinfo'));
+        Route::get('confirm-delete/{userId}', 'InfoController@konfirmdelete')->name('confirm-deleteinfo');
+        Route::delete('delete/{idinfo}', 'InfoController@destroy' )->name('infofinaldelete');
+
+
+
     });
 
     Route::group(array('prefix' => 'modem'), function () {
