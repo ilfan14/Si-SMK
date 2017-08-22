@@ -26,13 +26,7 @@ class OnKirimInfo implements ShouldBroadcast
         $this->informasi = $informasi;
     }
 
-    public function broadcastWith()
 
-    {
-
-        return ['info'=> 'this is info guys'];
-
-    }
 
     /**
      * Get the channels the event should broadcast on.

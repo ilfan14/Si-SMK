@@ -136,7 +136,7 @@ href="{{ asset('assets/vendors/bootstrap-datepicker/css/bootstrap-datepicker.css
                 console.log(xhr.error);                   
             }
         });
-        return false;
+        return true;
         }
 
 

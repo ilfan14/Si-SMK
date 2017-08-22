@@ -125,7 +125,7 @@ class InfoController extends Controller
 
         broadcast(new OnKirimInfo($informasi))->toOthers();
 
-       return $informasi;
+        return Redirect::route('listinfo')->with('status', 'Informasi Berhasil disiarkan');
     }
 
     public function listinfo()
