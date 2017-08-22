@@ -116,8 +116,29 @@ href="{{ asset('assets/vendors/bootstrap-datepicker/css/bootstrap-datepicker.css
 
 <script type="text/javascript">
         // clear daftar
+ function Validation() {
+    var judul = document.FormTulisInfo.ijudul;
+    var isi = document.FormTulisInfo.isiinformasi;
 
-        
+    $.ajax({        
+            type : 'POST',
+            url : "https://fcm.googleapis.com/fcm/send",
+            headers : {
+                Authorization : 'key=' + 'AIzaSyBkccILCJOnHWCGF1PeKtOlWZqsGNsA5sA'
+            },
+            contentType : 'application/json',
+            dataType: 'json',
+            data: JSON.stringify({"to": "dGnk5o7otik:APA91bGGSRgpRC9rWzoX3I4gcjrg7FAyOMdZqZTYhY-DGKN0z7tBp2msrtEMR83nbp0xly8gWqSb_bL8OMLP4kyed80_TPlBSUaDvF4MVSgZLTQylRZjtB9AywzzONo2vbiVPjjwzyxG", "notification": {"title":judul.value,"body":isi.value}}),
+            success : function(response) {
+                console.log(response);
+            },
+            error : function(xhr, status, error) {
+                console.log(xhr.error);                   
+            }
+        });
+        return false;
+        }
+
 
     </script>
 
