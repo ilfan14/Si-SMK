@@ -128,7 +128,7 @@ href="{{ asset('assets/vendors/bootstrap-datepicker/css/bootstrap-datepicker.css
             },
             contentType : 'application/json',
             dataType: 'json',
-            data: JSON.stringify({"to": "dGnk5o7otik:APA91bGGSRgpRC9rWzoX3I4gcjrg7FAyOMdZqZTYhY-DGKN0z7tBp2msrtEMR83nbp0xly8gWqSb_bL8OMLP4kyed80_TPlBSUaDvF4MVSgZLTQylRZjtB9AywzzONo2vbiVPjjwzyxG", "notification": {"title":judul.value,"body":isi.value}}),
+            data: JSON.stringify({"to": "etiep5ZhsSM:APA91bEecIv9aPrg-kCLGzMNpqOOy6NDmabu7Zxc3usDCbC6QJ7VQNJPm_XlLFt8lsNCmQQnVzKuTK5K1CLStjo6BONShZIgKPq1KgPuj4cWhVWaOU-U6SnvwvXE59ys9GEEBklZJIGn", "notification": {"title":judul.value,"body":isi.value}}),
             success : function(response) {
                 console.log(response);
             },
