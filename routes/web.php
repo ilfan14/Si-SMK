@@ -84,6 +84,8 @@ Route::group(array('prefix' => 'home'), function () {
         Route::get('/', array('as' => 'info', 'uses' => 'InfoController@index'));
         Route::get('sms', array('as' => 'sms', 'uses' => 'InfoController@smsgateway'));
         Route::post('kirimsms', array('as' => 'kirimsms', 'uses' => 'InfoController@kirimsms'));
+        Route::get('webandro', array('as' => 'webandro', 'uses' => 'InfoController@webandro'));
+        Route::post('kiriminfo', array('as' => 'kiriminfo', 'uses' => 'InfoController@kiriminfo'));
     });
 
     Route::group(array('prefix' => 'modem'), function () {

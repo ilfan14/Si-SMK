@@ -58,7 +58,7 @@
         </ol>
     </section>
 
-    <section class="content">
+    <section id="app" class="content">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 margin_10 animated fadeInLeftBig">
                 <!-- Trans label pie charts strats here-->
@@ -170,7 +170,20 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 margin_10 animated fadeInRightBig">
+                <!-- Trans label pie charts strats here-->
+               
+            </div>
+                <onlineuser></onlineuser>
+
         </div>
+
+
+
+  
+
+
         <!--/row-->
         <div class="row ">
             <div class="col-md-8 col-sm-6">
@@ -228,6 +241,8 @@
             </div>
         </div>
     </section>
+
+
 
     @endrole
 
