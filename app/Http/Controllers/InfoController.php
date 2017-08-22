@@ -165,6 +165,41 @@ class InfoController extends Controller
         return Redirect::route('listinfo')->with('status', 'Informasi Berhasil dihapus');
 
    }
+
+   public function goeditinfo($id)
+   {
+
+        try {
+            $iduser = Auth::id();
+
+            // Get the user information
+            $info = Informasi::find($id);
+
+
+        } catch (UserNotFoundException $e) {
+            // Prepare the error message
+            $error = Lang::get('users/message.user_not_found', compact('id'));
+
+            // Redirect to the user management page
+            return Redirect::route('admin.users.index')->with('error', $error);
+        }
+
+        return View('admin.info.editwebandro', compact('info','iduser'));
+   }
+
+
+   public function lihatinfouser()
+   {
+         // Grab all the users
+        $info = Informasi::where('untuk','Pengguna')
+                       ->orderBy('created_at', 'desc')
+                       ->take(10)
+                       ->get();
+
+        $iduser = Auth::id();
+        // Show the page
+        return View('admin.info.usercekinfo', compact('info', 'iduser'));
+   }
     
 
 

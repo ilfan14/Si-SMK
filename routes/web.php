@@ -89,6 +89,9 @@ Route::group(array('prefix' => 'home'), function () {
         Route::get('list', array('as' => 'listinfo', 'uses' => 'InfoController@listinfo'));
         Route::get('confirm-delete/{userId}', 'InfoController@konfirmdelete')->name('confirm-deleteinfo');
         Route::delete('delete/{idinfo}', 'InfoController@destroy' )->name('infofinaldelete');
+        Route::get('goeditinfo/{idinfo}', 'InfoController@goeditinfo')->name('goeditinfo');
+        Route::get('lihatinfouser', 'InfoController@lihatinfouser')->name('lihatinfouser');
+
 
 
 

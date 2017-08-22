@@ -25,7 +25,7 @@
 {{-- Page content --}}
 @section('content')
 
-    @role(['Siswa'])
+    @role(['Siswa','Orang Tua'])
     <section class="content-header">
         <h1>Selamat Datang di Beranda</h1>
         <ol class="breadcrumb">
@@ -39,11 +39,60 @@
     </section>
 
     <section>
-        <div style="text-align: center; font-size: xx-large;">Belum Ada informasi</div>
-    </section>
-        
-    @endrole
-        
+        @foreach ($info as $info)
+        @if ($loop->index % 2 )
+            <div class="row">
+
+        @endif
+
+                
+        @if ($loop->index % 2 )
+                <div class="col-lg-6 col-md-6 col-sm-6 margin_10 animated fadeInLeftBig">
+                    <!-- Trans label pie charts strats here-->
+                    <div class="lightbluebg no-radius">
+                        <div class="panel-body squarebox square_boxs">
+                            <div class="col-xs-12 pull-left nopadmar">
+                                <div class="row">
+                                    <div class="square_box col-xs-7 pull-left">
+                                        <h3>{{$info->judul}} </h3>
+                                        <p>
+                                        <span>{{$info->isi}}</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        @else 
+                <div class="col-lg-6 col-md-6 col-sm-6 margin_10 animated fadeInRightBig">
+                    <!-- Trans label pie charts strats here-->
+                    <div class="palebluecolorbg no-radius">
+                        <div class="panel-body squarebox square_boxs">
+                            <div class="col-xs-12 pull-left nopadmar">
+                                <div class="row">
+                                    <div class="square_box col-xs-7 pull-left">
+                                        <h3>{{$info->judul}} </h3>
+                                        <p>
+
+                                        <span>{{$info->isi}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        @endif
+                
+
+        @if ($loop->index % 2 )
+            </div>
+        @endif
+
+        @endforeach    </section>
+            
+        @endrole
+            
     @role(['Guru', 'Admin'])
 
     <section class="content-header">

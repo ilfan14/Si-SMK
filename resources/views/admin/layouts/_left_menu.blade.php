@@ -132,6 +132,16 @@
             </li>
 
 @endrole
+
+@role(['Orang Tua'])
+            <li {!! (Request::is('home/nilai') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ route('lihatnilaisiswa') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    Lihat Nilai Siswa
+                </a>
+            </li>
+
+@endrole
         </ul>
 
 
@@ -139,6 +149,7 @@
 
 
 
+@role(['Admin','Guru'])
 
      <li {!! ( Request::is('home/info') || Request::is('home/info/*') ? 'class="active"' : '') !!}>
         <a href="#">
@@ -147,6 +158,8 @@
             <span class="title">Informasi</span>
             <span class="fa arrow"></span>
         </a>
+
+
 
         <ul class="sub-menu">
 
@@ -178,7 +191,20 @@
                 </a>
             </li>
         </ul>
+
     </li>
+@endrole
+
+@role(['Siswa','Orang Tua'])
+     <li {!! ( Request::is('home/info') || Request::is('home/info/*') ? 'class="active"' : '') !!}>
+            <a href="{{ route('lihatinfouser') }}">
+                <i class="livicon" data-name="paper-plane" data-size="18"
+                   data-loop="true"></i>
+                <span class="title">Informasi</span>
+                <span class="fa arrow"></span>
+            </a>
+    </li>
+    @endrole
 
 
 <!--     <li {!! (Request::is('home/absen') || Request::is('home/absen') || Request::is('home/absen/create') || Request::is('home/absen/*') || Request::is('home/absen') ? 'class="active"' : '') !!}>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+Use App\Informasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,6 +29,13 @@ class HomeController extends Controller
         $users = Auth::user();
         $iduser = Auth::id();
 
-        return view('dashboard', compact('users','iduser'));
+         // Grab all the users
+        $info = Informasi::where('untuk','Pengguna')
+                       ->orderBy('created_at', 'desc')
+                       ->take(4)
+                       ->get();
+
+
+        return view('dashboard', compact('users','iduser','info'));
     }
 }

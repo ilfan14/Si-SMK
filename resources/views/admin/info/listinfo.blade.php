@@ -64,7 +64,7 @@
                     		<td>{!! $info->judul !!}</td>
                             <td>{!! $info->isi !!}</td>
             				<td>
-                                <a href="{{ route('goupdateprofile', $info->id) }}"><i class="livicon" data-name="edit"
+                                <a href="{{ route('goeditinfo', $info->id) }}"><i class="livicon" data-name="edit"
                                     data-size="18" data-loop="true"
                                     data-c="#428BCA"
                                     data-hc="#428BCA"

@@ -71,6 +71,15 @@ class NilaiController extends Controller
     public function lihatilaisiswa()
     {
         $iduser = Auth::id();
+
+        $job = User::find($iduser);
+        if($job->job =='Orang Tua'){
+             $idbaru = DB::table('users')->where('data_pengguna_id', $job->data_pengguna_id)
+                                    ->where('job', 'Siswa')
+                                    ->first();
+
+            $iduser = $idbaru->id;
+        }
         $nilai = DB::table('nilai')->where('user_id', $iduser)
                                     ->join('mapel', 'mapel.kode_mapel', '=', 'nilai.kode_mapel')
                                     ->get();
