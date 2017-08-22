@@ -115,7 +115,7 @@ class NilaiController extends Controller
             $nilai->save();
         }
 
-        return Redirect::route('lihatnilai')->with('status', 'Profile Berhasil diubah');
+        return Redirect::route('lihatnilai')->with('status', 'Nilai Berhasil Ditambah');
 
     }
 }
