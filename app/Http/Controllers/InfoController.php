@@ -74,7 +74,24 @@ class InfoController extends Controller
                 $sms->isipesan = $request->input('isipesan');
                 $sms->save();
             }  
+        } elseif ($request->input('modesms') == 'perortu'){
+            // pending perortu edit ini tomorrow
+
+        } elseif ($request->input('modesms') == 'semuaortu'){
+
+            $semuaortu = DB::table('users')->where('users.job', '=', 'Orang Tua')
+                                        ->join('data_pengguna', 'data_pengguna.id', '=', 'users.data_pengguna_id')
+                                        ->select('users.id','username','name','data_pengguna.no_hp_ortu')
+                                        ->get();
+
+            foreach ($semuaortu as $key => $value) {
+                $sms = new smsgateway;
+                $sms->notujuan = '0' . $value->no_hp_ortu;
+                $sms->isipesan = $request->input('isipesan');
+                $sms->save();
+            }
         }
+
 
 
 
