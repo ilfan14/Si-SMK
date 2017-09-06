@@ -67,6 +67,7 @@
             </div>
         </div>
 
+        <!-- // satu nomor -->
         <div class="row">
             <form method="POST" style="display: none;" id="SatuNomor" name="FormTulisInfo" onsubmit="return Validation()" enctype="multipart/form-data" action="{{ route('kirimsms') }}">
                 {{ csrf_field() }}
@@ -99,13 +100,10 @@
                         <input type="reset" value="Batal"
                                class="btn btn-success btn-block btn-md btn-responsive">
                     </div>
-
-
-
             </form>
-
-            
         </div>
+
+        <!-- satu siswa -->
         <div class="row">
             <form method="POST" style="display: none;" id="formsatusiswa" name="FormTulisInfo" onsubmit="return Validation()" enctype="multipart/form-data" action="{{ route('kirimsms') }}">
                 {{ csrf_field() }}
@@ -142,6 +140,7 @@
             </form>
         </div>
 
+        <!-- perkelas -->
         <div class="row">
             <form method="POST" style="display: none;" id="formperkelas" name="FormTulisInfo" onsubmit="return Validation()" enctype="multipart/form-data" action="{{ route('kirimsms') }}">
                 {{ csrf_field() }}
@@ -178,7 +177,7 @@
             </form>
         </div>
 
-
+        <!-- satu orang tua -->
         <div class="row">
             <form method="POST" style="display: none;" id="formsatuortu" name="FormTulisInfo" onsubmit="return Validation()" enctype="multipart/form-data" action="{{ route('kirimsms') }}">
                 {{ csrf_field() }}
@@ -188,7 +187,7 @@
 
                     <div class="col-xs-12">
                         <div class="form-group">
-                        <label for="txtNotujuan" class="control-label">Orang Tua</label>
+                        <label for="txtNotujuan" class="control-label">Siswa - Orang Tua</label>
 
                         {{ Form::select('idkelas', $listkelas , null, ['class' => 'form-control select2']) }}  
 
@@ -201,6 +200,35 @@
 
                             <textarea id="ispesan" name="isipesan" class="form-control input-md" onkeyup="countChar(this)"></textarea>
                                 <div id="jumlahcharempat"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6 col-md-6">
+                        <input type="submit" name="btnSubmit" id="btnSubmit" value="Simpan"
+                               class="btn btn-primary btn-block btn-md btn-responsive">
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <input type="reset" value="Batal"
+                               class="btn btn-success btn-block btn-md btn-responsive">
+                    </div>
+            </form>
+        </div>
+
+        <!-- semua orang tua -->
+        <div class="row">
+            <form method="POST" style="display: none;" id="formsemuaortu" name="FormTulisInfo" onsubmit="return Validation()" enctype="multipart/form-data" action="{{ route('kirimsms') }}">
+                {{ csrf_field() }}
+
+                <input hidden name="modesms" id="modesms" value="semuaortu"></input>
+                <div class="row">
+
+
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="txtIsiPesan" class="control-label">Isi Pesan</label>
+
+                            <textarea id="ispesan" name="isipesan" class="form-control input-md" onkeyup="countChar(this)"></textarea>
+                                <div id="jumlahcharlima"></div>
                         </div>
                     </div>
 
@@ -243,12 +271,14 @@
         var SatuSiswa = document.getElementById('formsatusiswa');
         var perkelas = document.getElementById('formperkelas');
         var satuortu = document.getElementById('formsatuortu');
+        var semuaortu = document.getElementById('formsemuaortu');
 
 
         SatuNomor.style.display = 'none';
         SatuSiswa.style.display = 'none';
         perkelas.style.display = 'none';
         satuortu.style.display = 'none';
+        semuaortu.style.display = 'none';
 
         if (metodekirim.value === 'Satu Nomor') {
             SatuNomor.style.display = 'block';
@@ -262,11 +292,15 @@
         if (metodekirim.value === 'Orang Tua') {
             satuortu.style.display = 'block';
         }
+        if (metodekirim.value === 'Semua Orang Tua') {
+            semuaortu.style.display = 'block';
+        }
 
         $('#jumlahcharsatu').text("Karakter Tersisa : 140");
         $('#jumlahchardua').text("Karakter Tersisa : 140");
         $('#jumlahchartiga').text("Karakter Tersisa : 140");
         $('#jumlahcharempat').text("Karakter Tersisa : 140");
+        $('#jumlahcharlima').text("Karakter Tersisa : 140");
 
     }
 
@@ -279,6 +313,7 @@
           $('#jumlahchardua').text("Karakter Tersisa : " + (140 - len));
           $('#jumlahchartiga').text("Karakter Tersisa : " + (140 - len));
           $('#jumlahcharempat').text("Karakter Tersisa : " + (140 - len));
+          $('#jumlahcharlima').text("Karakter Tersisa : " + (140 - len));
         }
       }
 
