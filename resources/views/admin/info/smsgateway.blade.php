@@ -102,17 +102,6 @@
 
 
 
-
-
-                <!-- <div class="row">
-                    <div class="col-xs-12">
-                        <div class="form-group">
-                        <label for="txtStatus" class="control-label">Status Akun : </label>
-                            {{ Form::select('istatus', ['nonaktif' => 'Non-Aktif', 'aktif' => 'Aktif'], ['class' => 'form-control select2']) }}
-                        </div>
-                    </div>
-                </div> -->
-
             </form>
 
             
@@ -188,6 +177,43 @@
                     </div>
             </form>
         </div>
+
+
+        <div class="row">
+            <form method="POST" style="display: none;" id="formsatuortu" name="FormTulisInfo" onsubmit="return Validation()" enctype="multipart/form-data" action="{{ route('kirimsms') }}">
+                {{ csrf_field() }}
+
+                <input hidden name="modesms" id="modesms" value="perortu"></input>
+                <div class="row">
+
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                        <label for="txtNotujuan" class="control-label">Orang Tua</label>
+
+                        {{ Form::select('idkelas', $listkelas , null, ['class' => 'form-control select2']) }}  
+
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="txtIsiPesan" class="control-label">Isi Pesan</label>
+
+                            <textarea id="ispesan" name="isipesan" class="form-control input-md" onkeyup="countChar(this)"></textarea>
+                                <div id="jumlahcharempat"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6 col-md-6">
+                        <input type="submit" name="btnSubmit" id="btnSubmit" value="Simpan"
+                               class="btn btn-primary btn-block btn-md btn-responsive">
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <input type="reset" value="Batal"
+                               class="btn btn-success btn-block btn-md btn-responsive">
+                    </div>
+            </form>
+        </div>
         
     </section>
     
@@ -216,11 +242,13 @@
         var SatuNomor = document.getElementById('SatuNomor');
         var SatuSiswa = document.getElementById('formsatusiswa');
         var perkelas = document.getElementById('formperkelas');
+        var satuortu = document.getElementById('formsatuortu');
 
 
         SatuNomor.style.display = 'none';
         SatuSiswa.style.display = 'none';
         perkelas.style.display = 'none';
+        satuortu.style.display = 'none';
 
         if (metodekirim.value === 'Satu Nomor') {
             SatuNomor.style.display = 'block';
@@ -231,10 +259,14 @@
         if (metodekirim.value === 'Perkelas') {
             perkelas.style.display = 'block';
         }
+        if (metodekirim.value === 'Orang Tua') {
+            satuortu.style.display = 'block';
+        }
 
         $('#jumlahcharsatu').text("Karakter Tersisa : 140");
         $('#jumlahchardua').text("Karakter Tersisa : 140");
         $('#jumlahchartiga').text("Karakter Tersisa : 140");
+        $('#jumlahcharempat').text("Karakter Tersisa : 140");
 
     }
 
@@ -246,6 +278,7 @@
           $('#jumlahcharsatu').text("Karakter Tersisa : " + (140 - len));
           $('#jumlahchardua').text("Karakter Tersisa : " + (140 - len));
           $('#jumlahchartiga').text("Karakter Tersisa : " + (140 - len));
+          $('#jumlahcharempat').text("Karakter Tersisa : " + (140 - len));
         }
       }
 
