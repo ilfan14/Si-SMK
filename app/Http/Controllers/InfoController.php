@@ -78,7 +78,6 @@ class InfoController extends Controller
             // pending perortu edit ini tomorrow
 
         } elseif ($request->input('modesms') == 'semuaortu'){
-
             $semuaortu = DB::table('users')->where('users.job', '=', 'Orang Tua')
                                         ->join('data_pengguna', 'data_pengguna.id', '=', 'users.data_pengguna_id')
                                         ->select('users.id','username','name','data_pengguna.no_hp_ortu')
