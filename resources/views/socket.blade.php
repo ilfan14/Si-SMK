@@ -48,7 +48,7 @@
     </div>
 
     <script>
-        var socket = io.connect('http://localhost:8890');
+        var socket = io.connect('http://ta.highker-service.web.id:8890');
         console.log("Test")
         socket.on('message', function (data) {
 
