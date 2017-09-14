@@ -104,6 +104,11 @@ Route::group(array('prefix' => 'home'), function () {
         Route::get('update/{idsms}', array('as' => 'updatesms', 'uses' => 'InfoController@modemupdatestatus'));
     });
 
+    Route::group(array('prefix' => 'chat'), function () {
+        Route::get('/', 'socketController@index')->name('chatroom');
+        Route::post('sendmessage', 'SocketController@sendMessage')->name('kirimpesanchat');
+        Route::get('writemessage', 'SocketController@writemessage');
+    });
 
 });
 

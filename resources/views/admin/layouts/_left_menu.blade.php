@@ -219,4 +219,14 @@
 
 
 @include('admin/layouts/menu')
+
+
+    <li {!! ( Request::is('home/chat') || Request::is('home/chat/*') ? 'class="active"' : '') !!}>
+        <a href="{{ route('chatroom') }}">
+            <i class="livicon" data-name="paper-plane" data-size="18"
+               data-loop="true"></i>
+            <span class="title">Chat</span>
+            <span class="fa arrow"></span>
+        </a>
+    </li>
 </ul>
