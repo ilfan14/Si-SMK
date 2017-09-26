@@ -29,6 +29,7 @@ class SiswaController extends Controller
         					->leftjoin('kelas','kelas.id_kelas','=','rombel.id_kelas')
                             ->leftjoin('data_pengguna','data_pengguna.id', '=', 'users.data_pengguna_id')
         					->where('users.job', '=', 'siswa')
+                            ->select('users.id', 'users.username', 'users.name', 'users.gender', 'data_pengguna.alamat', 'kelas.nama_kelas')
         					->get();
         // $siswa = User::where('job', 'siswa')->hasOne('Rombel');
         // $siswa = User::All();
@@ -110,14 +111,12 @@ class SiswaController extends Controller
     {
         try {
             $iduser = Auth::id();
-
             // Get the user information
             $user = User::find($id);
             $kelas = Kelas::All();
             $listkelas = $kelas->pluck('nama_kelas','id_kelas');
             $datapengguna = $user->datapengguna;
             $idkelas = Rombel::where('user_id', $user->id)->first();
-            
 
 
         } catch (UserNotFoundException $e) {

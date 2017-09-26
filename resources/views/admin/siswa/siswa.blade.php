@@ -102,7 +102,6 @@ Daftar Siswa
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        
 
                                             @foreach ($siswa as $siswa)
                                                 @if ($loop->index % 2 )
