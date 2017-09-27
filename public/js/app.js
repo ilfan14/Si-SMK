@@ -12156,20 +12156,6 @@ window.axios.defaults.headers.common = {
 
 
 
-window.Pusher = __webpack_require__(35);
-
-window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
-  broadcaster: 'pusher',
-  key: '8d1b52016794d18ebf2f',
-  encrypted: true,
-  cluster: 'ap1'
-});
-
-window.Echo.join('publik-notif').listen('OnKirimInfo', function (data) {
-  // jika di terima
-  console.log('Berhasil');
-  console.log(data);
-});
 
 /***/ }),
 /* 32 */
