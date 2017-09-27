@@ -9,7 +9,6 @@
     <!-- end of global level css -->
     <!-- page level css -->
     <link href="{{ asset('assets/css/pages/login2.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/vendors/iCheck/css/minimal/blue.css') }}" rel="stylesheet"/>
     <!-- styles of the page ends-->
 </head>
 
@@ -58,7 +57,6 @@
     <!-- end of global js -->
     <!-- begining of page level js-->
     <script src="{{ asset('assets/js/TweenLite.min.js') }}"></script>
-<script src="{{ asset('assets/vendors/iCheck/js/icheck.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/pages/login2.js') }}" type="text/javascript"></script>
     <!-- end of page level js-->
 </body>
